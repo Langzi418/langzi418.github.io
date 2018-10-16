@@ -233,6 +233,243 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lollipop">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lollipop'S">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/16/java/" itemprop="url">JavaReview</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T18:47:43+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/16/java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/16/java/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>仅限个人学习总结，不适用参考。</p>
+</blockquote>
+<blockquote>
+<p>参考文献：<br>《Java 核心技术（第 10 版）》<br> journaldev</p>
+</blockquote>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>逐级传递；若未找到异常处理者，终止程序，抛出异常。</p>
+<p>Java 语言规范将派生于 <strong>Error</strong> 类或 <strong>RuntimeException</strong> 类的所有异常称为<strong>非受查异常</strong>( unchecked ) ， 所有其他的异常称为受查异常（ checked )<br>编译器将核查是否为所有的受査异常提供了异常处理器。</p>
+<p>断言检查只用于开发和测试阶段</p>
+<h2 id="创建文件三种方法"><a href="#创建文件三种方法" class="headerlink" title="创建文件三种方法"></a>创建文件三种方法</h2><ol>
+<li><p><code>file.createNewFile()</code>;<br>分 absolute、relative 两种；要求路径已存在，否则抛出 IOException</p>
+</li>
+<li><p>创建并写入数据，要求同上</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream.write(byte[] b)&#123;</span><br><span class="line">   String data=&quot;some data&quot;;</span><br><span class="line">   FileOutputStream fos=new FileOutputStream(&quot;name.txt&quot;);</span><br><span class="line">   fos.write(data.getBytes());</span><br><span class="line">   fos.flush();</span><br><span class="line">   fos.close();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>不必担心关闭 IO 资源</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Files.write()</span><br><span class="line">String data=&quot;some data&quot;;</span><br><span class="line">Files.write(Paths.get(&quot;name.txt&quot;),data.getBytes());</span><br></pre></td></tr></table></figure>
+<h2 id="接口与回调（callback）"><a href="#接口与回调（callback）" class="headerlink" title="接口与回调（callback）"></a>接口与回调（callback）</h2><p>回调：指出某事件发生时，执行的动作</p>
+<p>内部类（inner class）</p>
+<ul>
+<li>访问外部类的数据，包括私有数据</li>
+<li>对同一包中其他类隐藏</li>
+<li>回调函数、匿名内部类</li>
+</ul>
+<p>匿名内部类：只创建类的一个对象</p>
+<h2 id="泛型-generic"><a href="#泛型-generic" class="headerlink" title="泛型(generic)"></a>泛型(generic)</h2><p>聚集任意类型的对象</p>
+<p><code>ArrayList&lt;String&gt;</code><br>“String” 类型参数（type paraments）: 使程序具有更好的可读性和安全性</p>
+<h3 id="自定义泛型"><a href="#自定义泛型" class="headerlink" title="自定义泛型"></a>自定义泛型</h3><ul>
+<li><p>泛型类<br><code>Class Pair&lt;T&gt;</code><br>“T” 类型变量</p>
+</li>
+<li><p>泛型方法</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static &lt;T&gt; T methodName()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用泛型方法绝大多数情况不用指明 T，由编译器推断</p>
+<h3 id="泛型类型限定-bound"><a href="#泛型类型限定-bound" class="headerlink" title="泛型类型限定(bound)"></a>泛型类型限定(bound)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static &lt;T extends BoundType&gt; T min()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>多限定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static &lt;T extends BoundType1 &amp; BoundType2&gt; T min()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="桥方法"><a href="#桥方法" class="headerlink" title="桥方法"></a>桥方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T first;</span><br><span class="line">    <span class="keyword">private</span> T second;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pair</span><span class="params">(T first, T second)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.first = first;</span><br><span class="line">        <span class="keyword">this</span>.second = second;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(T second)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.second = second;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类型擦除后</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">Object</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object first;</span><br><span class="line">    <span class="keyword">private</span> Object second;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pair</span><span class="params">(Object first, Object second)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.first = first;</span><br><span class="line">        <span class="keyword">this</span>.second = second;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Object second)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.second = second;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateInterval</span> <span class="keyword">extends</span> <span class="title">Pair</span>&lt;<span class="title">LocateDate</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(LocateDate second)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateInterval.setSecond(LocateDate s)</span><br><span class="line">DateInterval.setSecond(Object s)</span><br></pre></td></tr></table></figure>
+<p>编译器在 DateInterval 生成桥方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Object second)</span></span>&#123;</span><br><span class="line">    setSecond((LocateDate) second);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>泛型事实：</p>
+<ul>
+<li>虚拟机中没有泛型，只有普通的类和方法。</li>
+<li>所有的类型参数都有它们的限定类型替换。（默认 Object）</li>
+<li>桥方法被合成来保持多态。</li>
+</ul>
+<p>泛型继承<br><code>Pair&lt;Manager&gt;</code>和 <code>Pair&lt;Employee&gt;</code>无继承关系</p>
+<p>但泛型可以实现接口<br>例如<br><code>ArrayList&lt;T&gt; implements List&lt;T&gt;</code></p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>基本接口：Collection Map</p>
+<h2 id="并发-concurrent"><a href="#并发-concurrent" class="headerlink" title="并发(concurrent)"></a>并发(concurrent)</h2><p>进程、线程。<br>二者本质的区别在于每个进程拥有自己的一整套变量，线程则共享变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Runnable r = ()-&gt;&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建一个执行 run 方法的新线程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.start()</span><br></pre></td></tr></table></figure>
+<p>当线程 run 方法执行方法体中的最后一条语句后，并 return 返回<br>或者出现没有捕获的异常时，线程终止。</p>
+<p>产生 InterruptedException 异常:</p>
+<ul>
+<li>线程被阻塞，就无法检测中断状态,产生 InterruptedException 异常</li>
+<li>在中断状态被置位时调用 sleep 方法，它不会休眠。相反，它将清除这一状态并拋出 InterruptedException</li>
+</ul>
+<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>如果能保证线程在失去控制之前完成任务，那么就不会出现错误。</p>
+<h3 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h3><p>ReentrantLock</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bank</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ReentrantLock bankLock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">    bankLock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        System.out.print(Thread.currentThread());</span><br><span class="line">        accounts[from] -= amount;</span><br><span class="line">        System.out.printf(<span class="string">" %10.2f from %d to %d"</span>, amount, from, to);</span><br><span class="line">        accounts[to] += amount;</span><br><span class="line">        System.out.printf(<span class="string">" Total Balance: %10.2f%n"</span>, getTotalBalance());</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        bankLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假定第一个线程调用 transfer , 在执行结束前被剥夺了运行权。<br>假定第二个线程也调用 transfer , 由于第二个线程不能获得锁，<br>将在调用 lock 方法时被阻塞 。 它必须等待第一个线程完成 transfer 方法的执行之后<br>才能再度被激活。<br>当第一个线程释放锁时 ， 那么第二个线程才能开始运行</p>
+<h3 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a>条件变量</h3><p>不满足条件时阻塞线程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">await()</span><br><span class="line">signalAll()</span><br></pre></td></tr></table></figure>
+<p>调用 <code>signalAll()</code> 不会立即激活一个等待线程。 它仅仅解除等待线程的阻塞 ，<br>以便这些线程可以在当前线程退出同步方法之后 ， 通过竞争实现对对象的访问</p>
+<h3 id="总结锁和条件："><a href="#总结锁和条件：" class="headerlink" title="总结锁和条件："></a>总结锁和条件：</h3><ul>
+<li>锁用来保护代码片段，任何时刻只能有一个线程执行被保护的代码</li>
+<li>锁可以管理试图进入被保护代码段的线程</li>
+<li>锁可以拥有一个或多个条件对象</li>
+<li>每个条件对象管理那些已经进入被保护的代码段但还不能运行的线程</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.intrinsicLock.1ock() ;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.intrinsicLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>忠告：如果 synchronized 关键字适合你的程序，那么请尽量使用它，<br>这样可以减少编写的代码数量，减少出错的几率 。</p>
+<p>何时使用同步？<br>如果向一个变量写入值，而这个变量接下来可能会被另一个线程读取；<br>或者，从一个变量读值，而这个值可能是之前被某一线程写入的，此时必须使用同步。</p>
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p>为实例域的同步提供了一种免锁机制</p>
+<p>例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> done;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> done;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">setDone</span><span class="params">(done)</span></span>&#123;<span class="keyword">this</span>.done=done;&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> done;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> done;&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDone</span><span class="params">(done)</span></span>&#123;<span class="keyword">this</span>.done=done;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="Timer-TimerTask"><a href="#Timer-TimerTask" class="headerlink" title="Timer TimerTask"></a>Timer TimerTask</h3><p>典型代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    TimerTask timerTask = <span class="keyword">new</span> MyTimerTask();</span><br><span class="line">    Timer timer = <span class="keyword">new</span> Timer(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">// 每隔 10s 调度一次</span></span><br><span class="line">    timer.scheduleAtFixedRate(timerTask, <span class="number">0</span>, <span class="number">10</span> * <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>time.cancel() 可以终止 timer 和相关调度任务，但不干扰当前任务。</li>
+<li>守护进程在所有用户进程终止后终止。</li>
+<li>time.scheduleAtFixedRate() 调度时间应略大于任务线程执行时间，<br>否则任务线程队列会越来越长。</li>
+</ul>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><ul>
+<li>ExecutorService<br>Exceutors 使用 ThreadPoolExecutor 提供了 ExecutorService 的实现。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">executor.execute(worker);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ThreadPoolExecutor<br>更全</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor poolExecutor = <span class="keyword">new</span> ThreadPoolExecutor();</span><br><span class="line">poolExecutor.execute(worker);</span><br></pre></td></tr></table></figure>
+<h3 id="Callable-amp-Future"><a href="#Callable-amp-Future" class="headerlink" title="Callable &amp; Future"></a>Callable &amp; Future</h3><p>Callable 比 Runnable 多了返回值，<br>Callable 使用泛型定义返回类型，Callable 并行运行，使得我们必须等待返回对象。</p>
+<p>Callable 返回 Future，它使我们能够查询 Callable 状态，get()可得到返回值。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -495,7 +732,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -508,7 +745,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

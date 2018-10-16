@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lollipop&#39;S">
 <meta property="og:description" content="仅限个人学习总结，不适用参考。   参考文献：《Java 核心技术（第 10 版）》 journaldev  异常逐级传递；若未找到异常处理者，终止程序，抛出异常。 Java 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-16T10:47:54.570Z">
+<meta property="og:updated_time" content="2018-10-16T11:08:03.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaReview">
 <meta name="twitter:description" content="仅限个人学习总结，不适用参考。   参考文献：《Java 核心技术（第 10 版）》 journaldev  异常逐级传递；若未找到异常处理者，终止程序，抛出异常。 Java 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理">
@@ -187,6 +187,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -320,6 +330,7 @@
 <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>逐级传递；若未找到异常处理者，终止程序，抛出异常。</p>
 <p>Java 语言规范将派生于 <strong>Error</strong> 类或 <strong>RuntimeException</strong> 类的所有异常称为<strong>非受查异常</strong>( unchecked ) ， 所有其他的异常称为受查异常（ checked )<br>编译器将核查是否为所有的受査异常提供了异常处理器。</p>
 <p>断言检查只用于开发和测试阶段</p>
+<a id="more"></a>
 <h2 id="创建文件三种方法"><a href="#创建文件三种方法" class="headerlink" title="创建文件三种方法"></a>创建文件三种方法</h2><ol>
 <li><p><code>file.createNewFile()</code>;<br>分 absolute、relative 两种；要求路径已存在，否则抛出 IOException</p>
 </li>
@@ -623,11 +634,7 @@
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 

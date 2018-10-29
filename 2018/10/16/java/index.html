@@ -1,22 +1,87 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
-    
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Peng&#39;S">
-    <title>JavaReview - Peng&#39;S</title>
-    <meta name="author" content="Peng">
-    
-        <meta name="keywords" content="Program Blog,">
-    
-    
-    
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Peng","sameAs":[]},"articleBody":"\n仅限个人学习总结，不适用参考。\n\n\n参考文献：《Java 核心技术（第 10 版）》 journaldev\n\n异常逐级传递；若未找到异常处理者，终止程序，抛出异常。\nJava 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理器。\n断言检查只用于开发和测试阶段\n\n创建文件三种方法\nfile.createNewFile();分 absolute、relative 两种；要求路径已存在，否则抛出 IOException\n\n创建并写入数据，要求同上\n\n\n1234567FileOutputStream.write(byte[] b)&#123;   String data=&quot;some data&quot;;   FileOutputStream fos=new FileOutputStream(&quot;name.txt&quot;);   fos.write(data.getBytes());   fos.flush();   fos.close(); &#125;\n\n不必担心关闭 IO 资源\n\n123Files.write()String data=&quot;some data&quot;;Files.write(Paths.get(&quot;name.txt&quot;),data.getBytes());\n接口与回调（callback）回调：指出某事件发生时，执行的动作\n内部类（inner class）\n\n访问外部类的数据，包括私有数据\n对同一包中其他类隐藏\n回调函数、匿名内部类\n\n匿名内部类：只创建类的一个对象\n泛型(generic)聚集任意类型的对象\nArrayList&lt;String&gt;“String” 类型参数（type paraments）: 使程序具有更好的可读性和安全性\n自定义泛型\n泛型类Class Pair&lt;T&gt;“T” 类型变量\n\n泛型方法\n\n\n123static &lt;T&gt; T methodName()&#123;    ...&#125;\n调用泛型方法绝大多数情况不用指明 T，由编译器推断\n泛型类型限定(bound)123static &lt;T extends BoundType&gt; T min()&#123;    ...&#125;\n多限定\n123static &lt;T extends BoundType1 &amp; BoundType2&gt; T min()&#123;    ...&#125;\n桥方法123456789101112131415public class Pair&lt;T&gt; &#123;    private T first;    private T second;    public Pair(T first, T second) &#123;        this.first = first;        this.second = second;    &#125;    public void setSecond(T second) &#123;        this.second = second;    &#125;    ...&#125;\n类型擦除后\n123456789101112131415public class Pair&lt;Object&gt; &#123;    private Object first;    private Object second;    public Pair(Object first, Object second) &#123;        this.first = first;        this.second = second;    &#125;    public void setSecond(Object second) &#123;        this.second = second;    &#125;    ...&#125;\n问题\n123class DateInterval extends Pair&lt;LocateDate&gt;&#123;    public void setSecond(LocateDate second)&#123;...&#125;&#125;\n此时有\n12DateInterval.setSecond(LocateDate s)DateInterval.setSecond(Object s)\n编译器在 DateInterval 生成桥方法\n123public void setSecond(Object second)&#123;    setSecond((LocateDate) second);&#125;\n泛型事实：\n\n虚拟机中没有泛型，只有普通的类和方法。\n所有的类型参数都有它们的限定类型替换。（默认 Object）\n桥方法被合成来保持多态。\n\n泛型继承Pair&lt;Manager&gt;和 Pair&lt;Employee&gt;无继承关系\n但泛型可以实现接口例如ArrayList&lt;T&gt; implements List&lt;T&gt;\n集合基本接口：Collection Map\n并发(concurrent)进程、线程。二者本质的区别在于每个进程拥有自己的一整套变量，线程则共享变量。\n123Runnable r = ()-&gt;&#123;    ...&#125;\n创建一个执行 run 方法的新线程\n1Thread.start()\n当线程 run 方法执行方法体中的最后一条语句后，并 return 返回或者出现没有捕获的异常时，线程终止。\n产生 InterruptedException 异常:\n\n线程被阻塞，就无法检测中断状态,产生 InterruptedException 异常\n在中断状态被置位时调用 sleep 方法，它不会休眠。相反，它将清除这一状态并拋出 InterruptedException\n\n同步如果能保证线程在失去控制之前完成任务，那么就不会出现错误。\n加锁ReentrantLock\n123456789101112131415class Bank&#123;    private ReentrantLock bankLock = new ReentrantLock();    bankLock.lock();    try &#123;        System.out.print(Thread.currentThread());        accounts[from] -= amount;        System.out.printf(\" %10.2f from %d to %d\", amount, from, to);        accounts[to] += amount;        System.out.printf(\" Total Balance: %10.2f%n\", getTotalBalance());    &#125; finally &#123;        bankLock.unlock();    &#125;&#125;\n假定第一个线程调用 transfer , 在执行结束前被剥夺了运行权。假定第二个线程也调用 transfer , 由于第二个线程不能获得锁，将在调用 lock 方法时被阻塞 。 它必须等待第一个线程完成 transfer 方法的执行之后才能再度被激活。当第一个线程释放锁时 ， 那么第二个线程才能开始运行\n条件变量不满足条件时阻塞线程\n12await()signalAll()\n调用 signalAll() 不会立即激活一个等待线程。 它仅仅解除等待线程的阻塞 ，以便这些线程可以在当前线程退出同步方法之后 ， 通过竞争实现对对象的访问\n总结锁和条件：\n锁用来保护代码片段，任何时刻只能有一个线程执行被保护的代码\n锁可以管理试图进入被保护代码段的线程\n锁可以拥有一个或多个条件对象\n每个条件对象管理那些已经进入被保护的代码段但还不能运行的线程\n\n123public synchronized void method()&#123;    ....&#125;\n等价于\n123456789public void method()&#123;    this.intrinsicLock.1ock() ;    try&#123;        ...    &#125;    finally &#123;        this.intrinsicLock.unlock();    &#125;&#125;\n忠告：如果 synchronized 关键字适合你的程序，那么请尽量使用它，这样可以减少编写的代码数量，减少出错的几率 。\n何时使用同步？如果向一个变量写入值，而这个变量接下来可能会被另一个线程读取；或者，从一个变量读值，而这个值可能是之前被某一线程写入的，此时必须使用同步。\nvolatile为实例域的同步提供了一种免锁机制\n例\n12345678public boolean done;public synchronized boolean isDone()&#123;return done;&#125;public synchronized void setDone(done)&#123;this.done=done;&#125;...public volatile boolean done;public boolean isDone()&#123;return done;&#125;public void setDone(done)&#123;this.done=done;&#125;\n多线程Timer TimerTask典型代码\n123456&#123;    TimerTask timerTask = new MyTimerTask();    Timer timer = new Timer(true);    // 每隔 10s 调度一次    timer.scheduleAtFixedRate(timerTask, 0, 10 * 1000);&#125;\n\ntime.cancel() 可以终止 timer 和相关调度任务，但不干扰当前任务。\n守护进程在所有用户进程终止后终止。\ntime.scheduleAtFixedRate() 调度时间应略大于任务线程执行时间，否则任务线程队列会越来越长。\n\n线程池\nExecutorServiceExceutors 使用 ThreadPoolExecutor 提供了 ExecutorService 的实现。\n\n123456ExecutorService executor = Executors.newFixedThreadPool(5);executor.execute(worker);class Worker implements Runnable&#123;    ...&#125;\n\nThreadPoolExecutor更全\n\n12ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor();poolExecutor.execute(worker);\nCallable &amp; FutureCallable 比 Runnable 多了返回值，Callable 使用泛型定义返回类型，Callable 并行运行，使得我们必须等待返回对象。\nCallable 返回 Future，它使我们能够查询 Callable 状态，get()可得到返回值。\n","dateCreated":"2018-10-16T18:47:43+08:00","dateModified":"2018-10-16T19:26:51+08:00","datePublished":"2018-10-16T18:47:43+08:00","description":"\n仅限个人学习总结，不适用参考。\n\n\n参考文献：《Java 核心技术（第 10 版）》 journaldev\n\n异常逐级传递；若未找到异常处理者，终止程序，抛出异常。\nJava 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理器。\n断言检查只用于开发和测试阶段","headline":"JavaReview","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/10/16/java/"},"publisher":{"@type":"Organization","name":"Peng","sameAs":[]},"url":"http://yoursite.com/2018/10/16/java/","keywords":"java"}</script>
-    <meta name="description" content="仅限个人学习总结，不适用参考。   参考文献：《Java 核心技术（第 10 版）》 journaldev  异常逐级传递；若未找到异常处理者，终止程序，抛出异常。 Java 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="仅限个人学习总结，不适用参考。   参考文献：《Java 核心技术（第 10 版）》 journaldev  异常逐级传递；若未找到异常处理者，终止程序，抛出异常。 Java 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理">
 <meta name="keywords" content="java">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="JavaReview">
 <meta property="og:url" content="http://yoursite.com/2018/10/16/java/index.html">
 <meta property="og:site_name" content="Peng&#39;S">
@@ -26,132 +91,226 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaReview">
 <meta name="twitter:description" content="仅限个人学习总结，不适用参考。   参考文献：《Java 核心技术（第 10 版）》 journaldev  异常逐级传递；若未找到异常处理者，终止程序，抛出异常。 Java 语言规范将派生于 Error 类或 RuntimeException 类的所有异常称为非受查异常( unchecked ) ， 所有其他的异常称为受查异常（ checked )编译器将核查是否为所有的受査异常提供了异常处理">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
 
-    
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/16/java/"/>
+
+
+
+
+
+  <title>JavaReview | Peng'S</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
+  
+  
+    
+  
 
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Peng&#39;S</a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Peng'S</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
+      
+        <p class="site-subtitle">Blog</p>
+      
+  </div>
 
-            <!-- Define author's picture -->
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
+<nav class="site-nav">
+  
 
-<nav id="sidebar" data-behavior="4">
-    <div class="sidebar-container">
+  
+    <ul id="menu" class="menu">
+      
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
         
-            <ul class="sidebar-buttons">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/ "
-                            
-                            title="Home"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-tags"
-                            
-                            title="Tags"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a  class="sidebar-button-link "
-                             href="/all-archives"
-                            
-                            title="Archiv"
-                        >
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archiv</span>
-                    </a>
-            </li>
-            
-        </ul>
+            Tags
+          </a>
+        </li>
+      
         
-    </div>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
             
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post">
+
+  <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Peng'S">
+    </span>
+
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            JavaReview
-        </h1>
-    
-    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaReview</h1>
+        
+
         <div class="post-meta">
-    <time datetime="2018-10-16T18:47:43+08:00">
-	
-		    16 10月 2018
-    	
-    </time>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-16T18:47:43+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-</div>
 
     
-</div>
-
     
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
-            <blockquote>
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
 <p>仅限个人学习总结，不适用参考。</p>
 </blockquote>
 <blockquote>
@@ -260,245 +419,373 @@
 <h3 id="Callable-amp-Future"><a href="#Callable-amp-Future" class="headerlink" title="Callable &amp; Future"></a>Callable &amp; Future</h3><p>Callable 比 Runnable 多了返回值，<br>Callable 使用泛型定义返回类型，Callable 并行运行，使得我们必须等待返回对象。</p>
 <p>Callable 返回 Future，它使我们能够查询 Callable 状态，get()可得到返回值。</p>
 
-            
-
-        </div>
+      
     </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">GETAGGT IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/java/">java</a>
-
-            </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--disabled">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/10/16/python/" data-tooltip="PyReview" aria-label="NÄCHSTER: PyReview">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/16/java/" title="Teilen auf Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/10/16/java/" title="Teilen auf Twitter">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/16/java/" title="Teilen auf Google Plus">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-        
-            
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2018 Peng. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--disabled">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/10/16/python/" data-tooltip="PyReview" aria-label="NÄCHSTER: PyReview">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/16/java/" title="Teilen auf Facebook">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/10/16/java/" title="Teilen auf Twitter">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/16/java/" title="Teilen auf Google Plus">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <i id="btn-close-shareoptions" class="fa fa-times"></i>
-    <ul class="share-options">
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/16/java/">
-                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Teilen auf Facebook</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/10/16/java/">
-                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Teilen auf Twitter</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/16/java/">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Teilen auf Google Plus</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
-
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <h4 id="about-card-name">Peng</h4>
-        
-            <div id="about-card-bio"><p>author.bio</p>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </div>
-        
-        
-    </div>
-</div>
-
-        
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+    
+    
+    
 
     
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/16/python/" rel="next" title="PyReview">
+                <i class="fa fa-chevron-left"></i> PyReview
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-    </body>
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Peng</p>
+              <p class="site-description motion-element" itemprop="description">Github Personal Website</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#异常"><span class="nav-number">1.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件三种方法"><span class="nav-number">2.</span> <span class="nav-text">创建文件三种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口与回调（callback）"><span class="nav-number">3.</span> <span class="nav-text">接口与回调（callback）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型-generic"><span class="nav-number">4.</span> <span class="nav-text">泛型(generic)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义泛型"><span class="nav-number">4.1.</span> <span class="nav-text">自定义泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型类型限定-bound"><span class="nav-number">4.2.</span> <span class="nav-text">泛型类型限定(bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桥方法"><span class="nav-number">4.3.</span> <span class="nav-text">桥方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-number">5.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发-concurrent"><span class="nav-number">6.</span> <span class="nav-text">并发(concurrent)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步"><span class="nav-number">7.</span> <span class="nav-text">同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加锁"><span class="nav-number">7.1.</span> <span class="nav-text">加锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件变量"><span class="nav-number">7.2.</span> <span class="nav-text">条件变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结锁和条件："><span class="nav-number">7.3.</span> <span class="nav-text">总结锁和条件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile"><span class="nav-number">7.4.</span> <span class="nav-text">volatile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程"><span class="nav-number">8.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timer-TimerTask"><span class="nav-number">8.1.</span> <span class="nav-text">Timer TimerTask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-number">8.2.</span> <span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Callable-amp-Future"><span class="nav-number">8.3.</span> <span class="nav-text">Callable &amp; Future</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Peng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

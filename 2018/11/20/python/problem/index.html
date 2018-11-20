@@ -409,11 +409,27 @@
 
           
 
-  
-    <div id="gitalk-container">
-    </div>
-  
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'f65636121bc2964d8103',
+          clientSecret: 'a11700e292b326c942651a636f32c28e525f2829',
+          repo: 'langzi418.github.io',
+          owner: 'Langzi418',
+          admin: ['Langzi418'],
+          id: location.pathname,
+          labels: 'gitalk',
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+       </script>
 
 
         </div>
@@ -688,10 +704,6 @@
 
 
 
-
-
-
-    
 
 
   

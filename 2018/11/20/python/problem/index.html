@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Peng&#39;S">
 <meta property="og:description" content="for循环12345for i in range(5):    print(i)    i += 1# output 1 2 3 4 5 for 循环中的 循环变量 不会被修改，此时应使用 while。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-20T10:40:38.937Z">
+<meta property="og:updated_time" content="2018-11-29T07:15:24.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python编程中邂逅的问题">
 <meta name="twitter:description" content="for循环12345for i in range(5):    print(i)    i += 1# output 1 2 3 4 5 for 循环中的 循环变量 不会被修改，此时应使用 while。">
@@ -342,6 +342,8 @@
 <h4 id="with表达式"><a href="#with表达式" class="headerlink" title="with表达式"></a>with表达式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'output/0.txt'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    <span class="comment"># 这里的f2是动态变化的</span></span><br><span class="line">    f2 = open(<span class="string">'output/2.txt'</span>)</span><br><span class="line">    <span class="comment"># f2.close()</span></span><br><span class="line">    </span><br><span class="line">print(f2.readline())</span><br><span class="line">print(f1.readline())</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-22</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">28</span>,<span class="number">20001</span>,<span class="number">89</span>,NQ,<span class="number">396</span>,<span class="number">58.00</span>,S</span><br><span class="line">        </span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/0hadoop/python/pystudy/action/test.py"</span>, line <span class="number">7</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line"></span><br><span class="line">    print(f1.readline())</span><br><span class="line">ValueError: I/O operation on closed file.</span><br></pre></td></tr></table></figure>
 <p>with表达式建立的上下文会自动关闭IO。</p>
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l = []</span><br><span class="line"><span class="comment"># return None,不应该作为参数,应该 fun(l + ["sth"]) </span></span><br><span class="line">l.append(<span class="string">"sth"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id=""><a href="#" class="headerlink" title="%"></a>%</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 7</span></span><br><span class="line">print(<span class="number">-123</span>%<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -3</span></span><br><span class="line">System.out.println(-<span class="number">123</span>%<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,6 +383,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/30/bigdata/SparkInDepth/" rel="prev" title="Spark API in Depth">
+                Spark API in Depth <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -461,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -474,7 +480,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -507,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with表达式"><span class="nav-number">2.</span> <span class="nav-text">with表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with表达式"><span class="nav-number">2.</span> <span class="nav-text">with表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text">%</span></a></li></ol></div>
             
 
           </div>

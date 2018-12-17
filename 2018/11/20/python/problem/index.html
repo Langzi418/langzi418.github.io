@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Peng&#39;S">
 <meta property="og:description" content="for循环12345for i in range(5):    print(i)    i += 1# output 1 2 3 4 5 for 循环中的 循环变量 不会被修改，此时应使用 while。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T07:15:24.920Z">
+<meta property="og:updated_time" content="2018-12-13T13:47:13.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python编程中邂逅的问题">
 <meta name="twitter:description" content="for循环12345for i in range(5):    print(i)    i += 1# output 1 2 3 4 5 for 循环中的 循环变量 不会被修改，此时应使用 while。">
@@ -344,6 +344,13 @@
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l = []</span><br><span class="line"><span class="comment"># return None,不应该作为参数,应该 fun(l + ["sth"]) </span></span><br><span class="line">l.append(<span class="string">"sth"</span>)</span><br></pre></td></tr></table></figure>
 <h4 id=""><a href="#" class="headerlink" title="%"></a>%</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 7</span></span><br><span class="line">print(<span class="number">-123</span>%<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -3</span></span><br><span class="line">System.out.println(-<span class="number">123</span>%<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Python-IO"><a href="#Python-IO" class="headerlink" title="Python IO"></a>Python IO</h3><p>读text data</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读整个文件为一个字符串</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'somefile.txt'</span>)  <span class="keyword">as</span> f:</span><br><span class="line">	data=f.read()</span><br><span class="line">    </span><br><span class="line"><span class="comment">#迭代处理文件    </span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'somefile.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br></pre></td></tr></table></figure>
+<p>  写text data，会覆盖。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'somefile.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(text1)</span><br><span class="line">    f.write(text2)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'somefile.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment">#输出重定向到f，覆盖</span></span><br><span class="line">    print(line1,file=f)</span><br><span class="line">    print(line2,file=f)</span><br></pre></td></tr></table></figure>
+<p>追加文本文件，open(… , ‘at’)</p>
+<p>binary data</p>
+<p>such as images、sound files等等。 </p>
 
       
     </div>
@@ -467,7 +474,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -513,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with表达式"><span class="nav-number">2.</span> <span class="nav-text">with表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text">%</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#for循环"><span class="nav-number">1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with表达式"><span class="nav-number">2.</span> <span class="nav-text">with表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text">%</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-IO"><span class="nav-number"></span> <span class="nav-text">Python IO</span></a></div>
             
 
           </div>

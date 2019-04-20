@@ -1,104 +1,13 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html  lang="zh">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+    <meta charset="utf-8">
+<title>Spark Streaming base on Kafka - Peng&#39;S</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="bigdata," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="实时计算 任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。">
+    <meta name="description" content="实时计算 任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。">
 <meta name="keywords" content="bigdata">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark Streaming base on Kafka">
@@ -106,51 +15,12 @@
 <meta property="og:site_name" content="Peng&#39;S">
 <meta property="og:description" content="实时计算 任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1fy4tls234tj30s30hkabf.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1fy4xsu32kwj30nd0irdh3.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1fy59nnk0chj30qg0ih75y.jpg">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="og:updated_time" content="2018-12-17T10:00:40.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark Streaming base on Kafka">
 <meta name="twitter:description" content="实时计算 任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1fy4tls234tj30s30hkabf.jpg">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2018/12/17/bigdata/SparkStreaming/"/>
-
-
-
-
-
-  <title>Spark Streaming base on Kafka | Peng'S</title>
-  
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
@@ -158,194 +28,148 @@
 
 
 
+<link rel="icon" href="/images/favicon.svg">
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Peng'S</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">Blog</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+                <img src="/images/logo.svg" alt="Spark Streaming base on Kafka" height="28">
             
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/bigdata/SparkStreaming/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Peng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Peng'S">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Spark Streaming base on Kafka</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T17:59:43+08:00">
-                2018-12-17
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-17T18:00:40+08:00">
-                2018-12-17
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+            </a>
         </div>
-      </header>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
     
-
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>实时计算</p>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-17T09:59:43.000Z">2018-12-17</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 minutes read (About 1280 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Spark Streaming base on Kafka
+            
+        </h1>
+        <div class="content">
+            <p>实时计算</p>
 <p>任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。</p>
 <a id="more"></a>
 <blockquote>
@@ -365,13 +189,13 @@
 <p>以上创建orders和metrics两topic。</p>
 <p>3、做好发送数据的准备</p>
 <p>可以用一个脚本模拟数据发送。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat orders.txt | <span class="keyword">while</span> <span class="built_in">read</span> line; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"<span class="variable">$line</span>"</span></span><br><span class="line">        sleep 0.1</span><br><span class="line"><span class="keyword">done</span> | kafka-console-producer.bat --broker-list <span class="variable">$BROKER</span> --topic orders</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat orders.txt | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span></span><br><span class="line">        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$line</span>"</span></span><br><span class="line">        sleep 0.1</span><br><span class="line"><span class="hljs-keyword">done</span> | kafka-console-producer.bat --broker-list <span class="hljs-variable">$BROKER</span> --topic orders</span><br></pre></td></tr></table></figure>
 <p>每隔0.1s向orders生产数据，<code>$BROKER=&#39;localhost:9092&#39;</code>（9092kafka默认端口）。</p>
 <p>1、创建StreamingContext上下文，设为ssc。本地模式。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setMaster(<span class="string">"local[*]"</span>)</span><br><span class="line">      .setAppName(<span class="string">"Orders"</span>)</span><br><span class="line"><span class="keyword">val</span> ssc = <span class="keyword">new</span> <span class="type">StreamingContext</span>(conf, <span class="type">Seconds</span>(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">val</span> conf = <span class="hljs-keyword">new</span> <span class="hljs-type">SparkConf</span>().setMaster(<span class="hljs-string">"local[*]"</span>)</span><br><span class="line">      .setAppName(<span class="hljs-string">"Orders"</span>)</span><br><span class="line"><span class="hljs-keyword">val</span> ssc = <span class="hljs-keyword">new</span> <span class="hljs-type">StreamingContext</span>(conf, <span class="hljs-type">Seconds</span>(<span class="hljs-number">5</span>))</span><br></pre></td></tr></table></figure>
 <p>第二个参数，指定了Streaming分割输入数据和创建mini-batch的时间间隔。时间间隔暂定为5s，再详谈。</p>
 <p>2、连接Kafka</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> kafkaParams = <span class="type">Map</span>[<span class="type">String</span>, <span class="type">Object</span>](</span><br><span class="line">  <span class="string">"bootstrap.servers"</span> -&gt; <span class="string">"localhost:9092"</span>,</span><br><span class="line">  <span class="string">"key.deserializer"</span> -&gt; classOf[<span class="type">StringDeserializer</span>],</span><br><span class="line">  <span class="string">"value.deserializer"</span> -&gt; classOf[<span class="type">StringDeserializer</span>],</span><br><span class="line">  <span class="string">"group.id"</span> -&gt; <span class="string">"group1"</span>,</span><br><span class="line">  <span class="string">"auto.offset.reset"</span> -&gt; <span class="string">"latest"</span>,</span><br><span class="line">  <span class="string">"enable.auto.commit"</span> -&gt; (<span class="literal">false</span>: java.lang.<span class="type">Boolean</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> topics = <span class="type">Array</span>(<span class="string">"orders"</span>)</span><br><span class="line"><span class="keyword">val</span> kafkaStream = <span class="type">KafkaUtils</span></span><br><span class="line">  .createDirectStream[<span class="type">String</span>, <span class="type">String</span>](ssc,</span><br><span class="line">  <span class="type">PreferBrokers</span>, <span class="type">Subscribe</span>[<span class="type">String</span>, <span class="type">String</span>](topics, kafkaParams))</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">val</span> kafkaParams = <span class="hljs-type">Map</span>[<span class="hljs-type">String</span>, <span class="hljs-type">Object</span>](</span><br><span class="line">  <span class="hljs-string">"bootstrap.servers"</span> -&gt; <span class="hljs-string">"localhost:9092"</span>,</span><br><span class="line">  <span class="hljs-string">"key.deserializer"</span> -&gt; classOf[<span class="hljs-type">StringDeserializer</span>],</span><br><span class="line">  <span class="hljs-string">"value.deserializer"</span> -&gt; classOf[<span class="hljs-type">StringDeserializer</span>],</span><br><span class="line">  <span class="hljs-string">"group.id"</span> -&gt; <span class="hljs-string">"group1"</span>,</span><br><span class="line">  <span class="hljs-string">"auto.offset.reset"</span> -&gt; <span class="hljs-string">"latest"</span>,</span><br><span class="line">  <span class="hljs-string">"enable.auto.commit"</span> -&gt; (<span class="hljs-literal">false</span>: java.lang.<span class="hljs-type">Boolean</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">val</span> topics = <span class="hljs-type">Array</span>(<span class="hljs-string">"orders"</span>)</span><br><span class="line"><span class="hljs-keyword">val</span> kafkaStream = <span class="hljs-type">KafkaUtils</span></span><br><span class="line">  .createDirectStream[<span class="hljs-type">String</span>, <span class="hljs-type">String</span>](ssc,</span><br><span class="line">  <span class="hljs-type">PreferBrokers</span>, <span class="hljs-type">Subscribe</span>[<span class="hljs-type">String</span>, <span class="hljs-type">String</span>](topics, kafkaParams))</span><br></pre></td></tr></table></figure>
 <p>kafka流中数据结构是key-value型。访问：.key() .value()</p>
 <p>3、处理数据orders.txt</p>
 <p>每行是一笔交易。Schema如下：</p>
@@ -379,18 +203,18 @@
 <p>按以上构造一个case class。</p>
 <p>case适用于Bean</p>
 <p>编译器会添加 1、工厂方法。 2、域访问。 3、 toString, hashCode, and equals。4、copy方法。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Order</span>(<span class="params">time:<span class="type">Timestamp</span>, orderId: <span class="type">Long</span>, cliendId: <span class="type">Long</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">                     symbol: <span class="type">String</span>, amount: <span class="type">Int</span>, price: <span class="type">Double</span>, buy: <span class="type">Boolean</span></span>)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span>(<span class="hljs-params">time:<span class="hljs-type">Timestamp</span>, orderId: <span class="hljs-type">Long</span>, cliendId: <span class="hljs-type">Long</span>,</span></span></span><br><span class="line"><span class="hljs-class"><span class="hljs-params">                     symbol: <span class="hljs-type">String</span>, amount: <span class="hljs-type">Int</span>, price: <span class="hljs-type">Double</span>, buy: <span class="hljs-type">Boolean</span></span>)</span></span><br></pre></td></tr></table></figure>
 <p>然后处理Kafka中的value()。(kafka中的key()只是标识，不是我们所需的key()，要自己构造key-value)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val orders = kafkaStream.flatMap(....)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val orders = kafkaStream.flatMap(....)</span><br></pre></td></tr></table></figure>
 <p>4、构造key-value型DStream</p>
 <p>由于二元组DStream隐式转换成PairDStreamFunctions的实例。这样，xxxByKey，flatMapValues这些都能派上用场了。</p>
 <p>任务一：要计算每秒的买、卖数，做法：以order.buy类型为参数，构造key-value…</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> numPerType = orders.map(o =&gt; (o.buy, <span class="number">1</span>L)).reduceByKey(_ + _)</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">val</span> numPerType = orders.map(o =&gt; (o.buy, <span class="hljs-number">1</span>L)).reduceByKey(_ + _)</span><br></pre></td></tr></table></figure>
 <p>任务二：前五…</p>
 <p>任务一只需要当前批处理的数据，但任务二需要追踪时间和不同的mini-batches。</p>
 <p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1fy4xsu32kwj30nd0irdh3.jpg" alt=""></p>
 <p>使用updateStateByKey方法。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> amountPerClient = orders.map(o =&gt; (o.clientId, o.amount * o.price))</span><br><span class="line"></span><br><span class="line"><span class="comment">//累加</span></span><br><span class="line"><span class="keyword">val</span> amountState = amountPerClient.updateStateByKey(</span><br><span class="line">      (vals, totalOpt: <span class="type">Option</span>[<span class="type">Double</span>]) =&gt; &#123;</span><br><span class="line">        totalOpt <span class="keyword">match</span> &#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="type">Some</span>(total) =&gt; <span class="type">Some</span>(vals.sum + total)</span><br><span class="line">          <span class="keyword">case</span> <span class="type">None</span> =&gt; <span class="type">Some</span>(vals.sum)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">val</span> amountPerClient = orders.map(o =&gt; (o.clientId, o.amount * o.price))</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//累加</span></span><br><span class="line"><span class="hljs-keyword">val</span> amountState = amountPerClient.updateStateByKey(</span><br><span class="line">      (vals, totalOpt: <span class="hljs-type">Option</span>[<span class="hljs-type">Double</span>]) =&gt; &#123;</span><br><span class="line">        totalOpt <span class="hljs-keyword">match</span> &#123;</span><br><span class="line">          <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(total) =&gt; <span class="hljs-type">Some</span>(vals.sum + total)</span><br><span class="line">          <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; <span class="hljs-type">Some</span>(vals.sum)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>然后提取前五客户端ID。</p>
 <p>为了每个Batch处理间隔只写一次结果，将以上结果倍合并。</p>
 <p>使用mapWithState</p>
@@ -402,7 +226,7 @@
 <p>get()——获得状态值</p>
 <p>remove()——移除</p>
 <p>update()——更新或设置键的状态值</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> updateAmountState = (cliendId: <span class="type">Long</span>, amount: <span class="type">Option</span>[<span class="type">Double</span>],</span><br><span class="line">                         state: <span class="type">State</span>[<span class="type">Double</span>]) =&gt; &#123;</span><br><span class="line">  <span class="keyword">var</span> total = amount.getOrElse(<span class="number">0.</span>toDouble)</span><br><span class="line">  <span class="keyword">if</span> (state.exists())</span><br><span class="line">    total += state.get()</span><br><span class="line">    </span><br><span class="line">  state.update(total) <span class="comment">//total设置为状态</span></span><br><span class="line">  <span class="type">Some</span>((cliendId, total))<span class="comment">//Option有两种类型：Some()和None</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> amountState = amountPerClient.mapWithState(<span class="type">StateSpec</span></span><br><span class="line">      .function(updateAmountState)).stateSnapshots()</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">val</span> updateAmountState = (cliendId: <span class="hljs-type">Long</span>, amount: <span class="hljs-type">Option</span>[<span class="hljs-type">Double</span>],</span><br><span class="line">                         state: <span class="hljs-type">State</span>[<span class="hljs-type">Double</span>]) =&gt; &#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> total = amount.getOrElse(<span class="hljs-number">0.</span>toDouble)</span><br><span class="line">  <span class="hljs-keyword">if</span> (state.exists())</span><br><span class="line">    total += state.get()</span><br><span class="line">    </span><br><span class="line">  state.update(total) <span class="hljs-comment">//total设置为状态</span></span><br><span class="line">  <span class="hljs-type">Some</span>((cliendId, total))<span class="hljs-comment">//Option有两种类型：Some()和None</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">val</span> amountState = amountPerClient.mapWithState(<span class="hljs-type">StateSpec</span></span><br><span class="line">      .function(updateAmountState)).stateSnapshots()</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Without that last method, stateSnapshots , you’d get a DStream with client ID s and<br>their total amounts, but only for the clients whose orders arrived during the current<br>mini-batch. stateSnaphots gives you a DStream with the whole state (all clients), just<br>like updateStateByKey.</p>
 </blockquote>
@@ -410,376 +234,924 @@
 <p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1fy59nnk0chj30qg0ih75y.jpg" alt=""></p>
 <p>任务三：每小时前五</p>
 <p>这里的窗口时间是一小时，滑动时间间隔可以设为批处理时间间隔（5s），这样可以在每个批处理间隔与其它指标一起产生。</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//滑动时间间隔默认是mini-batch时间间隔</span></span><br><span class="line"><span class="keyword">val</span> stocksPerWindow = orders.map(x =&gt; (x.symbol, x.amount))</span><br><span class="line">  .window(<span class="type">Minutes</span>(<span class="number">60</span>)).reduceByKey(_ + _)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> top5ClList = top5Clients.repartition(<span class="number">1</span>)</span><br><span class="line">      .map(_._1.toString)</span><br><span class="line">      .glom() <span class="comment">//每个RDD中的partition聚合成Array</span></span><br><span class="line">      .map(arr =&gt; (<span class="string">"TOPCLIENTS"</span>, arr.toList))</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//滑动时间间隔默认是mini-batch时间间隔</span></span><br><span class="line"><span class="hljs-keyword">val</span> stocksPerWindow = orders.map(x =&gt; (x.symbol, x.amount))</span><br><span class="line">  .window(<span class="hljs-type">Minutes</span>(<span class="hljs-number">60</span>)).reduceByKey(_ + _)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">val</span> top5ClList = top5Clients.repartition(<span class="hljs-number">1</span>)</span><br><span class="line">      .map(_._1.toString)</span><br><span class="line">      .glom() <span class="hljs-comment">//每个RDD中的partition聚合成Array</span></span><br><span class="line">      .map(arr =&gt; (<span class="hljs-string">"TOPCLIENTS"</span>, arr.toList))</span><br></pre></td></tr></table></figure>
 <p>以上三类：每个批处理、批处理叠加、时间限制。</p>
 <p>5、写回kafka。</p>
 <p>方式：Producer.send()</p>
 <p>最佳模式：每个JVM只创建一个Producer实例（单例模式）</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">KafkaProducerWrapper</span>(<span class="params">brokerList: <span class="type">String</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">val</span> producerProps: <span class="type">Properties</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> prop = <span class="keyword">new</span> <span class="type">Properties</span>()</span><br><span class="line">    prop.put(<span class="string">"bootstrap.servers"</span>, brokerList)</span><br><span class="line">    prop.put(<span class="string">"key.serializer"</span>, <span class="string">"org.apache.kafka.common.serialization.ByteArraySerializer"</span>)</span><br><span class="line">    prop.put(<span class="string">"value.serializer"</span>, <span class="string">"org.apache.kafka.common.serialization.ByteArraySerializer"</span>)</span><br><span class="line">    prop</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> producer = <span class="keyword">new</span> <span class="type">KafkaProducer</span>[<span class="type">Array</span>[<span class="type">Byte</span>], <span class="type">Array</span>[<span class="type">Byte</span>]](producerProps)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">send</span></span>(topic: <span class="type">String</span>, key: <span class="type">String</span>, value: <span class="type">String</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">    producer.send(<span class="keyword">new</span> <span class="type">ProducerRecord</span>[<span class="type">Array</span>[<span class="type">Byte</span>], <span class="type">Array</span>[<span class="type">Byte</span>]](topic,</span><br><span class="line">      key.toCharArray.map(_.toByte),</span><br><span class="line">      value.toCharArray.map(_.toByte)))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">KafkaProducerWrapper</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> brokerList = <span class="string">""</span></span><br><span class="line">  <span class="keyword">lazy</span> <span class="keyword">val</span> instance = <span class="keyword">new</span> <span class="type">KafkaProducerWrapper</span>(brokerList)<span class="comment">//首次使用时实例化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KafkaProducerWrapper</span>(<span class="hljs-params">brokerList: <span class="hljs-type">String</span></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">val</span> producerProps: <span class="hljs-type">Properties</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">val</span> prop = <span class="hljs-keyword">new</span> <span class="hljs-type">Properties</span>()</span><br><span class="line">    prop.put(<span class="hljs-string">"bootstrap.servers"</span>, brokerList)</span><br><span class="line">    prop.put(<span class="hljs-string">"key.serializer"</span>, <span class="hljs-string">"org.apache.kafka.common.serialization.ByteArraySerializer"</span>)</span><br><span class="line">    prop.put(<span class="hljs-string">"value.serializer"</span>, <span class="hljs-string">"org.apache.kafka.common.serialization.ByteArraySerializer"</span>)</span><br><span class="line">    prop</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">val</span> producer = <span class="hljs-keyword">new</span> <span class="hljs-type">KafkaProducer</span>[<span class="hljs-type">Array</span>[<span class="hljs-type">Byte</span>], <span class="hljs-type">Array</span>[<span class="hljs-type">Byte</span>]](producerProps)</span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">send</span></span>(topic: <span class="hljs-type">String</span>, key: <span class="hljs-type">String</span>, value: <span class="hljs-type">String</span>): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    producer.send(<span class="hljs-keyword">new</span> <span class="hljs-type">ProducerRecord</span>[<span class="hljs-type">Array</span>[<span class="hljs-type">Byte</span>], <span class="hljs-type">Array</span>[<span class="hljs-type">Byte</span>]](topic,</span><br><span class="line">      key.toCharArray.map(_.toByte),</span><br><span class="line">      value.toCharArray.map(_.toByte)))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">KafkaProducerWrapper</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> brokerList = <span class="hljs-string">""</span></span><br><span class="line">  <span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> instance = <span class="hljs-keyword">new</span> <span class="hljs-type">KafkaProducerWrapper</span>(brokerList)<span class="hljs-comment">//首次使用时实例化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在metrics主题下消费数据：</p>
 <p>kafka-console-consumer –bootstrap-server localhost:9092 –topic metrics –property print.key=true</p>
 
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/bigdata/" rel="tag"># bigdata</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/11/30/bigdata/SparkInDepth/" rel="next" title="Spark API in Depth">
-                <i class="fa fa-chevron-left"></i> Spark API in Depth
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/31/java/generic/" rel="prev" title="Java Advanced">
-                Java Advanced <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-   <div id="gitalk-container"></div>
-  
-
-
-
         </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-      <div id="sidebar-dimmer"></div>
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Peng</p>
-              <p class="site-description motion-element" itemprop="description">Github Personal Website</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/bigdata/">bigdata</a>
+                </div>
+            </div>
         </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
         
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Peng</span>
-
-  
+        
+        
+    </div>
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/31/java/generic/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Java Advanced</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/30/bigdata/SparkInDepth/">
+                <span class="level-item">Spark API in Depth</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
 
 
 
 
-
-
-
-
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Entradas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        13
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorias
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Etiquetas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
+                SEGUIR</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
         
 
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
 
 
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categorias
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nube de etiquetas
+        </h3>
+        <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
+    </div>
+</div>
 
-
-
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/java/concurrent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Concurrent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T11:33:57.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/java/concurrent/" class="has-link-black-ter is-size-6">Concurrent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/10/java/DynamicProxy/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="DynamicProxy">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-10T12:56:57.000Z">2019-03-10</time></div>
+                    <a href="/2019/03/10/java/DynamicProxy/" class="has-link-black-ter is-size-6">DynamicProxy</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/24/algorithm/dp/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="DP Note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:19:43.000Z">2019-02-24</time></div>
+                    <a href="/2019/02/24/algorithm/dp/" class="has-link-black-ter is-size-6">DP Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/24/algorithm/leetcode/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="LeetCode Note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:18:43.000Z">2019-02-24</time></div>
+                    <a href="/2019/02/24/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/31/java/generic/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Java Advanced">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-31T10:28:43.000Z">2018-12-31</time></div>
+                    <a href="/2018/12/31/java/generic/" class="has-link-black-ter is-size-6">Java Advanced</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
 
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
         
-      </div>
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/algorithm/">
+                        <span class="tag">algorithm</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bigdata/">
+                        <span class="tag">bigdata</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/18/java/concurrent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Concurrent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-18T11:33:57.000Z">2019-04-18</time></div>
+                    <a href="/2019/04/18/java/concurrent/" class="has-link-black-ter is-size-6">Concurrent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/10/java/DynamicProxy/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="DynamicProxy">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-10T12:56:57.000Z">2019-03-10</time></div>
+                    <a href="/2019/03/10/java/DynamicProxy/" class="has-link-black-ter is-size-6">DynamicProxy</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/24/algorithm/dp/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="DP Note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:19:43.000Z">2019-02-24</time></div>
+                    <a href="/2019/02/24/algorithm/dp/" class="has-link-black-ter is-size-6">DP Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/24/algorithm/leetcode/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="LeetCode Note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:18:43.000Z">2019-02-24</time></div>
+                    <a href="/2019/02/24/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/31/java/generic/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Java Advanced">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-31T10:28:43.000Z">2018-12-31</time></div>
+                    <a href="/2018/12/31/java/generic/" class="has-link-black-ter is-size-6">Java Advanced</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/algorithm/">
+                        <span class="tag">algorithm</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bigdata/">
+                        <span class="tag">bigdata</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Spark Streaming base on Kafka" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Peng&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-Hans");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
     
 
     
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-  </div>
+    
+    
 
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
 
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'f65636121bc2964d8103',
-          clientSecret: 'a11700e292b326c942651a636f32c28e525f2829',
-          repo: 'langzi418.github.io',
-          owner: 'Langzi418',
-          admin: ['Langzi418'],
-          id: location.pathname,
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')
-       </script>
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Entradas',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>

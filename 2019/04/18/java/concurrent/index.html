@@ -191,7 +191,7 @@
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//锁的对象是 调用同步方法的对象</span></span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger lastNumber;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger[] lastFactors;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(ServletRequest req, ServletResponse resp)</span></span>&#123;</span><br><span class="line">        lastNumber...</span><br><span class="line">        lastFactors...    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上固有锁是可重入的，其实现机制是这样的：JVM记录每个锁的线程，并设置一个计数器；如果同一个线程再次请求这个锁，则计数器加一，不同的线程不会请求到这个锁。锁上每个线程退出时，计数器减一，减到0时，锁释放。可重入机制，简化了面向对象的设计代码，可以在一定程度上防止死锁，如下。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>.doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上code1-1的并发行很差，原因是：同时调用的请求数并不是受限于计算资源，而是受限于应用本身。可以通过缩小同步块的范围来改善这个状况。</p>
+<p>以上code1-1的并发性很差，原因是：同时调用的请求数并不是受限于计算资源，而是受限于应用本身。可以通过缩小同步块的范围来改善这个状况。</p>
 <p>可以把耗时任务排除在同步块外，以致于在进行耗时任务时不会阻止其他线程访问共享状态。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger lastNumber;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger[] lastFactors;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) <span class="hljs-keyword">long</span> hits;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) <span class="hljs-keyword">long</span> cacheHits;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getHits</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> hits;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getCacheHitRatio</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> (<span class="hljs-keyword">double</span>) cacheHits / (<span class="hljs-keyword">double</span>) hits;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(req,resp)</span></span>&#123;</span><br><span class="line">        BigInteger i = extractFromRequest(req);</span><br><span class="line">        BigInteger[] factors = <span class="hljs-keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>)&#123;</span><br><span class="line">            ++hits;</span><br><span class="line">            <span class="hljs-keyword">if</span>(i.equals(lastNumber))&#123;</span><br><span class="line">                ++cacheHits;</span><br><span class="line">                factors=lastFactors.clone();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        <span class="hljs-keyword">if</span>(factors==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-comment">//long-running</span></span><br><span class="line">            factors=factor(i);</span><br><span class="line">            <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>)&#123;</span><br><span class="line">                lastNumber=i;</span><br><span class="line">                lastFactors=factors.clone();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        encodeIntoResponse(resp, factors);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上说了同步块的大小，不要把JUC中的原子类和Synchronize混用，这样容易引起混淆，也不会提高性能和安全。</p>
@@ -272,7 +272,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         13
@@ -282,7 +282,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -292,7 +292,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -302,7 +302,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Langzi418" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -326,7 +326,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
     </div>
@@ -340,7 +340,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -416,7 +416,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -495,7 +495,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -547,7 +547,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -623,7 +623,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -702,7 +702,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -882,10 +882,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

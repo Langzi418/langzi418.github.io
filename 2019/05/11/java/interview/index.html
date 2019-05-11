@@ -2,24 +2,24 @@
 <html  lang="zh">
 <head>
     <meta charset="utf-8">
-<title>Concurrent - PIO</title>
+<title>Java interview - PIO</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="description" content="Java concurrentcy in practice Note state（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。 线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。 为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。 实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatil">
+    <meta name="description" content="Java GCJava堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Concurrent">
-<meta property="og:url" content="http://yoursite.com/2019/04/20/java/concurrent/index.html">
+<meta property="og:title" content="Java interview">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/java/interview/index.html">
 <meta property="og:site_name" content="PIO">
-<meta property="og:description" content="Java concurrentcy in practice Note state（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。 线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。 为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。 实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatil">
+<meta property="og:description" content="Java GCJava堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-20T11:36:03.411Z">
+<meta property="og:updated_time" content="2019-05-11T10:58:39.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Concurrent">
-<meta name="twitter:description" content="Java concurrentcy in practice Note state（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。 线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。 为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。 实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatil">
+<meta name="twitter:title" content="Java interview">
+<meta name="twitter:description" content="Java GCJava堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -93,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Concurrent" height="28">
+                <img src="/images/logo.svg" alt="Java interview" height="28">
             
             </a>
         </div>
@@ -137,13 +137,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-20T12:33:57.000Z">2019-04-20</time>
+                <time class="level-item has-text-grey" datetime="2019-05-11T10:58:57.000Z">2019-05-11</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 985 words)
+                    4 minutes read (About 603 words)
                 </span>
                 
                 
@@ -157,45 +157,29 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Concurrent
+                Java interview
             
         </h1>
         <div class="content">
-            <p>Java concurrentcy in practice Note</p>
-<p>state（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。</p>
-<p>线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。</p>
-<p>为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。</p>
-<p>实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatile、显示锁和原子变量。</p>
+            <h3 id="Java-GC"><a href="#Java-GC" class="headerlink" title="Java GC"></a>Java GC</h3><p>Java堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。</p>
 <a id="more"></a>
-<p>避免线程安全问题，三种思路：</p>
-<ul>
-<li>不在线程间分享状态变量</li>
-<li>使状态变量变得不可变</li>
-<li>任何时候访问状态变量时，都使用同步</li>
-</ul>
-<p>设计一个线程安全的类比改进一个类变得线程安全容易得多。</p>
-<p>无状态的类总是线程安全的。</p>
-<p>但是当我们引入状态以后：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line"> 	<span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> count=<span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span></span>&#123;...&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>++count不是原子性的，即它是可拆分的：先读数据，再加，再写数据，该操作可以定义为“<strong>read-modify-write</strong>”</p>
-<p>那么就可能不安全，如下</p>
-<p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1g1g6m5tzapj30ra08j0so.jpg" alt=""></p>
-<p>“<strong>check-then-act</strong>”</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> Object instance=<span class="hljs-keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(instance==<span class="hljs-keyword">null</span>)</span><br><span class="line">            instance=<span class="hljs-keyword">new</span> Object();</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上也不是线程安全的，两个线程访问，可能得到两个不同的对象。</p>
-<p>可以使用已存在的原子对象来执行以上操作，使得以上类满足线程安全。使用已存在的原子类的原因是：容易被验证为是线程安全的。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Code1-1</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line"> 	<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AtomicLong count=<span class="hljs-keyword">new</span> AtomicLong(<span class="hljs-number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">service</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        count.incrementAndGet();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>锁</p>
-<p>同步锁</p>
-<p>每个Java对象都可以隐式地作为锁，以用来实现同步。这个锁机制称为固有锁或排他锁，具有排他性。这种机制很容易保证线程安全了。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//锁的对象是 调用同步方法的对象</span></span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger lastNumber;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger[] lastFactors;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(ServletRequest req, ServletResponse resp)</span></span>&#123;</span><br><span class="line">        lastNumber...</span><br><span class="line">        lastFactors...    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上固有锁是可重入的，其实现机制是这样的：JVM记录每个锁的线程，并设置一个计数器；如果同一个线程再次请求这个锁，则计数器加一，不同的线程不会请求到这个锁。锁上每个线程退出时，计数器减一，减到0时，锁释放。可重入机制，简化了面向对象的设计代码，可以在一定程度上防止死锁，如下。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">A</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>.doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上code1-1的并发性很差，原因是：同时调用的请求数并不是受限于计算资源，而是受限于应用本身。可以通过缩小同步块的范围来改善这个状况。</p>
-<p>可以把耗时任务排除在同步块外，以致于在进行耗时任务时不会阻止其他线程访问共享状态。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger lastNumber;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) BigInteger[] lastFactors;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) <span class="hljs-keyword">long</span> hits;</span><br><span class="line">    <span class="hljs-meta">@GuardedBy</span>(<span class="hljs-string">"this"</span>) <span class="hljs-keyword">long</span> cacheHits;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getHits</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> hits;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getCacheHitRatio</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> (<span class="hljs-keyword">double</span>) cacheHits / (<span class="hljs-keyword">double</span>) hits;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(req,resp)</span></span>&#123;</span><br><span class="line">        BigInteger i = extractFromRequest(req);</span><br><span class="line">        BigInteger[] factors = <span class="hljs-keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>)&#123;</span><br><span class="line">            ++hits;</span><br><span class="line">            <span class="hljs-keyword">if</span>(i.equals(lastNumber))&#123;</span><br><span class="line">                ++cacheHits;</span><br><span class="line">                factors=lastFactors.clone();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     </span><br><span class="line">        <span class="hljs-keyword">if</span>(factors==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-comment">//long-running</span></span><br><span class="line">            factors=factor(i);</span><br><span class="line">            <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>)&#123;</span><br><span class="line">                lastNumber=i;</span><br><span class="line">                lastFactors=factors.clone();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        encodeIntoResponse(resp, factors);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上说了同步块的大小，不要把JUC中的原子类和Synchronize混用，这样容易引起混淆，也不会提高性能和安全。</p>
-<p>由于同步是有代价，不要把同步块的范围分割过大。例如，不要单独将以上“++hits”放在一个同步块中。</p>
+<h4 id="判断对象可回收"><a href="#判断对象可回收" class="headerlink" title="判断对象可回收"></a>判断对象可回收</h4><h5 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h5><p>对于一个对象，每当有地方引用它，计数器加1；当引用失效，计数器减1。任何时刻计数器为0的对象为可回收的对象。存在对象之间相互循环引用问题。</p>
+<h5 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h5><p>通过一系列的“GC Roots”对象作为起始点，从这些节点开始向下搜索。当一个对象到GC Roots不可达时，则被判定为可回收的对象。</p>
+<h4 id="收集算法"><a href="#收集算法" class="headerlink" title="收集算法"></a>收集算法</h4><p>根据对象存活周期的不同，把Java堆分为新生代和老年代。新生代中，对象大批死亡，存活率较少，可以选用复制算法。老年代中对象存活率高、没有额外空间对它进分配担保，使用“标记-清除”和“标记-整理”（多了整理）回收。</p>
+<h4 id="回收时机"><a href="#回收时机" class="headerlink" title="回收时机"></a>回收时机</h4><ol>
+<li><p>大多数情况下，对象在新生代Eden区中分配。当空间不足时，发生Minor GC（新生代GC）。新生代的From Space区域空间不足，可会发生GC。</p>
+</li>
+<li><p>程序调用System.gc。</p>
+</li>
+</ol>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap在底层将key-value当成一个整体，即Node对象，这个对象实现了Map.Entry接口。通过Node[]来保存所有的key-value。</p>
+<p>存数据时，通过hash算法决定其在数组中的存储位置；若该位置已经有数据，再根据equals来判断key是否相同，若相同更新，若不相同，则发生冲突，连接在链表头。</p>
+<p>取数据时，同样通过hash和equals。</p>
+<h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>随着数组中元素增多，hash冲突的几率变大。为了提高查询的效率，要进行扩容。扩容时最消耗性能：将原数组中的元素重新计算再存到新数组中。</p>
+<p>当HashMap中元素的个数超过 数组的大小*load factor时，就会扩容，扩大一倍。</p>
+<p>默认16，0.75</p>
+<h3 id="ConrrentHashMap"><a href="#ConrrentHashMap" class="headerlink" title="ConrrentHashMap"></a>ConrrentHashMap</h3><p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1g2pdkkhb0ij30e70etwfj.jpg" alt=""></p>
+<p>锁segment，其他线程可以put，可以读。</p>
 
         </div>
         
@@ -220,17 +204,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/22/java/spring/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Spring框架的一些理解</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/10/java/DynamicProxy/">
-                <span class="level-item">DynamicProxy</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/05/11/java/concurrent/">
+                <span class="level-item">Java concurrency in practice Note</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -279,17 +256,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        14
+                        15
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -309,7 +286,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Langzi418" target="_blank">
-                SUIVRE</a>
+                Follow</a>
         </div>
         
         
@@ -333,7 +310,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nuage de tags
+            Tag Cloud
         </h3>
         <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
     </div>
@@ -347,15 +324,15 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
         
         <article class="media">
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T10:04:57.000Z">2019-04-22</time></div>
-                    <a href="/2019/04/22/java/spring/" class="has-link-black-ter is-size-6">Spring框架的一些理解</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:58:57.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/java/interview/" class="has-link-black-ter is-size-6">Java interview</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -367,8 +344,21 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T12:33:57.000Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/java/concurrent/" class="has-link-black-ter is-size-6">Concurrent</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:54:57.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/java/concurrent/" class="has-link-black-ter is-size-6">Java concurrency in practice Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T10:04:57.000Z">2019-04-22</time></div>
+                    <a href="/2019/04/22/java/spring/" class="has-link-black-ter is-size-6">Spring框架的一些理解</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -402,19 +392,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:18:43.000Z">2019-02-24</time></div>
-                    <a href="/2019/02/24/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -428,12 +405,23 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -523,7 +511,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
@@ -554,15 +542,15 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
         
         <article class="media">
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T10:04:57.000Z">2019-04-22</time></div>
-                    <a href="/2019/04/22/java/spring/" class="has-link-black-ter is-size-6">Spring框架的一些理解</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:58:57.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/java/interview/" class="has-link-black-ter is-size-6">Java interview</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -574,8 +562,21 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-20T12:33:57.000Z">2019-04-20</time></div>
-                    <a href="/2019/04/20/java/concurrent/" class="has-link-black-ter is-size-6">Concurrent</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:54:57.000Z">2019-05-11</time></div>
+                    <a href="/2019/05/11/java/concurrent/" class="has-link-black-ter is-size-6">Java concurrency in practice Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T10:04:57.000Z">2019-04-22</time></div>
+                    <a href="/2019/04/22/java/spring/" class="has-link-black-ter is-size-6">Spring框架的一些理解</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -609,19 +610,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:18:43.000Z">2019-02-24</time></div>
-                    <a href="/2019/02/24/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -635,12 +623,23 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -730,7 +729,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
@@ -758,7 +757,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Concurrent" height="28">
+                    <img src="/images/logo.svg" alt="Java interview" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -889,9 +888,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },

@@ -137,6 +137,56 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-14T12:18:43.000Z">2019-07-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a minute read (About 125 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/14/algorithm/leetcode/">LeetCode Note</a>
+            
+        </h1>
+        <div class="content">
+            <p>一些算法归纳：</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><p>自顶向下</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mergeSort(<span class="hljs-keyword">int</span>[] a,<span class="hljs-keyword">int</span> low,<span class="hljs-keyword">int</span> high)&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span>(high&lt;=low) <span class="hljs-keyword">return</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="hljs-keyword">int</span> mid=low+(high-low)/<span class="hljs-number">2</span>;</span><br><span class="line">    mergeSort(a,low,mid);</span><br><span class="line">    mergeSort(a,mid+<span class="hljs-number">1</span>,high);</span><br><span class="line">    merge(a,low,mid,high);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(<span class="hljs-keyword">int</span>[] a,<span class="hljs-keyword">int</span> low,<span class="hljs-keyword">int</span> mid,<span class="hljs-keyword">int</span> high)&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span>[] aux=copy(a);</span><br><span class="line">    <span class="hljs-keyword">int</span> i=low,j=mid+<span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=low;k&lt;=high;k++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(i&gt;mid) a[k]=a[j++];</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(j&gt;high) a[k]=a[i++];</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(aux[j]&lt;aux[i]) a[k]=a[j++];</span><br><span class="line">        <span class="hljs-keyword">else</span> a[k]=a[i++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/07/14/algorithm/leetcode/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-05-11T10:58:57.000Z">2019-05-11</time>
                 
                 
@@ -340,7 +390,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 685 words)
+                    5 minutes read (About 742 words)
                 </span>
                 
                 
@@ -364,56 +414,6 @@
             <div class="level-start">
                 <div class="level-item">
                 <a class="button is-size-7 is-light" href="/2019/02/24/algorithm/dp/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-24T12:18:43.000Z">2019-02-24</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a minute read (About 196 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/24/algorithm/leetcode/">LeetCode Note</a>
-            
-        </h1>
-        <div class="content">
-            <p>一些算法归纳：</p>
-<h3 id="2-Pass"><a href="#2-Pass" class="headerlink" title="2-Pass"></a>2-Pass</h3><p>Q1  给定一个字符串S，返回字符串中所有字符距离指定字符C 的最短距离。</p>
-<p>A1 从左至右扫描一次，记下 dis[i]=disLeft；再从右至左扫描一次，dis[i]=min(dis[i], disRight)。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/24/algorithm/leetcode/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -635,10 +635,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Previous</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Anterior</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Next</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Siguiente</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -689,7 +689,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
                         15
@@ -699,7 +699,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -709,7 +709,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -719,7 +719,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Langzi418" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -743,7 +743,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
     </div>
@@ -757,8 +757,21 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-14T12:18:43.000Z">2019-07-14</time></div>
+                    <a href="/2019/07/14/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -812,19 +825,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:19:43.000Z">2019-02-24</time></div>
-                    <a href="/2019/02/24/algorithm/dp/" class="has-link-black-ter is-size-6">DP Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -833,9 +833,20 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/05/">
@@ -876,7 +887,7 @@
                     <span class="level-item">February 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -923,7 +934,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -975,8 +986,21 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-14T12:18:43.000Z">2019-07-14</time></div>
+                    <a href="/2019/07/14/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1030,19 +1054,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-24T12:19:43.000Z">2019-02-24</time></div>
-                    <a href="/2019/02/24/algorithm/dp/" class="has-link-black-ter is-size-6">DP Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1051,9 +1062,20 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/05/">
@@ -1094,7 +1116,7 @@
                     <span class="level-item">February 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -1141,7 +1163,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1321,10 +1343,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

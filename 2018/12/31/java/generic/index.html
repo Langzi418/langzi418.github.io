@@ -16,7 +16,7 @@
 <meta property="og:description" content="why Generic progrgrammingType Params1234567//before generic classesclass ArrayList&amp;#123;   	Object[] elemData;   	...   	Object get(int i)&amp;#123;...&amp;#125;   	void add(Object o)&amp;#123;...&amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2018-12-31T10:28:22.970Z">
+<meta property="og:updated_time" content="2019-07-19T02:53:23.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Advanced">
 <meta name="twitter:description" content="why Generic progrgrammingType Params1234567//before generic classesclass ArrayList&amp;#123;   	Object[] elemData;   	...   	Object get(int i)&amp;#123;...&amp;#125;   	void add(Object o)&amp;#123;...&amp;#125;&amp;#125;">
@@ -143,7 +143,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 minutes read (About 1626 words)
+                    16 minutes read (About 2392 words)
                 </span>
                 
                 
@@ -168,9 +168,27 @@
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList files = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">...</span><br><span class="line">files.add(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"..."</span>));<span class="hljs-comment">//运行时出错</span></span><br><span class="line">String filename=(String)files.get(<span class="hljs-number">0</span>);</span><br></pre></td></tr></table></figure>
 <p>2、泛型提供了一个更好地解决办法：类型参数。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; files=<span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">String filename=files.get(<span class="hljs-number">0</span>);<span class="hljs-comment">// a string not an object</span></span><br><span class="line"></span><br><span class="line">files.add(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"..."</span>))<span class="hljs-comment">//wrong</span></span><br></pre></td></tr></table></figure>
+<p>泛型的主要目的是创建各类容器。泛型实现了参数化的概念，使代码可应用于多种类型；</p>
+<p>使用泛型时，编译器会自动负责转型操作，保证类型的正确性，并将类型检查提前到编译时。</p>
 <h3 id="Defining-a-Simple-Generic-class"><a href="#Defining-a-Simple-Generic-class" class="headerlink" title="Defining a Simple Generic class"></a>Defining a Simple Generic class</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pair</span>&lt;<span class="hljs-title">T</span>&gt;</span>&#123;</span><br><span class="line">    T first;</span><br><span class="line">    T second;</span><br><span class="line">    Pair(T first,T second)&#123;...&#125;</span><br><span class="line">    <span class="hljs-function">T <span class="hljs-title">getFirst</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function">T <span class="hljs-title">getSecond</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">   	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setFirst</span><span class="hljs-params">(T val)</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setSecond</span><span class="hljs-params">(T val)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一般 E -&gt; elem; K,V-&gt;key,value;  T,U,S -&gt;any type </p>
 <h3 id="Generic-Methods"><a href="#Generic-Methods" class="headerlink" title="Generic Methods"></a>Generic Methods</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getMiddle</span><span class="hljs-params">(T... a)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> a[a.length/<span class="hljs-number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">String middle =ArrayAlg.getMiddle(<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//Double Integer : wrong</span></span><br><span class="line"><span class="hljs-keyword">double</span> middle=ArrayAlg.getMiddle(<span class="hljs-number">3.14</span>, <span class="hljs-number">1</span> , <span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">double</span> middle=ArrayAlg.getMiddle(<span class="hljs-number">3.14</span>, <span class="hljs-number">1.0</span> , <span class="hljs-number">0.0</span>);</span><br></pre></td></tr></table></figure>
+<p>定义泛型方法时所指定的类型参数的可见性只限定在该泛型方法，就如同方法中的局部变量一样；</p>
+<p>那么，即便是泛型方法与泛型类有同名的类型参数也没关系。</p>
+<p><strong>如果使用泛型方法可以代替将整个类泛型化，那么就应该只使用泛型方法，这样可以使代码更清晰简洁。</strong>这是使用泛型方法的原因之一，另一个原因如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="hljs-comment">// error: cannot make a static reference to the non-static type T</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">staticMethod</span><span class="hljs-params">(T t)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态方法无法访问泛型类的类型参数。如果需要将泛型应用到静态方法上，则必须使用泛型方法。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">staticMethod</span><span class="hljs-params">(T t)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么<strong>如果在泛型方法内部的有泛型方法，并且类型形参同名，那会发生什么</strong>？</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123;</span><br><span class="line">     <span class="hljs-comment">// ok</span></span><br><span class="line">     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">staticMethod</span><span class="hljs-params">(T item)</span> </span>&#123; <span class="hljs-keyword">return</span> item; &#125;     </span><br><span class="line">     <span class="hljs-comment">// warning: The type parameter T is hiding the type T</span></span><br><span class="line">     <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"hiding"</span>)</span><br><span class="line">     <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">method</span><span class="hljs-params">(T item)</span> </span>&#123; <span class="hljs-keyword">return</span> item; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态泛型方法与泛型类都有同名的类型形参<code>T</code>，但编译器没有发出任何错误或警告。而非静态泛型方法，编译器却发出警告<code>The type parameter T is hiding the type T</code>，表示非静态泛型方法的类型形参T把泛型类的类型形参隐藏起来。静态泛型方法本身无法访问泛型类类型形参，所以不会触发隐藏现象。所以我们现在只关注可以访问泛型类类型形参的非静态泛型方法即可。</p>
+<p>我们都知道：<strong>在Java中并不能像C/C++里那样使用一个拥有较小作用域的变量将一个拥有较大作用域的同名变量隐藏起来。</strong></p>
+<p>但在Java中对于类型的处理却不是如此，请看以下代码。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> </span>&#123;  </span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-comment">// warning: The type A is hiding the type com.gtr._test.A</span></span><br><span class="line">        <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"unused"</span>)</span><br><span class="line">        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> </span>&#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法<code>f</code>中的局部内部类<code>A</code>把外部定义的类<code>A</code>给隐藏了。所以，如果想要在<code>f</code>内部访问外部定义的<code>A</code>，只能是用类全名。</p>
+<p>类型的隐藏虽然给我们带来的只是编译器的警告，我们可以使用<code>@SuppressWarnings(&quot;hiding&quot;)</code>注解压制该警告，但是它会使得代码逻辑更加混乱，所以这种隐晦的代码我们要尽量避免，使用泛型方法时更是要如此。</p>
+<p>参考：</p>
+<p><a href="https://extremegtr.github.io/2015/09/13/JavaSE-study-basics-of-generics/" target="_blank" rel="noopener">JavaSE学习笔记 - 泛型基础</a></p>
 <h3 id="Bounds-for-Type-Var"><a href="#Bounds-for-Type-Var" class="headerlink" title="Bounds for Type Var"></a>Bounds for Type Var</h3><p>有时候，需要限制。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">min</span><span class="hljs-params">(T[] a)</span></span>&#123;</span><br><span class="line">		T smallest =a[<span class="hljs-number">0</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;a.length;i++)</span><br><span class="line">            <span class="hljs-keyword">if</span>(smallest.compareTo(a[i])&gt;<span class="hljs-number">0</span>) smallest=a[i];</span><br><span class="line">        <span class="hljs-keyword">return</span> smallest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如何保证T[] a有compareTo方法呢？</p>
@@ -401,7 +419,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         15
@@ -411,7 +429,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -421,7 +439,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -431,7 +449,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Langzi418" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -455,7 +473,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
     </div>
@@ -469,7 +487,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -545,7 +563,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -646,7 +664,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -698,7 +716,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -774,7 +792,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -875,7 +893,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1055,10 +1073,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

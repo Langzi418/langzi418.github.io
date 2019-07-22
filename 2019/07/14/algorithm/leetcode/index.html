@@ -16,7 +16,7 @@
 <meta property="og:description" content="一些算法归纳： 排序归并排序自顶向下 12345678910111213141516171819mergeSort(int[] a,int low,int high)&amp;#123;	if(high&amp;lt;=low) return;	    int mid=low+(high-low)/2;    mergeSort(a,low,mid);    mergeSort(a,mid+1,high);">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-14T12:19:00.803Z">
+<meta property="og:updated_time" content="2019-07-22T07:42:43.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode Note">
 <meta name="twitter:description" content="一些算法归纳： 排序归并排序自顶向下 12345678910111213141516171819mergeSort(int[] a,int low,int high)&amp;#123;	if(high&amp;lt;=low) return;	    int mid=low+(high-low)/2;    mergeSort(a,low,mid);    mergeSort(a,mid+1,high);">
@@ -143,7 +143,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 125 words)
+                    2 minutes read (About 265 words)
                 </span>
                 
                 
@@ -173,10 +173,11 @@
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">floorOrder(TreeNode root)&#123;</span><br><span class="line">	Queue queue = ...</span><br><span class="line">	queue.push(root);</span><br><span class="line">	<span class="hljs-keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">		TreeNode p=queue.pop();</span><br><span class="line">		print(p.value);</span><br><span class="line">		<span class="hljs-keyword">if</span>(p.left!=<span class="hljs-keyword">null</span>) queue.push(p.left);</span><br><span class="line">		<span class="hljs-keyword">if</span>(p.right!=<span class="hljs-keyword">null</span>) queue.push(p.right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>非递归</p>
 <p>递归转非递归，考虑栈。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">preOrder(TreeNode root)&#123;</span><br><span class="line">	Stack stack=...</span><br><span class="line">	TreeNode p=root;</span><br><span class="line">	while(!stack.isEmpty||p!=null)&#123;</span><br><span class="line">		while(p!=null)&#123;</span><br><span class="line">			print(p.val);</span><br><span class="line">			stack.push(p);</span><br><span class="line">			p=p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//当p==null时，则根和左子树都遍历完了</span><br><span class="line">        p=stack.pop();</span><br><span class="line">        p=p.right;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">inOrder(TreeNode root)&#123;</span><br><span class="line">	Stack stack=...;</span><br><span class="line">	TreeNode p=root;</span><br><span class="line">	while(!stack.isEmpty() || p!=null)&#123;</span><br><span class="line">		while(p!=null)&#123;</span><br><span class="line">			stack.push(p);</span><br><span class="line">			p=p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		// 当p==null,则已到达左子树最下面，需要出栈了</span><br><span class="line">		p=stack.pop();</span><br><span class="line">        print(p.val);</span><br><span class="line">        p=p.right;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">preOrder(TreeNode root)&#123;</span><br><span class="line">	Stack stack=...</span><br><span class="line">	TreeNode p=root;</span><br><span class="line">	<span class="hljs-keyword">while</span>(!stack.isEmpty||p!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">		<span class="hljs-keyword">while</span>(p!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">			print(p.val);</span><br><span class="line">			stack.push(p);</span><br><span class="line">			p=p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="hljs-comment">//当p==null时，则根和左子树都遍历完了</span></span><br><span class="line">        p=stack.pop();</span><br><span class="line">        p=p.right;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">inOrder(TreeNode root)&#123;</span><br><span class="line">	Stack stack=...;</span><br><span class="line">	TreeNode p=root;</span><br><span class="line">	<span class="hljs-keyword">while</span>(!stack.isEmpty() || p!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">		<span class="hljs-keyword">while</span>(p!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">			stack.push(p);</span><br><span class="line">			p=p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-comment">// 当p==null,则已到达左子树最下面，需要出栈了</span></span><br><span class="line">		p=stack.pop();</span><br><span class="line">        print(p.val);</span><br><span class="line">        p=p.right;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>后序</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">postOrder(TreeNode root)&#123;</span><br><span class="line">	while(!stack.isEmpty()||p!=null)&#123;</span><br><span class="line">		while(p!=null)&#123;</span><br><span class="line">			stack.push(p);</span><br><span class="line">			p=p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		p=stack.top();</span><br><span class="line">		if(p.right==null || p.right==last)&#123;</span><br><span class="line">			print(p.val);</span><br><span class="line">			stack.pop();</span><br><span class="line">			</span><br><span class="line">			last=p;</span><br><span class="line">			p=null;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			p=p.right;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">postOrder(TreeNode root)&#123;</span><br><span class="line">	<span class="hljs-keyword">while</span>(!stack.isEmpty()||p!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">		<span class="hljs-keyword">while</span>(p!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">			stack.push(p);</span><br><span class="line">			p=p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		p=stack.top();</span><br><span class="line">		<span class="hljs-keyword">if</span>(p.right==<span class="hljs-keyword">null</span> || p.right==last)&#123;</span><br><span class="line">			print(p.val);</span><br><span class="line">			stack.pop();</span><br><span class="line">			</span><br><span class="line">			last=p;</span><br><span class="line">			p=<span class="hljs-keyword">null</span>;</span><br><span class="line">		&#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">			p=p.right;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> a[n];</span><br><span class="line"><span class="hljs-keyword">try</span>(<span class="hljs-keyword">int</span> i)&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(i&gt;n) 输出结果;</span><br><span class="line">    <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">        <span class="hljs-comment">// 搜索i的所有可能路径</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(i=下界; i&lt;上界; i++)&#123;</span><br><span class="line">            <span class="hljs-comment">// 满足限界函数和约束条件</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(func(i))&#123;</span><br><span class="line">                a[i]=j;</span><br><span class="line">                <span class="hljs-keyword">try</span>(i+<span class="hljs-number">1</span>);</span><br><span class="line">                回溯前的清理工作;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2-Pass"><a href="#2-Pass" class="headerlink" title="2-Pass"></a>2-Pass</h3><p>Q1  给定一个字符串S，返回字符串中所有字符距离指定字符C 的最短距离。</p>
 <p>A1 从左至右扫描一次，记下 dis[i]=disLeft；再从右至左扫描一次，dis[i]=min(dis[i], disRight)。</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span>[] shortestToChar(String s,<span class="hljs-keyword">char</span> c)&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> n=s.length();</span><br><span class="line">    <span class="hljs-keyword">int</span>[] ans=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];</span><br><span class="line">    <span class="hljs-keyword">int</span> pos=-n;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.charAt(i)==c) pos=i;</span><br><span class="line">        ans[i]=i-pos;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n-<span class="hljs-number">1</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.charAt(i)==c) pos=i;</span><br><span class="line">        ans[i]=min(ans[i], abs(i-pos));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -256,7 +257,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         15
@@ -266,7 +267,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -276,7 +277,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         4
@@ -286,7 +287,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Langzi418" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -310,7 +311,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
         <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
     </div>
@@ -324,7 +325,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -400,7 +401,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -501,7 +502,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -553,7 +554,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -629,7 +630,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -730,7 +731,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -910,10 +911,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

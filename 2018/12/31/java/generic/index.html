@@ -1,26 +1,134 @@
 <!DOCTYPE html>
-<html  lang="zh">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
-    <meta charset="utf-8">
-<title>Java Advanced - PIO</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
-    <meta name="description" content="why Generic progrgrammingType Params1234567//before generic classesclass ArrayList&amp;#123;   	Object[] elemData;   	...   	Object get(int i)&amp;#123;...&amp;#125;   	void add(Object o)&amp;#123;...&amp;#125;&amp;#125;">
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    fastclick: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="why Generic progrgrammingType Params1234567//before generic classesclass ArrayList&amp;#123;   	Object[] elemData;   	...   	Object get(int i)&amp;#123;...&amp;#125;   	void add(Object o)&amp;#123;...&amp;#125;&amp;#125;">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Advanced">
 <meta property="og:url" content="http://yoursite.com/2018/12/31/java/generic/index.html">
-<meta property="og:site_name" content="PIO">
+<meta property="og:site_name" content="TWOME">
 <meta property="og:description" content="why Generic progrgrammingType Params1234567//before generic classesclass ArrayList&amp;#123;   	Object[] elemData;   	...   	Object get(int i)&amp;#123;...&amp;#125;   	void add(Object o)&amp;#123;...&amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1fyeeh0fcs6j30fd0fytau.jpg">
 <meta property="og:updated_time" content="2019-07-19T02:53:23.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Advanced">
 <meta name="twitter:description" content="why Generic progrgrammingType Params1234567//before generic classesclass ArrayList&amp;#123;   	Object[] elemData;   	...   	Object get(int i)&amp;#123;...&amp;#125;   	void add(Object o)&amp;#123;...&amp;#125;&amp;#125;">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1fyeeh0fcs6j30fd0fytau.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2018/12/31/java/generic/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>Java Advanced | TWOME</title>
+  
 
 
 
@@ -28,169 +136,287 @@
 
 
 
-<link rel="icon" href="/images/favicon.svg">
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
-    
-    
-    
-    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-    
 
-    
-    
-    
-    
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-    
-    
-    
-    
-
-<link rel="stylesheet" href="/css/back-to-top.css">
-
-
-    
-    
-
-    
-    
-    
-    
-
-    
-    
-<link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
-    
-    
-    
-
-    
-    
-    
-        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-
-    
-
-
-<link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-3-column">
-    <nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/logo.svg" alt="Java Advanced" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item"
-                href="/">Home</a>
-                
-                <a class="navbar-item"
-                href="/archives">Archives</a>
-                
-                <a class="navbar-item"
-                href="/tags">Tags</a>
-                
-                <a class="navbar-item"
-                href="/about">About</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                
-                
-                <a class="navbar-item search" title="Search" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TWOME</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+    
+      
+        <p class="site-subtitle">Blog</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
 </nav>
+
+
+
+</div>
+    </header>
+
     
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-    <div class="card-content article ">
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/31/java/generic/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TWOME"/>
+      <meta itemprop="description" content="Github Personal Website"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TWOME"/>
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-12-31T10:28:43.000Z">2018-12-31</time>
+        
+          <h1 class="post-title" itemprop="name headline">Java Advanced
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
                 
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 minutes read (About 2392 words)
+              
+
+              <time title="Created: 2018-12-31 18:28:43" itemprop="dateCreated datePublished" datetime="2018-12-31T18:28:43+08:00">2018-12-31</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span> visits
-                </span>
-                
-            </div>
+                <time title="Modified: 2019-07-19 10:53:23" itemprop="dateModified" datetime="2019-07-19T10:53:23+08:00">2019-07-19</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                Java Advanced
-            
-        </h1>
-        <div class="content">
-            <h3 id="why-Generic-progrgramming"><a href="#why-Generic-progrgramming" class="headerlink" title="why Generic progrgramming"></a>why Generic progrgramming</h3><h4 id="Type-Params"><a href="#Type-Params" class="headerlink" title="Type Params"></a>Type Params</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//before generic classes</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArrayList</span></span>&#123;</span><br><span class="line">   	Object[] elemData;</span><br><span class="line">   	...</span><br><span class="line">   	<span class="hljs-function">Object <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>&#123;...&#125;</span><br><span class="line">   	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(Object o)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="why-Generic-progrgramming"><a href="#why-Generic-progrgramming" class="headerlink" title="why Generic progrgramming"></a>why Generic progrgramming</h3><h4 id="Type-Params"><a href="#Type-Params" class="headerlink" title="Type Params"></a>Type Params</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//before generic classes</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span></span>&#123;</span><br><span class="line">   	Object[] elemData;</span><br><span class="line">   	...</span><br><span class="line">   	<span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;...&#125;</span><br><span class="line">   	<span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Object o)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>以上两个问题：</p>
 <p>1、取数据时要转换类型。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList files = <span class="hljs-keyword">new</span> ArrayList();</span><br><span class="line">...</span><br><span class="line">files.add(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"..."</span>));<span class="hljs-comment">//运行时出错</span></span><br><span class="line">String filename=(String)files.get(<span class="hljs-number">0</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList files = <span class="keyword">new</span> ArrayList();</span><br><span class="line">...</span><br><span class="line">files.add(<span class="keyword">new</span> File(<span class="string">"..."</span>));<span class="comment">//运行时出错</span></span><br><span class="line">String filename=(String)files.get(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 <p>2、泛型提供了一个更好地解决办法：类型参数。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; files=<span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">String filename=files.get(<span class="hljs-number">0</span>);<span class="hljs-comment">// a string not an object</span></span><br><span class="line"></span><br><span class="line">files.add(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"..."</span>))<span class="hljs-comment">//wrong</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; files=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">String filename=files.get(<span class="number">0</span>);<span class="comment">// a string not an object</span></span><br><span class="line"></span><br><span class="line">files.add(<span class="keyword">new</span> File(<span class="string">"..."</span>))<span class="comment">//wrong</span></span><br></pre></td></tr></table></figure>
 <p>泛型的主要目的是创建各类容器。泛型实现了参数化的概念，使代码可应用于多种类型；</p>
 <p>使用泛型时，编译器会自动负责转型操作，保证类型的正确性，并将类型检查提前到编译时。</p>
-<h3 id="Defining-a-Simple-Generic-class"><a href="#Defining-a-Simple-Generic-class" class="headerlink" title="Defining a Simple Generic class"></a>Defining a Simple Generic class</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pair</span>&lt;<span class="hljs-title">T</span>&gt;</span>&#123;</span><br><span class="line">    T first;</span><br><span class="line">    T second;</span><br><span class="line">    Pair(T first,T second)&#123;...&#125;</span><br><span class="line">    <span class="hljs-function">T <span class="hljs-title">getFirst</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function">T <span class="hljs-title">getSecond</span><span class="hljs-params">()</span></span>&#123;&#125;</span><br><span class="line">   	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setFirst</span><span class="hljs-params">(T val)</span></span>&#123;&#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setSecond</span><span class="hljs-params">(T val)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Defining-a-Simple-Generic-class"><a href="#Defining-a-Simple-Generic-class" class="headerlink" title="Defining a Simple Generic class"></a>Defining a Simple Generic class</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    T first;</span><br><span class="line">    T second;</span><br><span class="line">    Pair(T first,T second)&#123;...&#125;</span><br><span class="line">    <span class="function">T <span class="title">getFirst</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function">T <span class="title">getSecond</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">   	<span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(T val)</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(T val)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一般 E -&gt; elem; K,V-&gt;key,value;  T,U,S -&gt;any type </p>
-<h3 id="Generic-Methods"><a href="#Generic-Methods" class="headerlink" title="Generic Methods"></a>Generic Methods</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getMiddle</span><span class="hljs-params">(T... a)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> a[a.length/<span class="hljs-number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">String middle =ArrayAlg.getMiddle(<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//Double Integer : wrong</span></span><br><span class="line"><span class="hljs-keyword">double</span> middle=ArrayAlg.getMiddle(<span class="hljs-number">3.14</span>, <span class="hljs-number">1</span> , <span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">double</span> middle=ArrayAlg.getMiddle(<span class="hljs-number">3.14</span>, <span class="hljs-number">1.0</span> , <span class="hljs-number">0.0</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Generic-Methods"><a href="#Generic-Methods" class="headerlink" title="Generic Methods"></a>Generic Methods</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getMiddle</span><span class="params">(T... a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[a.length/<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">String middle =ArrayAlg.getMiddle(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Double Integer : wrong</span></span><br><span class="line"><span class="keyword">double</span> middle=ArrayAlg.getMiddle(<span class="number">3.14</span>, <span class="number">1</span> , <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> middle=ArrayAlg.getMiddle(<span class="number">3.14</span>, <span class="number">1.0</span> , <span class="number">0.0</span>);</span><br></pre></td></tr></table></figure>
 <p>定义泛型方法时所指定的类型参数的可见性只限定在该泛型方法，就如同方法中的局部变量一样；</p>
 <p>那么，即便是泛型方法与泛型类有同名的类型参数也没关系。</p>
 <p><strong>如果使用泛型方法可以代替将整个类泛型化，那么就应该只使用泛型方法，这样可以使代码更清晰简洁。</strong>这是使用泛型方法的原因之一，另一个原因如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="hljs-comment">// error: cannot make a static reference to the non-static type T</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">staticMethod</span><span class="hljs-params">(T t)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericClass</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// error: cannot make a static reference to the non-static type T</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">staticMethod</span><span class="params">(T t)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>静态方法无法访问泛型类的类型参数。如果需要将泛型应用到静态方法上，则必须使用泛型方法。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">staticMethod</span><span class="hljs-params">(T t)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericClass</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">staticMethod</span><span class="params">(T t)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那么<strong>如果在泛型方法内部的有泛型方法，并且类型形参同名，那会发生什么</strong>？</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123;</span><br><span class="line">     <span class="hljs-comment">// ok</span></span><br><span class="line">     <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">staticMethod</span><span class="hljs-params">(T item)</span> </span>&#123; <span class="hljs-keyword">return</span> item; &#125;     </span><br><span class="line">     <span class="hljs-comment">// warning: The type parameter T is hiding the type T</span></span><br><span class="line">     <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"hiding"</span>)</span><br><span class="line">     <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">method</span><span class="hljs-params">(T item)</span> </span>&#123; <span class="hljs-keyword">return</span> item; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericClass</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">     <span class="comment">// ok</span></span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">staticMethod</span><span class="params">(T item)</span> </span>&#123; <span class="keyword">return</span> item; &#125;     </span><br><span class="line">     <span class="comment">// warning: The type parameter T is hiding the type T</span></span><br><span class="line">     <span class="meta">@SuppressWarnings</span>(<span class="string">"hiding"</span>)</span><br><span class="line">     <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">method</span><span class="params">(T item)</span> </span>&#123; <span class="keyword">return</span> item; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>静态泛型方法与泛型类都有同名的类型形参<code>T</code>，但编译器没有发出任何错误或警告。而非静态泛型方法，编译器却发出警告<code>The type parameter T is hiding the type T</code>，表示非静态泛型方法的类型形参T把泛型类的类型形参隐藏起来。静态泛型方法本身无法访问泛型类类型形参，所以不会触发隐藏现象。所以我们现在只关注可以访问泛型类类型形参的非静态泛型方法即可。</p>
 <p>我们都知道：<strong>在Java中并不能像C/C++里那样使用一个拥有较小作用域的变量将一个拥有较大作用域的同名变量隐藏起来。</strong></p>
 <p>但在Java中对于类型的处理却不是如此，请看以下代码。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> </span>&#123;  </span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-comment">// warning: The type A is hiding the type com.gtr._test.A</span></span><br><span class="line">        <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"unused"</span>)</span><br><span class="line">        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> </span>&#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;  </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// warning: The type A is hiding the type com.gtr._test.A</span></span><br><span class="line">        <span class="meta">@SuppressWarnings</span>(<span class="string">"unused"</span>)</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>方法<code>f</code>中的局部内部类<code>A</code>把外部定义的类<code>A</code>给隐藏了。所以，如果想要在<code>f</code>内部访问外部定义的<code>A</code>，只能是用类全名。</p>
 <p>类型的隐藏虽然给我们带来的只是编译器的警告，我们可以使用<code>@SuppressWarnings(&quot;hiding&quot;)</code>注解压制该警告，但是它会使得代码逻辑更加混乱，所以这种隐晦的代码我们要尽量避免，使用泛型方法时更是要如此。</p>
 <p>参考：</p>
 <p><a href="https://extremegtr.github.io/2015/09/13/JavaSE-study-basics-of-generics/" target="_blank" rel="noopener">JavaSE学习笔记 - 泛型基础</a></p>
 <h3 id="Bounds-for-Type-Var"><a href="#Bounds-for-Type-Var" class="headerlink" title="Bounds for Type Var"></a>Bounds for Type Var</h3><p>有时候，需要限制。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">min</span><span class="hljs-params">(T[] a)</span></span>&#123;</span><br><span class="line">		T smallest =a[<span class="hljs-number">0</span>];</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;a.length;i++)</span><br><span class="line">            <span class="hljs-keyword">if</span>(smallest.compareTo(a[i])&gt;<span class="hljs-number">0</span>) smallest=a[i];</span><br><span class="line">        <span class="hljs-keyword">return</span> smallest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">min</span><span class="params">(T[] a)</span></span>&#123;</span><br><span class="line">		T smallest =a[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;a.length;i++)</span><br><span class="line">            <span class="keyword">if</span>(smallest.compareTo(a[i])&gt;<span class="number">0</span>) smallest=a[i];</span><br><span class="line">        <span class="keyword">return</span> smallest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如何保证T[] a有compareTo方法呢？</p>
 <p>限制bound</p>
 <p><code>static &lt;T extends Comparable&gt; T min(T[] a){ }</code></p>
@@ -198,7 +424,7 @@
 <p>T extends Comparable &amp; Serializable</p>
 <h3 id="Genneric-code-and-the-VM"><a href="#Genneric-code-and-the-VM" class="headerlink" title="Genneric code and the VM"></a>Genneric code and the VM</h3><p>虚拟机中没有泛型类型对象，所有对象都是原始类型。</p>
 <h4 id="Type-erasure"><a href="#Type-erasure" class="headerlink" title="Type erasure"></a>Type erasure</h4><p>类型变量被它们的bounding type替换，或Object</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Interval</span> &lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Comparable</span> &amp; <span class="hljs-title">Serializable</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span></span>&#123;</span><br><span class="line">    T lower;</span><br><span class="line">    T upper;</span><br><span class="line">    ...</span><br><span class="line">    Interval(T first,T second)&#123;</span><br><span class="line">    	<span class="hljs-keyword">if</span>(first.compareTo(second)&lt;=<span class="hljs-number">0</span>) &#123;low=first; upper=second;&#125;</span><br><span class="line">        <span class="hljs-keyword">else</span>&#123;lower=second;upper=first;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//raw types</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Interval</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span></span>&#123;</span><br><span class="line">    Comparable lower;</span><br><span class="line">    Comparable upper;</span><br><span class="line">    ...</span><br><span class="line">    Interval(Comparable first,Comparable second)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Interval</span> &lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Comparable</span> &amp; <span class="title">Serializable</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    T lower;</span><br><span class="line">    T upper;</span><br><span class="line">    ...</span><br><span class="line">    Interval(T first,T second)&#123;</span><br><span class="line">    	<span class="keyword">if</span>(first.compareTo(second)&lt;=<span class="number">0</span>) &#123;low=first; upper=second;&#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;lower=second;upper=first;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//raw types</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Interval</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    Comparable lower;</span><br><span class="line">    Comparable upper;</span><br><span class="line">    ...</span><br><span class="line">    Interval(Comparable first,Comparable second)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>若以上是<code>&lt;T extends Serializable &amp; Comparable&gt;</code></p>
 <p>则raw type将T 替换为Serializable，必要时，编译器插入到Comparable的转换。</p>
 <p>因此，为了效率，将没有方法的接口放在bound list最后。</p>
@@ -211,12 +437,12 @@
 <p><code>static &lt;T extends Comparable&gt; T min(T[] a)</code></p>
 <p><code>static Comparable min(Comparable[] a)</code></p>
 <p>问题：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DateInterval</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Pair</span>&lt;<span class="hljs-title">LocalDate</span>&gt;</span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setSecond</span><span class="hljs-params">(LocalDate second)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(second.compareTo(getFirst())&gt;=<span class="hljs-number">0</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">super</span>.setSecond(second);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//after erasure</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DateInterval</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Pair</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setSecond</span><span class="hljs-params">(Object second)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setSecond</span><span class="hljs-params">(LocalDate second)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Pair&lt;LocalDate&gt; pair =<span class="hljs-keyword">new</span> DataInterval(...);</span><br><span class="line">pair.setSecond(aDate);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateInterval</span> <span class="keyword">extends</span> <span class="title">Pair</span>&lt;<span class="title">LocalDate</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(LocalDate second)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(second.compareTo(getFirst())&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">super</span>.setSecond(second);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//after erasure</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateInterval</span> <span class="keyword">extends</span> <span class="title">Pair</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Object second)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(LocalDate second)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Pair&lt;LocalDate&gt; pair =<span class="keyword">new</span> DataInterval(...);</span><br><span class="line">pair.setSecond(aDate);</span><br></pre></td></tr></table></figure>
 <p>我们期待多态调用setSecond(LocalDate second)。</p>
 <p>解决类型擦除对多态调用的干扰，编译器生成了bridge method。</p>
 <p><code>void setSecond(Object second){ setSecond((LocalDate)second) }</code></p>
 <p>get</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DateInterval</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Pair</span>&lt;<span class="hljs-title">LocalDate</span>&gt;</span>&#123;</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> LocalDate <span class="hljs-title">getSecond</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> (LocalDate) <span class="hljs-keyword">super</span>.getSecond(); &#125;</span><br><span class="line">	. . .</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateInterval</span> <span class="keyword">extends</span> <span class="title">Pair</span>&lt;<span class="title">LocalDate</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> LocalDate <span class="title">getSecond</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> (LocalDate) <span class="keyword">super</span>.getSecond(); &#125;</span><br><span class="line">	. . .</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>LocalDate getSecond() // defined in DateInterval<br>Object getSecond() // overrides the method defined in Pair to call the first method</p>
 </blockquote>
@@ -229,26 +455,26 @@
 <li>类型转换在必要时插入以保证类型安全。</li>
 </ul>
 <h3 id="Restrictions-and-Limitations"><a href="#Restrictions-and-Limitations" class="headerlink" title="Restrictions and Limitations"></a>Restrictions and Limitations</h3><h4 id="Type-params-cannot-be-instantiated-with-primative-types"><a href="#Type-params-cannot-be-instantiated-with-primative-types" class="headerlink" title="Type params cannot be instantiated with primative types"></a>Type params cannot be instantiated with primative types</h4><p>因为类型擦除。</p>
-<h4 id="Runtime-Type-Inquiry-only-works-with-raw-types"><a href="#Runtime-Type-Inquiry-only-works-with-raw-types" class="headerlink" title="Runtime Type Inquiry only works with raw types"></a>Runtime Type Inquiry only works with raw types</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Pair&lt;String&gt; stringPair=<span class="hljs-string">"..."</span></span><br><span class="line">Pair&lt;Employee&gt; employeePair=<span class="hljs-string">"..."</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//equal    </span></span><br><span class="line"><span class="hljs-keyword">if</span>(stringPair.getClass()==employeePair.getClass())</span><br></pre></td></tr></table></figure>
+<h4 id="Runtime-Type-Inquiry-only-works-with-raw-types"><a href="#Runtime-Type-Inquiry-only-works-with-raw-types" class="headerlink" title="Runtime Type Inquiry only works with raw types"></a>Runtime Type Inquiry only works with raw types</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Pair&lt;String&gt; stringPair=<span class="string">"..."</span></span><br><span class="line">Pair&lt;Employee&gt; employeePair=<span class="string">"..."</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//equal    </span></span><br><span class="line"><span class="keyword">if</span>(stringPair.getClass()==employeePair.getClass())</span><br></pre></td></tr></table></figure>
 <h4 id="Cannot-Create-Arrays-of-Parameterized-Types"><a href="#Cannot-Create-Arrays-of-Parameterized-Types" class="headerlink" title="Cannot Create Arrays of Parameterized Types"></a>Cannot Create Arrays of Parameterized Types</h4><p><code>Pair&lt;String&gt;[] table=new Pair&lt;String&gt;[10]; //error</code></p>
 <p>use </p>
 <p><code>ArrayList&lt;Pair&lt;String&gt;&gt;</code> </p>
 <p>#### </p>
 <h3 id="Inheritance-Rules-for-generic-types"><a href="#Inheritance-Rules-for-generic-types" class="headerlink" title="Inheritance Rules for generic types"></a>Inheritance Rules for generic types</h3><p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1fyeeh0fcs6j30fd0fytau.jpg" alt=""></p>
-<h3 id="Wildcard-通配符-Types"><a href="#Wildcard-通配符-Types" class="headerlink" title="Wildcard(通配符) Types"></a>Wildcard(通配符) Types</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printCollection</span><span class="hljs-params">(Collection&lt;?&gt; c)</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span>(Object e:c)&#123;</span><br><span class="line">        print(c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Wildcard-通配符-Types"><a href="#Wildcard-通配符-Types" class="headerlink" title="Wildcard(通配符) Types"></a>Wildcard(通配符) Types</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printCollection</span><span class="params">(Collection&lt;?&gt; c)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(Object e:c)&#123;</span><br><span class="line">        print(c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>collection&lt;?&gt; 是所有集合类型的超类。</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;?&gt; c=<span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">c.add(<span class="hljs-keyword">new</span> Object()); <span class="hljs-comment">//compile-time error</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;?&gt; c=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">c.add(<span class="keyword">new</span> Object()); <span class="comment">//compile-time error</span></span><br></pre></td></tr></table></figure>
 <p>以上collection&lt;?&gt;中的类型是未知的，不能添加任何类型。</p>
-<h4 id="Bounded-wildcards"><a href="#Bounded-wildcards" class="headerlink" title="Bounded wildcards"></a>Bounded wildcards</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//List&lt;Circle&gt;</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">drawAll</span><span class="hljs-params">(List&lt;? extends Shape&gt; shapes)</span></span>&#123;</span><br><span class="line">   	...</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">//compile-time error, 不能确定"?"是否为Rect的超类</span></span><br><span class="line">    shapes.add(<span class="hljs-keyword">new</span> Rect());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Bounded-wildcards"><a href="#Bounded-wildcards" class="headerlink" title="Bounded wildcards"></a>Bounded wildcards</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//List&lt;Circle&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawAll</span><span class="params">(List&lt;? extends Shape&gt; shapes)</span></span>&#123;</span><br><span class="line">   	...</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//compile-time error, 不能确定"?"是否为Rect的超类</span></span><br><span class="line">    shapes.add(<span class="keyword">new</span> Rect());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一个用例：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Census</span></span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addRegistry</span><span class="hljs-params">(Map&lt;String,? extends Person&gt;)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Map&lt;String,Driver&gt; allDrives=...</span><br><span class="line">Census.addRegistry(allDrives);</span><br></pre></td></tr></table></figure>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">writeAll</span><span class="hljs-params">(Collection&lt;T&gt; coll,Sink&lt;T&gt; sink)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Sink&lt;Object&gt; s;</span><br><span class="line">Collection&lt;String&gt; cs;</span><br><span class="line">String str=writeAll(cs,s);<span class="hljs-comment">//wrong ,T must be same</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//fix1</span></span><br><span class="line"><span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">writeAll</span><span class="hljs-params">(Collection&lt;? extends T&gt; coll,Sink&lt;T&gt; sink)</span></span>&#123;</span><br><span class="line"> 	   </span><br><span class="line">&#125;</span><br><span class="line">String str=writeAll(cs,s);<span class="hljs-comment">//return value is wrong</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//fix2</span></span><br><span class="line"><span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">writeAll</span><span class="hljs-params">(Collection&lt;T&gt; coll,Sink&lt;? <span class="hljs-keyword">super</span> T&gt; sink)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">String str=writeAll(cs,s);<span class="hljs-comment">//ok!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Census</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addRegistry</span><span class="params">(Map&lt;String,? extends Person&gt;)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Map&lt;String,Driver&gt; allDrives=...</span><br><span class="line">Census.addRegistry(allDrives);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">writeAll</span><span class="params">(Collection&lt;T&gt; coll,Sink&lt;T&gt; sink)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Sink&lt;Object&gt; s;</span><br><span class="line">Collection&lt;String&gt; cs;</span><br><span class="line">String str=writeAll(cs,s);<span class="comment">//wrong ,T must be same</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//fix1</span></span><br><span class="line"><span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">writeAll</span><span class="params">(Collection&lt;? extends T&gt; coll,Sink&lt;T&gt; sink)</span></span>&#123;</span><br><span class="line"> 	   </span><br><span class="line">&#125;</span><br><span class="line">String str=writeAll(cs,s);<span class="comment">//return value is wrong</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//fix2</span></span><br><span class="line"><span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">writeAll</span><span class="params">(Collection&lt;T&gt; coll,Sink&lt;? <span class="keyword">super</span> T&gt; sink)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">String str=writeAll(cs,s);<span class="comment">//ok!</span></span><br></pre></td></tr></table></figure>
 <p>java source examples</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TreeSet&lt;E&gt;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//constructor</span></span><br><span class="line">TreeSet(Collection&lt;E&gt; c)</span><br><span class="line">TreeSet(Collection&lt;? <span class="hljs-keyword">super</span> E&gt; c)</span><br></pre></td></tr></table></figure>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="hljs-function">T <span class="hljs-title">max</span><span class="hljs-params">(Collection&lt;T&gt; coll)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">Object</span>&gt;</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Collection&lt;Foo&gt; c;</span><br><span class="line"><span class="hljs-comment">//wrong Foo not implements Comparable&lt;Foo&gt;</span></span><br><span class="line">Foo foo=max(c);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//fix</span></span><br><span class="line"><span class="hljs-keyword">static</span> &lt;T extends Comparable&lt;? <span class="hljs-keyword">super</span> T&gt;&gt; <span class="hljs-function">T <span class="hljs-title">max</span><span class="hljs-params">(Collection&lt;T&gt; coll)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TreeSet&lt;E&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//constructor</span></span><br><span class="line">TreeSet(Collection&lt;E&gt; c)</span><br><span class="line">TreeSet(Collection&lt;? <span class="keyword">super</span> E&gt; c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="function">T <span class="title">max</span><span class="params">(Collection&lt;T&gt; coll)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Object</span>&gt;</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Collection&lt;Foo&gt; c;</span><br><span class="line"><span class="comment">//wrong Foo not implements Comparable&lt;Foo&gt;</span></span><br><span class="line">Foo foo=max(c);</span><br><span class="line"></span><br><span class="line"><span class="comment">//fix</span></span><br><span class="line"><span class="keyword">static</span> &lt;T extends Comparable&lt;? <span class="keyword">super</span> T&gt;&gt; <span class="function">T <span class="title">max</span><span class="params">(Collection&lt;T&gt; coll)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>通常来说，可用？来提高灵活性。</p>
-<h4 id="wildcard-capture"><a href="#wildcard-capture" class="headerlink" title="wildcard capture"></a>wildcard capture</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;?&gt; unknownSet=<span class="hljs-keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addToSet</span><span class="hljs-params">(Set&lt;T&gt; s,T t)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//unknownSet cannot be guaranteed to be a set of strings</span></span><br><span class="line">addToSet(unknownSet,<span class="hljs-string">"abc"</span>);<span class="hljs-comment">//wrong</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Collections</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">Set&lt;T&gt; <span class="hljs-title">unmodifiableSet</span><span class="hljs-params">(Set&lt;T&gt; set)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">Set&lt;?&gt; s = Collections.unmodifiableSet(unknownSet); <span class="hljs-comment">// This works! Why?</span></span><br></pre></td></tr></table></figure>
+<h4 id="wildcard-capture"><a href="#wildcard-capture" class="headerlink" title="wildcard capture"></a>wildcard capture</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;?&gt; unknownSet=<span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">addToSet</span><span class="params">(Set&lt;T&gt; s,T t)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//unknownSet cannot be guaranteed to be a set of strings</span></span><br><span class="line">addToSet(unknownSet,<span class="string">"abc"</span>);<span class="comment">//wrong</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Collections</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">unmodifiableSet</span><span class="params">(Set&lt;T&gt; set)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">Set&lt;?&gt; s = Collections.unmodifiableSet(unknownSet); <span class="comment">// This works! Why?</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>It seems this should not be allowed; yet, looking at this specific call, it is perfectly safe to permit it. After all, <code>unmodifiableSet()</code> does work for any kind of <code>Set</code>, regardless of its element type.</p>
 </blockquote>
@@ -334,759 +560,403 @@
 <blockquote>
 <p>after a sequence of <code>put</code>s is used to fill the <code>ByteBuffer</code>, <code>flip</code> will set the limit of the buffer to the current position and reset the position to zero</p>
 </blockquote>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CharBuffer cbuff = CharBuffer.allocate(<span class="hljs-number">40</span>);</span><br><span class="line">cbuff.put(<span class="hljs-string">"hello"</span>); </span><br><span class="line"><span class="hljs-comment">// what below two line of code is what flip does</span></span><br><span class="line">cbuff.limit(cbuff.position());</span><br><span class="line">cbuff.position(<span class="hljs-number">0</span>);      </span><br><span class="line"><span class="hljs-keyword">while</span>(cbuff.hasRemaining()) &#123;</span><br><span class="line">    System.out.println(cbuff.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CharBuffer cbuff = CharBuffer.allocate(<span class="number">40</span>);</span><br><span class="line">cbuff.put(<span class="string">"hello"</span>); </span><br><span class="line"><span class="comment">// what below two line of code is what flip does</span></span><br><span class="line">cbuff.limit(cbuff.position());</span><br><span class="line">cbuff.position(<span class="number">0</span>);      </span><br><span class="line"><span class="keyword">while</span>(cbuff.hasRemaining()) &#123;</span><br><span class="line">    System.out.println(cbuff.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h3><h4 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h4><p>对于每个对象，JVM实例化一个不可变的Class，它提供检测对象运行时属性的方法，这些属性包括了对象的成员和类型信息。Class也提供了创建新的类和对象的能力。更重要的是，它是所有Reflection API的入口。</p>
 
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/java/">java</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
+      
     </div>
-</div>
 
-
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/24/algorithm/dp/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">DP Note</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/17/bigdata/SparkStreaming/">
-                <span class="level-item">Spark Streaming base on Kafka</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-</div>
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
     
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered">
-                <div>
-                    
-                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="PIO">
-                    
-                    
-                    <p class="is-size-4 is-block">
-                        PIO
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        Master
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Wuhan</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Posts
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        15
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Categories
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        0
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Tags
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        4
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/Langzi418" target="_blank">
-                Follow</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/Langzi418">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
+
     
-        
+      
     
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Tag Cloud
-        </h3>
-        <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/bigdata/" style="font-size: 10px;">bigdata</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/python/" style="font-size: 15px;">python</a>
-    </div>
-</div>
 
     
     
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-14T12:18:43.000Z">2019-07-14</time></div>
-                    <a href="/2019/07/14/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:58:57.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/java/interview/" class="has-link-black-ter is-size-6">Java interview</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:54:57.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/java/concurrent/" class="has-link-black-ter is-size-6">Java concurrency in practice Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T10:04:57.000Z">2019-04-22</time></div>
-                    <a href="/2019/04/22/java/spring/" class="has-link-black-ter is-size-6">Spring框架的一些理解</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-10T12:56:57.000Z">2019-03-10</time></div>
-                    <a href="/2019/03/10/java/DynamicProxy/" class="has-link-black-ter is-size-6">DynamicProxy</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
+    
 
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
         
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
+          
         
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">July 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/17/bigdata/SparkStreaming/" rel="next" title="Spark Streaming base on Kafka">
+                <i class="fa fa-chevron-left"></i> Spark Streaming base on Kafka
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/24/algorithm/dp/" rel="prev" title="DP Note">
+                DP Note <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
         
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">May 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/04/">
-                <span class="level-start">
-                    <span class="level-item">April 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">March 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">December 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">November 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">October 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
         </ul>
-        </div>
-    </div>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+  <p class="site-author-name" itemprop="name">TWOME</p>
+  <div class="site-description motion-element" itemprop="description">Github Personal Website</div>
 </div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/algorithm/">
-                        <span class="tag">algorithm</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/bigdata/">
-                        <span class="tag">bigdata</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/java/">
-                        <span class="tag">java</span>
-                        <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/python/">
-                        <span class="tag">python</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-        
-        </div>
+
+
+  <nav class="site-state motion-element">
     
-</div>
-
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
     
+
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
         
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
+          
+            <a href="/tags/">
+          
         
-        <article class="media">
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
             
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-14T12:18:43.000Z">2019-07-14</time></div>
-                    <a href="/2019/07/14/algorithm/leetcode/" class="has-link-black-ter is-size-6">LeetCode Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
             
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:58:57.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/java/interview/" class="has-link-black-ter is-size-6">Java interview</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
             
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T10:54:57.000Z">2019-05-11</time></div>
-                    <a href="/2019/05/11/java/concurrent/" class="has-link-black-ter is-size-6">Java concurrency in practice Note</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
             
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T10:04:57.000Z">2019-04-22</time></div>
-                    <a href="/2019/04/22/java/spring/" class="has-link-black-ter is-size-6">Spring框架的一些理解</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-10T12:56:57.000Z">2019-03-10</time></div>
-                    <a href="/2019/03/10/java/DynamicProxy/" class="has-link-black-ter is-size-6">DynamicProxy</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
 
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Archives
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">July 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">May 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/04/">
-                <span class="level-start">
-                    <span class="level-item">April 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">March 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">February 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">December 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">November 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">October 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-Generic-progrgramming"><span class="nav-number">1.</span> <span class="nav-text">why Generic progrgramming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Params"><span class="nav-number">1.1.</span> <span class="nav-text">Type Params</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defining-a-Simple-Generic-class"><span class="nav-number">2.</span> <span class="nav-text">Defining a Simple Generic class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generic-Methods"><span class="nav-number">3.</span> <span class="nav-text">Generic Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bounds-for-Type-Var"><span class="nav-number">4.</span> <span class="nav-text">Bounds for Type Var</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Genneric-code-and-the-VM"><span class="nav-number">5.</span> <span class="nav-text">Genneric code and the VM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-erasure"><span class="nav-number">5.1.</span> <span class="nav-text">Type erasure</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Translating-Generic-Expressions"><span class="nav-number">5.2.</span> <span class="nav-text">Translating Generic Expressions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Translating-Generic-Methods"><span class="nav-number">5.3.</span> <span class="nav-text">Translating Generic Methods</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Restrictions-and-Limitations"><span class="nav-number">6.</span> <span class="nav-text">Restrictions and Limitations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-params-cannot-be-instantiated-with-primative-types"><span class="nav-number">6.1.</span> <span class="nav-text">Type params cannot be instantiated with primative types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Runtime-Type-Inquiry-only-works-with-raw-types"><span class="nav-number">6.2.</span> <span class="nav-text">Runtime Type Inquiry only works with raw types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cannot-Create-Arrays-of-Parameterized-Types"><span class="nav-number">6.3.</span> <span class="nav-text">Cannot Create Arrays of Parameterized Types</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance-Rules-for-generic-types"><span class="nav-number">7.</span> <span class="nav-text">Inheritance Rules for generic types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wildcard-通配符-Types"><span class="nav-number">8.</span> <span class="nav-text">Wildcard(通配符) Types</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bounded-wildcards"><span class="nav-number">8.1.</span> <span class="nav-text">Bounded wildcards</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wildcard-capture"><span class="nav-number">8.2.</span> <span class="nav-text">wildcard capture</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO"><span class="nav-number">9.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect"><span class="nav-number">10.</span> <span class="nav-text">Reflect</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Class"><span class="nav-number">10.1.</span> <span class="nav-text">Class</span></a></li></ol></li></ol></div>
+            
+
+          </div>
         </div>
+      <!--/noindex-->
+      
+
+      
+
     </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/algorithm/">
-                        <span class="tag">algorithm</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/bigdata/">
-                        <span class="tag">bigdata</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/java/">
-                        <span class="tag">java</span>
-                        <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/python/">
-                        <span class="tag">python</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TWOME</span>
+
+  
+
+  
 </div>
 
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/logo.svg" alt="Java Advanced" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2019 PIO&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
-                
-                <br>
-                <span id="busuanzi_container_site_uv">
-                Visited by <span id="busuanzi_value_site_uv">0</span> users
-                </span>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-Hans");</script>
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
 
 
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
-    
-    
-    <script src="/js/animation.js"></script>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
     
-    
-    
+
     
 
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+    
+
+  </div>
+
+  
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
-    
-    
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-});
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
 </script>
 
-    
-    
-
-<a id="back-to-top" title="Back to Top" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
 
 
-    
-    
-
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-    <script src="/js/clipboard.js" defer></script>
-    
-
-    
-    
-    
-
-    
 
 
-<script src="/js/main.js" defer></script>
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
+
+
+  
+
 </body>
 </html>

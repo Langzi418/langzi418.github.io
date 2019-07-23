@@ -1,101 +1,12 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html lang=zh>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
-
-
-
-
-
-
-
-
-
-
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    mediumzoom: false,
-    fastclick: false,
-    lazyload: false,
-    pangu: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    }
-  };
-</script>
-
-  <meta name="description" content="python数据模型如何创建符合python风格的类？">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="python数据模型如何创建符合python风格的类？">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FluentPy Note（1）">
@@ -111,285 +22,136 @@
 <meta name="twitter:title" content="FluentPy Note（1）">
 <meta name="twitter:description" content="python数据模型如何创建符合python风格的类？">
 <meta name="twitter:image" content="https://i.loli.net/2018/10/28/5bd5a17fdbf0a.png">
-
-
-
-
-
-  
-  
-  <link rel="canonical" href="http://yoursite.com/2018/11/02/python/fluentpy/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  
-  <title>FluentPy Note（1） | TWOME</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>FluentPy Note（1）</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
+<body class="max-width mx-auto px3 ltr">
     
-  
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/11/02/python/fluentpy2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/10/16/java/java/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/11/02/python/fluentpy/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/11/02/python/fluentpy/&text=FluentPy Note（1）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/11/02/python/fluentpy/&is_video=false&description=FluentPy Note（1）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=FluentPy Note（1）&body=Check out this article: http://yoursite.com/2018/11/02/python/fluentpy/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/11/02/python/fluentpy/&name=FluentPy Note（1）&description=&lt;h3 id=&#34;python数据模型&#34;&gt;&lt;a href=&#34;#python数据模型&#34; class=&#34;headerlink&#34; title=&#34;python数据模型&#34;&gt;&lt;/a&gt;python数据模型&lt;/h3&gt;&lt;h4 id=&#34;如何创建符合python风格的类？&#34;&gt;&lt;a href=&#34;#如何创建符合python风格的类？&#34; class=&#34;headerlink&#34; title=&#34;如何创建符合python风格的类？&#34;&gt;&lt;/a&gt;如何创建符合python风格的类？&lt;/h4&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">TWOME</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
     </div>
-    
-      
-        <p class="site-subtitle">Blog</p>
-      
-    
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python数据模型"><span class="toc-number">1.</span> <span class="toc-text">python数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何创建符合python风格的类？"><span class="toc-number">1.1.</span> <span class="toc-text">如何创建符合python风格的类？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何使用特殊方法"><span class="toc-number">1.2.</span> <span class="toc-text">如何使用特殊方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串表现形式"><span class="toc-number">1.3.</span> <span class="toc-text">字符串表现形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义布尔值"><span class="toc-number">1.4.</span> <span class="toc-text">自定义布尔值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python中为False"><span class="toc-number">1.5.</span> <span class="toc-text">python中为False</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python特殊方法"><span class="toc-number">1.6.</span> <span class="toc-text">python特殊方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-number">2.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#python序列类型"><span class="toc-number">2.1.</span> <span class="toc-text">python序列类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表推导"><span class="toc-number">2.2.</span> <span class="toc-text">列表推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成器表达式"><span class="toc-number">2.3.</span> <span class="toc-text">生成器表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元组"><span class="toc-number">2.4.</span> <span class="toc-text">元组</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元组拆包"><span class="toc-number">2.4.1.</span> <span class="toc-text">元组拆包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#具名元组"><span class="toc-number">2.4.2.</span> <span class="toc-text">具名元组</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切片"><span class="toc-number">2.5.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对序列使用-和"><span class="toc-number">2.6.</span> <span class="toc-text">对序列使用+和*</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#序列的增量赋值"><span class="toc-number">2.7.</span> <span class="toc-text">序列的增量赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list-sort-和内置的sorted"><span class="toc-number">2.8.</span> <span class="toc-text">list.sort()和内置的sorted()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#当列表不是首选时"><span class="toc-number">2.9.</span> <span class="toc-text">当列表不是首选时</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数组"><span class="toc-number">2.9.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#双向队列和其他形式队列"><span class="toc-number">2.9.2.</span> <span class="toc-text">双向队列和其他形式队列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典和集合"><span class="toc-number">3.</span> <span class="toc-text">字典和集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#泛映射类型"><span class="toc-number">3.1.</span> <span class="toc-text">泛映射类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#字典构造"><span class="toc-number">3.1.1.</span> <span class="toc-text">字典构造</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字典推导"><span class="toc-number">3.1.2.</span> <span class="toc-text">字典推导</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用setdefault处理找不到的键"><span class="toc-number">3.1.3.</span> <span class="toc-text">用setdefault处理找不到的键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#映射的弹性键查询"><span class="toc-number">3.1.4.</span> <span class="toc-text">映射的弹性键查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#特殊方法-missing"><span class="toc-number">3.1.5.</span> <span class="toc-text">特殊方法__missing__</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字典的变种"><span class="toc-number">3.1.6.</span> <span class="toc-text">字典的变种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不可变映射类型"><span class="toc-number">3.1.7.</span> <span class="toc-text">不可变映射类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#集合论"><span class="toc-number">3.2.</span> <span class="toc-text">集合论</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#集合字面量"><span class="toc-number">3.2.1.</span> <span class="toc-text">集合字面量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dict与散列表"><span class="toc-number">3.2.2.</span> <span class="toc-text">dict与散列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#set与散列表"><span class="toc-number">3.2.3.</span> <span class="toc-text">set与散列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一等函数"><span class="toc-number">4.</span> <span class="toc-text">一等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#高阶函数"><span class="toc-number">4.1.</span> <span class="toc-text">高阶函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可调用对象"><span class="toc-number">4.2.</span> <span class="toc-text">可调用对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从定位参数到仅限关键字参数"><span class="toc-number">4.3.</span> <span class="toc-text">从定位参数到仅限关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内省：获取关于参数的信息"><span class="toc-number">4.4.</span> <span class="toc-text">内省：获取关于参数的信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#支持函数式编程的包"><span class="toc-number">4.5.</span> <span class="toc-text">支持函数式编程的包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#functools-partial冻结参数"><span class="toc-number">4.5.1.</span> <span class="toc-text">functools.partial冻结参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用函数实现设计模式"><span class="toc-number">5.</span> <span class="toc-text">使用函数实现设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#策略模式"><span class="toc-number">5.1.</span> <span class="toc-text">策略模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数装饰器和闭包"><span class="toc-number">6.</span> <span class="toc-text">函数装饰器和闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python在何时执行装饰器？"><span class="toc-number">6.1.</span> <span class="toc-text">Python在何时执行装饰器？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用装饰器改进策略模式"><span class="toc-number">6.2.</span> <span class="toc-text">使用装饰器改进策略模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量作用域规则"><span class="toc-number">6.3.</span> <span class="toc-text">变量作用域规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包"><span class="toc-number">6.4.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nonlocal声明"><span class="toc-number">6.5.</span> <span class="toc-text">nonlocal声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一个简单的装饰器"><span class="toc-number">6.6.</span> <span class="toc-text">实现一个简单的装饰器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#functools-lru-cache做备忘"><span class="toc-number">6.6.1.</span> <span class="toc-text">functools.lru_cache做备忘</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#functools-singledispatch-装饰器"><span class="toc-number">6.6.2.</span> <span class="toc-text">functools.singledispatch 装饰器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参数化装饰器"><span class="toc-number">6.7.</span> <span class="toc-text">参数化装饰器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象引用、可变性和垃圾回收"><span class="toc-number">7.</span> <span class="toc-text">对象引用、可变性和垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#元组的相对不可变性"><span class="toc-number">7.1.</span> <span class="toc-text">元组的相对不可变性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认做浅复制"><span class="toc-number">7.2.</span> <span class="toc-text">默认做浅复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数的参数作为引用时"><span class="toc-number">7.3.</span> <span class="toc-text">函数的参数作为引用时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#防御可变参数"><span class="toc-number">7.4.</span> <span class="toc-text">防御可变参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#del和垃圾回收"><span class="toc-number">7.5.</span> <span class="toc-text">del和垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#符合Python风格的对象"><span class="toc-number">8.</span> <span class="toc-text">符合Python风格的对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#classmethod与staticmethod"><span class="toc-number">8.1.</span> <span class="toc-text">classmethod与staticmethod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化显示"><span class="toc-number">8.2.</span> <span class="toc-text">格式化显示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python的私有属性和“受保护的”属性"><span class="toc-number">8.3.</span> <span class="toc-text">Python的私有属性和“受保护的”属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖类属性"><span class="toc-number">8.4.</span> <span class="toc-text">覆盖类属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列的修改、散列、切片"><span class="toc-number">9.</span> <span class="toc-text">序列的修改、散列、切片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#切片原理"><span class="toc-number">9.1.</span> <span class="toc-text">切片原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip函数"><span class="toc-number">9.1.1.</span> <span class="toc-text">zip函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象基类"><span class="toc-number">10.</span> <span class="toc-text">抽象基类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准库中的抽象基类"><span class="toc-number">10.1.</span> <span class="toc-text">标准库中的抽象基类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义抽象基类"><span class="toc-number">10.2.</span> <span class="toc-text">自定义抽象基类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟子类"><span class="toc-number">10.3.</span> <span class="toc-text">虚拟子类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承的优缺点"><span class="toc-number">11.</span> <span class="toc-text">继承的优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符重载"><span class="toc-number">12.</span> <span class="toc-text">运算符重载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一元运算符"><span class="toc-number">12.1.</span> <span class="toc-text">一元运算符</span></a></li></ol></li></ol>
+    </div>
+  </span>
 </div>
 
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        FluentPy Note（1）
+    </h1>
 
 
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">TWOME</span>
+      </span>
       
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
+    <div class="postdate">
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
-
-  </li>
+        <time datetime="2018-11-02T08:54:43.000Z" itemprop="datePublished">2018-11-02</time>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
       
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
-
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
-</nav>
+    </div>
 
 
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/python/fluentpy/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TWOME"/>
-      <meta itemprop="description" content="Github Personal Website"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TWOME"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">FluentPy Note（1）
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-02 16:54:43" itemprop="dateCreated datePublished" datetime="2018-11-02T16:54:43+08:00">2018-11-02</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-11-12 19:33:52" itemprop="dateModified" datetime="2018-11-12T19:33:52+08:00">2018-11-12</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        <h3 id="python数据模型"><a href="#python数据模型" class="headerlink" title="python数据模型"></a>python数据模型</h3><h4 id="如何创建符合python风格的类？"><a href="#如何创建符合python风格的类？" class="headerlink" title="如何创建符合python风格的类？"></a>如何创建符合python风格的类？</h4><a id="more"></a>
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/python/">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="python数据模型"><a href="#python数据模型" class="headerlink" title="python数据模型"></a>python数据模型</h3><h4 id="如何创建符合python风格的类？"><a href="#如何创建符合python风格的类？" class="headerlink" title="如何创建符合python风格的类？"></a>如何创建符合python风格的类？</h4><a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Card = collections.namedtuple(<span class="string">'Card'</span>, [<span class="string">'rank'</span>, <span class="string">'suit'</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FrenchDeck</span>:</span></span><br><span class="line">    <span class="string">"""扑克牌类"""</span></span><br><span class="line"></span><br><span class="line">    ranks = [str(n) <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">11</span>)] + list(<span class="string">'JQKA'</span>)</span><br><span class="line">    suits = <span class="string">'spades diamonds clubs hearts'</span>.split()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._cards = [Card(rank, suit) <span class="keyword">for</span> suit <span class="keyword">in</span> self.suits</span><br><span class="line">                      <span class="keyword">for</span> rank <span class="keyword">in</span> self.ranks]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._cards)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, position)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._cards[position]</span><br></pre></td></tr></table></figure>
 <p>因<code>__getitem__</code>方法把 <strong>[ ]</strong> 操作交给self._cards列表，故FrenchDeck自动支持切片。</p>
 <p>实现<code>__getitem__</code>方法，这个类就变成可迭代的；实现<code>__len__</code>，则可调用<code>len()</code></p>
@@ -691,400 +453,98 @@
 <h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><h4 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h4><p><code>- (__neg__)</code> 、<code>+ (__pos__)</code>、 <code>~(__invert__)</code></p>
 <p>支持一元运算符很简单，只需实现相应的特殊方法。这些特殊方法只有一个参数，self。运算符一个基本规则：始终返回一个新对象。也就是说，不能修改self，要创建并返回合适类型的新实例。</p>
 
-      
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/">Projects</a></li>
+        
+      </ul>
     </div>
 
-    
-
-    
-      
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/10/16/java/java/" rel="next" title="JavaReview">
-                <i class="fa fa-chevron-left"></i> JavaReview
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/02/python/fluentpy2/" rel="prev" title="FluentPy Note（2）">
-                FluentPy Note（2） <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#python数据模型"><span class="toc-number">1.</span> <span class="toc-text">python数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何创建符合python风格的类？"><span class="toc-number">1.1.</span> <span class="toc-text">如何创建符合python风格的类？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何使用特殊方法"><span class="toc-number">1.2.</span> <span class="toc-text">如何使用特殊方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串表现形式"><span class="toc-number">1.3.</span> <span class="toc-text">字符串表现形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义布尔值"><span class="toc-number">1.4.</span> <span class="toc-text">自定义布尔值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python中为False"><span class="toc-number">1.5.</span> <span class="toc-text">python中为False</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#python特殊方法"><span class="toc-number">1.6.</span> <span class="toc-text">python特殊方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构"><span class="toc-number">2.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#python序列类型"><span class="toc-number">2.1.</span> <span class="toc-text">python序列类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表推导"><span class="toc-number">2.2.</span> <span class="toc-text">列表推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成器表达式"><span class="toc-number">2.3.</span> <span class="toc-text">生成器表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元组"><span class="toc-number">2.4.</span> <span class="toc-text">元组</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#元组拆包"><span class="toc-number">2.4.1.</span> <span class="toc-text">元组拆包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#具名元组"><span class="toc-number">2.4.2.</span> <span class="toc-text">具名元组</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切片"><span class="toc-number">2.5.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对序列使用-和"><span class="toc-number">2.6.</span> <span class="toc-text">对序列使用+和*</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#序列的增量赋值"><span class="toc-number">2.7.</span> <span class="toc-text">序列的增量赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list-sort-和内置的sorted"><span class="toc-number">2.8.</span> <span class="toc-text">list.sort()和内置的sorted()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#当列表不是首选时"><span class="toc-number">2.9.</span> <span class="toc-text">当列表不是首选时</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数组"><span class="toc-number">2.9.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#双向队列和其他形式队列"><span class="toc-number">2.9.2.</span> <span class="toc-text">双向队列和其他形式队列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字典和集合"><span class="toc-number">3.</span> <span class="toc-text">字典和集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#泛映射类型"><span class="toc-number">3.1.</span> <span class="toc-text">泛映射类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#字典构造"><span class="toc-number">3.1.1.</span> <span class="toc-text">字典构造</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字典推导"><span class="toc-number">3.1.2.</span> <span class="toc-text">字典推导</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#用setdefault处理找不到的键"><span class="toc-number">3.1.3.</span> <span class="toc-text">用setdefault处理找不到的键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#映射的弹性键查询"><span class="toc-number">3.1.4.</span> <span class="toc-text">映射的弹性键查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#特殊方法-missing"><span class="toc-number">3.1.5.</span> <span class="toc-text">特殊方法__missing__</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字典的变种"><span class="toc-number">3.1.6.</span> <span class="toc-text">字典的变种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不可变映射类型"><span class="toc-number">3.1.7.</span> <span class="toc-text">不可变映射类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#集合论"><span class="toc-number">3.2.</span> <span class="toc-text">集合论</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#集合字面量"><span class="toc-number">3.2.1.</span> <span class="toc-text">集合字面量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dict与散列表"><span class="toc-number">3.2.2.</span> <span class="toc-text">dict与散列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#set与散列表"><span class="toc-number">3.2.3.</span> <span class="toc-text">set与散列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一等函数"><span class="toc-number">4.</span> <span class="toc-text">一等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#高阶函数"><span class="toc-number">4.1.</span> <span class="toc-text">高阶函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可调用对象"><span class="toc-number">4.2.</span> <span class="toc-text">可调用对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从定位参数到仅限关键字参数"><span class="toc-number">4.3.</span> <span class="toc-text">从定位参数到仅限关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内省：获取关于参数的信息"><span class="toc-number">4.4.</span> <span class="toc-text">内省：获取关于参数的信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#支持函数式编程的包"><span class="toc-number">4.5.</span> <span class="toc-text">支持函数式编程的包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#functools-partial冻结参数"><span class="toc-number">4.5.1.</span> <span class="toc-text">functools.partial冻结参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用函数实现设计模式"><span class="toc-number">5.</span> <span class="toc-text">使用函数实现设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#策略模式"><span class="toc-number">5.1.</span> <span class="toc-text">策略模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数装饰器和闭包"><span class="toc-number">6.</span> <span class="toc-text">函数装饰器和闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python在何时执行装饰器？"><span class="toc-number">6.1.</span> <span class="toc-text">Python在何时执行装饰器？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用装饰器改进策略模式"><span class="toc-number">6.2.</span> <span class="toc-text">使用装饰器改进策略模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量作用域规则"><span class="toc-number">6.3.</span> <span class="toc-text">变量作用域规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包"><span class="toc-number">6.4.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nonlocal声明"><span class="toc-number">6.5.</span> <span class="toc-text">nonlocal声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一个简单的装饰器"><span class="toc-number">6.6.</span> <span class="toc-text">实现一个简单的装饰器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#functools-lru-cache做备忘"><span class="toc-number">6.6.1.</span> <span class="toc-text">functools.lru_cache做备忘</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#functools-singledispatch-装饰器"><span class="toc-number">6.6.2.</span> <span class="toc-text">functools.singledispatch 装饰器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参数化装饰器"><span class="toc-number">6.7.</span> <span class="toc-text">参数化装饰器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象引用、可变性和垃圾回收"><span class="toc-number">7.</span> <span class="toc-text">对象引用、可变性和垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#元组的相对不可变性"><span class="toc-number">7.1.</span> <span class="toc-text">元组的相对不可变性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认做浅复制"><span class="toc-number">7.2.</span> <span class="toc-text">默认做浅复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数的参数作为引用时"><span class="toc-number">7.3.</span> <span class="toc-text">函数的参数作为引用时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#防御可变参数"><span class="toc-number">7.4.</span> <span class="toc-text">防御可变参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#del和垃圾回收"><span class="toc-number">7.5.</span> <span class="toc-text">del和垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#符合Python风格的对象"><span class="toc-number">8.</span> <span class="toc-text">符合Python风格的对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#classmethod与staticmethod"><span class="toc-number">8.1.</span> <span class="toc-text">classmethod与staticmethod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化显示"><span class="toc-number">8.2.</span> <span class="toc-text">格式化显示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python的私有属性和“受保护的”属性"><span class="toc-number">8.3.</span> <span class="toc-text">Python的私有属性和“受保护的”属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖类属性"><span class="toc-number">8.4.</span> <span class="toc-text">覆盖类属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列的修改、散列、切片"><span class="toc-number">9.</span> <span class="toc-text">序列的修改、散列、切片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#切片原理"><span class="toc-number">9.1.</span> <span class="toc-text">切片原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#zip函数"><span class="toc-number">9.1.1.</span> <span class="toc-text">zip函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象基类"><span class="toc-number">10.</span> <span class="toc-text">抽象基类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准库中的抽象基类"><span class="toc-number">10.1.</span> <span class="toc-text">标准库中的抽象基类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义抽象基类"><span class="toc-number">10.2.</span> <span class="toc-text">自定义抽象基类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟子类"><span class="toc-number">10.3.</span> <span class="toc-text">虚拟子类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承的优缺点"><span class="toc-number">11.</span> <span class="toc-text">继承的优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符重载"><span class="toc-number">12.</span> <span class="toc-text">运算符重载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一元运算符"><span class="toc-number">12.1.</span> <span class="toc-text">一元运算符</span></a></li></ol></li></ol>
     </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/11/02/python/fluentpy/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/11/02/python/fluentpy/&text=FluentPy Note（1）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/11/02/python/fluentpy/&is_video=false&description=FluentPy Note（1）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=FluentPy Note（1）&body=Check out this article: http://yoursite.com/2018/11/02/python/fluentpy/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/11/02/python/fluentpy/&title=FluentPy Note（1）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/11/02/python/fluentpy/&name=FluentPy Note（1）&description=&lt;h3 id=&#34;python数据模型&#34;&gt;&lt;a href=&#34;#python数据模型&#34; class=&#34;headerlink&#34; title=&#34;python数据模型&#34;&gt;&lt;/a&gt;python数据模型&lt;/h3&gt;&lt;h4 id=&#34;如何创建符合python风格的类？&#34;&gt;&lt;a href=&#34;#如何创建符合python风格的类？&#34; class=&#34;headerlink&#34; title=&#34;如何创建符合python风格的类？&#34;&gt;&lt;/a&gt;如何创建符合python风格的类？&lt;/h4&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  
-  <p class="site-author-name" itemprop="name">TWOME</p>
-  <div class="site-description motion-element" itemprop="description">Github Personal Website</div>
 </div>
 
-
-  <nav class="site-state motion-element">
-    
-      <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 TWOME
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/">Projects</a></li>
         
-          <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-    
-
-    
-
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
-      </div>
-    
-  </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-          
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python数据模型"><span class="nav-number">1.</span> <span class="nav-text">python数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何创建符合python风格的类？"><span class="nav-number">1.1.</span> <span class="nav-text">如何创建符合python风格的类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用特殊方法"><span class="nav-number">1.2.</span> <span class="nav-text">如何使用特殊方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串表现形式"><span class="nav-number">1.3.</span> <span class="nav-text">字符串表现形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义布尔值"><span class="nav-number">1.4.</span> <span class="nav-text">自定义布尔值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python中为False"><span class="nav-number">1.5.</span> <span class="nav-text">python中为False</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python特殊方法"><span class="nav-number">1.6.</span> <span class="nav-text">python特殊方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python序列类型"><span class="nav-number">2.1.</span> <span class="nav-text">python序列类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表推导"><span class="nav-number">2.2.</span> <span class="nav-text">列表推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器表达式"><span class="nav-number">2.3.</span> <span class="nav-text">生成器表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元组"><span class="nav-number">2.4.</span> <span class="nav-text">元组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#元组拆包"><span class="nav-number">2.4.1.</span> <span class="nav-text">元组拆包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#具名元组"><span class="nav-number">2.4.2.</span> <span class="nav-text">具名元组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切片"><span class="nav-number">2.5.</span> <span class="nav-text">切片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对序列使用-和"><span class="nav-number">2.6.</span> <span class="nav-text">对序列使用+和*</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列的增量赋值"><span class="nav-number">2.7.</span> <span class="nav-text">序列的增量赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-sort-和内置的sorted"><span class="nav-number">2.8.</span> <span class="nav-text">list.sort()和内置的sorted()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当列表不是首选时"><span class="nav-number">2.9.</span> <span class="nav-text">当列表不是首选时</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组"><span class="nav-number">2.9.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双向队列和其他形式队列"><span class="nav-number">2.9.2.</span> <span class="nav-text">双向队列和其他形式队列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典和集合"><span class="nav-number">3.</span> <span class="nav-text">字典和集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#泛映射类型"><span class="nav-number">3.1.</span> <span class="nav-text">泛映射类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字典构造"><span class="nav-number">3.1.1.</span> <span class="nav-text">字典构造</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典推导"><span class="nav-number">3.1.2.</span> <span class="nav-text">字典推导</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用setdefault处理找不到的键"><span class="nav-number">3.1.3.</span> <span class="nav-text">用setdefault处理找不到的键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射的弹性键查询"><span class="nav-number">3.1.4.</span> <span class="nav-text">映射的弹性键查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊方法-missing"><span class="nav-number">3.1.5.</span> <span class="nav-text">特殊方法__missing__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典的变种"><span class="nav-number">3.1.6.</span> <span class="nav-text">字典的变种</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不可变映射类型"><span class="nav-number">3.1.7.</span> <span class="nav-text">不可变映射类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集合论"><span class="nav-number">3.2.</span> <span class="nav-text">集合论</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#集合字面量"><span class="nav-number">3.2.1.</span> <span class="nav-text">集合字面量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dict与散列表"><span class="nav-number">3.2.2.</span> <span class="nav-text">dict与散列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#set与散列表"><span class="nav-number">3.2.3.</span> <span class="nav-text">set与散列表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一等函数"><span class="nav-number">4.</span> <span class="nav-text">一等函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶函数"><span class="nav-number">4.1.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可调用对象"><span class="nav-number">4.2.</span> <span class="nav-text">可调用对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从定位参数到仅限关键字参数"><span class="nav-number">4.3.</span> <span class="nav-text">从定位参数到仅限关键字参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内省：获取关于参数的信息"><span class="nav-number">4.4.</span> <span class="nav-text">内省：获取关于参数的信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持函数式编程的包"><span class="nav-number">4.5.</span> <span class="nav-text">支持函数式编程的包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#functools-partial冻结参数"><span class="nav-number">4.5.1.</span> <span class="nav-text">functools.partial冻结参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用函数实现设计模式"><span class="nav-number">5.</span> <span class="nav-text">使用函数实现设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式"><span class="nav-number">5.1.</span> <span class="nav-text">策略模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数装饰器和闭包"><span class="nav-number">6.</span> <span class="nav-text">函数装饰器和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python在何时执行装饰器？"><span class="nav-number">6.1.</span> <span class="nav-text">Python在何时执行装饰器？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用装饰器改进策略模式"><span class="nav-number">6.2.</span> <span class="nav-text">使用装饰器改进策略模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量作用域规则"><span class="nav-number">6.3.</span> <span class="nav-text">变量作用域规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">6.4.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nonlocal声明"><span class="nav-number">6.5.</span> <span class="nav-text">nonlocal声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现一个简单的装饰器"><span class="nav-number">6.6.</span> <span class="nav-text">实现一个简单的装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#functools-lru-cache做备忘"><span class="nav-number">6.6.1.</span> <span class="nav-text">functools.lru_cache做备忘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#functools-singledispatch-装饰器"><span class="nav-number">6.6.2.</span> <span class="nav-text">functools.singledispatch 装饰器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数化装饰器"><span class="nav-number">6.7.</span> <span class="nav-text">参数化装饰器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象引用、可变性和垃圾回收"><span class="nav-number">7.</span> <span class="nav-text">对象引用、可变性和垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元组的相对不可变性"><span class="nav-number">7.1.</span> <span class="nav-text">元组的相对不可变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认做浅复制"><span class="nav-number">7.2.</span> <span class="nav-text">默认做浅复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的参数作为引用时"><span class="nav-number">7.3.</span> <span class="nav-text">函数的参数作为引用时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防御可变参数"><span class="nav-number">7.4.</span> <span class="nav-text">防御可变参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#del和垃圾回收"><span class="nav-number">7.5.</span> <span class="nav-text">del和垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符合Python风格的对象"><span class="nav-number">8.</span> <span class="nav-text">符合Python风格的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#classmethod与staticmethod"><span class="nav-number">8.1.</span> <span class="nav-text">classmethod与staticmethod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化显示"><span class="nav-number">8.2.</span> <span class="nav-text">格式化显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python的私有属性和“受保护的”属性"><span class="nav-number">8.3.</span> <span class="nav-text">Python的私有属性和“受保护的”属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖类属性"><span class="nav-number">8.4.</span> <span class="nav-text">覆盖类属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列的修改、散列、切片"><span class="nav-number">9.</span> <span class="nav-text">序列的修改、散列、切片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切片原理"><span class="nav-number">9.1.</span> <span class="nav-text">切片原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#zip函数"><span class="nav-number">9.1.1.</span> <span class="nav-text">zip函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象基类"><span class="nav-number">10.</span> <span class="nav-text">抽象基类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标准库中的抽象基类"><span class="nav-number">10.1.</span> <span class="nav-text">标准库中的抽象基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义抽象基类"><span class="nav-number">10.2.</span> <span class="nav-text">自定义抽象基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟子类"><span class="nav-number">10.3.</span> <span class="nav-text">虚拟子类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的优缺点"><span class="nav-number">11.</span> <span class="nav-text">继承的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符重载"><span class="nav-number">12.</span> <span class="nav-text">运算符重载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一元运算符"><span class="nav-number">12.1.</span> <span class="nav-text">一元运算符</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
+      </ul>
+    </nav>
+  </div>
+</footer>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
 
-        
-      </div>
-    </main>
+<!-- Google Analytics -->
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">TWOME</span>
+<!-- Baidu Analytics -->
 
-  
+<!-- Disqus Comments -->
 
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
-
-window.addEventListener("message", function(e) {
-  var data = e.data;
-  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
-    var featureID = data.split(':')[1];
-    var height = data.split(':')[2];
-    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
-  }
-}, false);
-</script>
-
-
-
-
-
-
-
-
-  
 
 </body>
 </html>

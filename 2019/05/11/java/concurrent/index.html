@@ -14,12 +14,12 @@
 <meta property="og:site_name" content="TWOME">
 <meta property="og:description" content="Java concurrency in practice Notestate（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。 线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。 为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。 实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatile、">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1g1g6m5tzapj30ra08j0so.jpg">
-<meta property="og:updated_time" content="2019-07-23T02:35:55.107Z">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d370234093f059143.jpg">
+<meta property="og:updated_time" content="2019-07-23T12:49:02.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java concurrency in practice Note">
 <meta name="twitter:description" content="Java concurrency in practice Notestate（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。 线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。 为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。 实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatile、">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1g1g6m5tzapj30ra08j0so.jpg">
+<meta name="twitter:image" content="https://i.loli.net/2019/07/23/5d370234093f059143.jpg">
     
     
         
@@ -169,7 +169,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"> 	<span class="keyword">private</span> <span class="keyword">long</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getCount</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>++count不是原子性的，即它是可拆分的：先读数据，再加，再写数据，该操作可以定义为“<strong>read-modify-write</strong>”</p>
 <p>那么就可能不安全，如下</p>
-<p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1g1g6m5tzapj30ra08j0so.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/23/5d370234093f059143.jpg" alt=""></p>
 <p>“<strong>check-then-act</strong>”</p>
 <p>三步 ： instance==null  -&gt;   new Object()  -&gt;   instance=new Obejct()</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object instance=<span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance==<span class="keyword">null</span>)</span><br><span class="line">            instance=<span class="keyword">new</span> Object();</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

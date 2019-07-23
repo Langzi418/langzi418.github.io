@@ -7,23 +7,23 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。  非阻塞型IO进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据">
-<meta name="keywords" content="Blog">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TWOME">
+<meta property="og:title" content="IO模型">
 <meta property="og:url" content="http://yoursite.com/2019/07/23/java/io/index.html">
 <meta property="og:site_name" content="TWOME">
 <meta property="og:description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。  非阻塞型IO进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytly1g59v5iss65j30gr08aq42.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytly1g59vdcmqfpj30id09340q.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytly1g59vgjfiq7j30ik09k760.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytly1g59vmtr75rj30ip08p0uv.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytly1g59vpg1wojj30ib09zwfu.jpg">
-<meta property="og:updated_time" content="2019-07-23T09:01:38.816Z">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d3702cf65c1d56328.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d3702fa6c1c325944.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d3703661b17965565.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d370389dfb7312885.jpg">
+<meta property="og:updated_time" content="2019-07-23T12:54:47.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TWOME">
+<meta name="twitter:title" content="IO模型">
 <meta name="twitter:description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。  非阻塞型IO进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005wR1ytly1g59v5iss65j30gr08aq42.jpg">
+<meta name="twitter:image" content="https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg">
     
     
         
@@ -43,7 +43,7 @@
         
     
     <!-- title -->
-    <title>TWOME</title>
+    <title>IO模型</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -94,15 +94,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/07/23/java/io/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/07/23/java/io/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/07/23/java/io/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2019/07/23/java/io/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/07/23/java/io/&text=IO模型"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/07/23/java/io/&is_video=false&description=IO模型"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=IO模型&body=Check out this article: http://yoursite.com/2019/07/23/java/io/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=IO模型&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -119,7 +119,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        
+        IO模型
     </h1>
 
 
@@ -140,6 +140,11 @@
       
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
 
     </div>
   </header>
@@ -147,27 +152,27 @@
 
   <div class="content" itemprop="articleBody">
     <h2 id="五种IO模型"><a href="#五种IO模型" class="headerlink" title="五种IO模型"></a>五种IO模型</h2><h3 id="阻塞型IO"><a href="#阻塞型IO" class="headerlink" title="阻塞型IO"></a>阻塞型IO</h3><p>最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005wR1ytly1g59v5iss65j30gr08aq42.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg" alt=""></p>
 <blockquote>
 <p>应用进程通过系统调用 <code>recvfrom</code> 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，<code>recvfrom</code> 完成数据报复制工作，应用进程才能结束阻塞状态。</p>
 </blockquote>
 <h3 id="非阻塞型IO"><a href="#非阻塞型IO" class="headerlink" title="非阻塞型IO"></a>非阻塞型IO</h3><p>进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据已经准备好，则把数据拷贝到用户空间。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005wR1ytly1g59vdcmqfpj30id09340q.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/23/5d3702cf65c1d56328.jpg" alt=""></p>
 <blockquote>
 <p>应用进程通过 <code>recvfrom</code> 调用不停的去和内核交互，直到内核准备好数据。如果没有准备好，内核会返回<code>error</code>，应用进程在得到<code>error</code>后，过一段时间再发送<code>recvfrom</code>请求。在两次发送请求的时间段，进程可以先做别的事情。</p>
 </blockquote>
-<h3 id="信号驱动IO"><a href="#信号驱动IO" class="headerlink" title="信号驱动IO"></a>信号驱动IO</h3><p><img src="https://ws1.sinaimg.cn/large/005wR1ytly1g59vgjfiq7j30ik09k760.jpg" alt=""></p>
+<h3 id="信号驱动IO"><a href="#信号驱动IO" class="headerlink" title="信号驱动IO"></a>信号驱动IO</h3><p><img src="https://i.loli.net/2019/07/23/5d3702fa6c1c325944.jpg" alt=""></p>
 <blockquote>
 <p>应用进程预先向内核注册一个信号处理函数，然后用户进程返回，并且不阻塞，当内核数据准备就绪时会发送一个信号给进程，用户进程便在信号处理函数中开始把数据拷贝的用户空间中。</p>
 </blockquote>
 <h3 id="IO多路复用模型"><a href="#IO多路复用模型" class="headerlink" title="IO多路复用模型"></a>IO多路复用模型</h3><p>多个进程的IO可注册到一个管道上，统一通过这个管道和内核进行交互。当管道中的某一个请求需要的数据准备好之后，进程再把对应的数据拷贝到用户空间。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005wR1ytly1g59vmtr75rj30ip08p0uv.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/23/5d3703661b17965565.jpg" alt=""></p>
 <blockquote>
 <p>IO多路转接是多了一个<code>select</code>函数，多个进程的IO可以注册到同一个<code>select</code>上，当用户进程调用该<code>select</code>，<code>select</code>会监听所有注册好的IO，如果所有被监听的IO需要的数据都没有准备好时，<code>select</code>调用进程会阻塞。当任意一个IO所需的数据准备好之后，<code>select</code>调用就会返回，然后进程在通过<code>recvfrom</code>来进行数据拷贝。</p>
 <p><strong>这里的IO复用模型，并没有向内核注册信号处理函数，所以，他并不是非阻塞的。</strong>进程在发出<code>select</code>后，要等到<code>select</code>监听的所有IO操作中至少有一个需要的数据准备好，才会有返回，并且也需要再次发送请求去进行文件的拷贝。</p>
 </blockquote>
 <p>以上均为不是异步IO。</p>
-<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><p><img src="https://ws1.sinaimg.cn/large/005wR1ytly1g59vpg1wojj30ib09zwfu.jpg" alt=""></p>
+<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><p><img src="https://i.loli.net/2019/07/23/5d370389dfb7312885.jpg" alt=""></p>
 
   </div>
 </article>
@@ -199,15 +204,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/07/23/java/io/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/07/23/java/io/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/07/23/java/io/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2019/07/23/java/io/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/07/23/java/io/&text=IO模型"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/07/23/java/io/&is_video=false&description=IO模型"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=IO模型&body=Check out this article: http://yoursite.com/2019/07/23/java/io/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=IO模型&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

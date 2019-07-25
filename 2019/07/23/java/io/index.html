@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。  非阻塞型IO进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据">
+    <meta name="description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IO模型">
 <meta property="og:url" content="http://yoursite.com/2019/07/23/java/io/index.html">
 <meta property="og:site_name" content="TWOME">
-<meta property="og:description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。  非阻塞型IO进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据">
+<meta property="og:description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/07/23/5d3702cf65c1d56328.jpg">
@@ -25,10 +25,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/07/24/5d381e749edb069803.png">
 <meta property="og:image" content="https://i.loli.net/2019/07/24/5d381eecc15c669653.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/07/24/5d381f2b41d2570261.jpg">
-<meta property="og:updated_time" content="2019-07-24T13:01:09.891Z">
+<meta property="og:updated_time" content="2019-07-25T12:43:14.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IO模型">
-<meta name="twitter:description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。  非阻塞型IO进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据">
+<meta name="twitter:description" content="五种IO模型阻塞型IO最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。   应用进程通过系统调用 recvfrom 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，recvfrom 完成数据报复制工作，应用进程才能结束阻塞状态。">
 <meta name="twitter:image" content="https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg">
     
     
@@ -108,7 +108,11 @@
   <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=IO模型&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=IO模型&description=&lt;h2 id=&#34;五种IO模型&#34;&gt;&lt;a href=&#34;#五种IO模型&#34; class=&#34;headerlink&#34; title=&#34;五种IO模型&#34;&gt;&lt;/a&gt;五种IO模型&lt;/h2&gt;&lt;h3 id=&#34;阻塞型IO&#34;&gt;&lt;a href=&#34;#阻塞型IO&#34; class=&#34;headerlink&#34; title=&#34;阻塞型IO&#34;&gt;&lt;/a&gt;阻塞型IO&lt;/h3&gt;&lt;p&gt;最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;应用进程通过系统调用 &lt;code&gt;recvfrom&lt;/code&gt; 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，&lt;code&gt;recvfrom&lt;/code&gt; 完成数据报复制工作，应用进程才能结束阻塞状态。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -162,6 +166,7 @@
 <blockquote>
 <p>应用进程通过系统调用 <code>recvfrom</code> 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，<code>recvfrom</code> 完成数据报复制工作，应用进程才能结束阻塞状态。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="非阻塞型IO"><a href="#非阻塞型IO" class="headerlink" title="非阻塞型IO"></a>非阻塞型IO</h3><p>进程与内核交互，目标未达成时，不再一直等待，而是直接返回；然后，通过轮询的方式，访问内核。直到某一次轮询发现数据已经准备好，则把数据拷贝到用户空间。</p>
 <p><img src="https://i.loli.net/2019/07/23/5d3702cf65c1d56328.jpg" alt=""></p>
 <blockquote>
@@ -244,7 +249,11 @@
   <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/23/java/io/&title=IO模型"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=IO模型&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/23/java/io/&name=IO模型&description=&lt;h2 id=&#34;五种IO模型&#34;&gt;&lt;a href=&#34;#五种IO模型&#34; class=&#34;headerlink&#34; title=&#34;五种IO模型&#34;&gt;&lt;/a&gt;五种IO模型&lt;/h2&gt;&lt;h3 id=&#34;阻塞型IO&#34;&gt;&lt;a href=&#34;#阻塞型IO&#34; class=&#34;headerlink&#34; title=&#34;阻塞型IO&#34;&gt;&lt;/a&gt;阻塞型IO&lt;/h3&gt;&lt;p&gt;最简单，进程（线程）等待某个条件，若条件不满足，则一直阻塞。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/23/5d37026231b6a28212.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;应用进程通过系统调用 &lt;code&gt;recvfrom&lt;/code&gt; 接收数据，但由于内核还未准备好数据报，应用进程就会阻塞住，直到内核准备好数据报，&lt;code&gt;recvfrom&lt;/code&gt; 完成数据报复制工作，应用进程才能结束阻塞状态。&lt;/p&gt;
+&lt;/blockquote&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

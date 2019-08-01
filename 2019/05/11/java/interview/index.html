@@ -1,155 +1,118 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Java GCJava堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。">
-<meta name="keywords" content="java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java interview">
-<meta property="og:url" content="http://yoursite.com/2019/05/11/java/interview/index.html">
-<meta property="og:site_name" content="TWOME">
-<meta property="og:description" content="Java GCJava堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1g2pdkkhb0ij30e70etwfj.jpg">
-<meta property="og:updated_time" content="2019-05-11T10:58:39.423Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java interview">
-<meta name="twitter:description" content="Java GCJava堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005wR1ytgy1g2pdkkhb0ij30e70etwfj.jpg">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Java interview</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss -->
-    
-    
-</head>
+<html lang="zh-Hans">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="/">Projects</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/07/14/algorithm/leetcode/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/05/11/java/concurrent/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/05/11/java/interview/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/05/11/java/interview/&text=Java interview"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/05/11/java/interview/&is_video=false&description=Java interview"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Java interview&body=Check out this article: http://yoursite.com/2019/05/11/java/interview/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/05/11/java/interview/&name=Java interview&description=&lt;h3 id=&#34;Java-GC&#34;&gt;&lt;a href=&#34;#Java-GC&#34; class=&#34;headerlink&#34; title=&#34;Java GC&#34;&gt;&lt;/a&gt;Java GC&lt;/h3&gt;&lt;p&gt;Java堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
 
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-GC"><span class="toc-number">1.</span> <span class="toc-text">Java GC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断对象可回收"><span class="toc-number">1.1.</span> <span class="toc-text">判断对象可回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#引用计数算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">引用计数算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可达性分析算法"><span class="toc-number">1.1.2.</span> <span class="toc-text">可达性分析算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收集算法"><span class="toc-number">1.2.</span> <span class="toc-text">收集算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#回收时机"><span class="toc-number">1.3.</span> <span class="toc-text">回收时机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-number">2.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#扩容"><span class="toc-number">2.1.</span> <span class="toc-text">扩容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConrrentHashMap"><span class="toc-number">3.</span> <span class="toc-text">ConrrentHashMap</span></a></li></ol>
-    </div>
-  </span>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Java interview"/><meta name="keywords" content="Blog" /><link rel="alternate" href="/atom.xml" title="TWOME"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://yoursite.com/2019/05/11/java/interview/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>Java interview - TWOME</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">TWOME</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
 
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        Java interview
-    </h1>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">TWOME</a>
+</div>
 
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
 
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Java interview
+        </h1>
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">TWOME</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2019-05-11T10:58:57.000Z" itemprop="datePublished">2019-05-11</time>
-        
-      
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-GC"><span class="toc-text">Java GC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断对象可回收"><span class="toc-text">判断对象可回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#引用计数算法"><span class="toc-text">引用计数算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可达性分析算法"><span class="toc-text">可达性分析算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收集算法"><span class="toc-text">收集算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#回收时机"><span class="toc-text">回收时机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#扩容"><span class="toc-text">扩容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConrrentHashMap"><span class="toc-text">ConrrentHashMap</span></a></li></ol>
     </div>
-
-
-      
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-
-    </div>
-  </header>
-  
-
-  <div class="content" itemprop="articleBody">
-    <h3 id="Java-GC"><a href="#Java-GC" class="headerlink" title="Java GC"></a>Java GC</h3><p>Java堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。</p>
+  </div><div class="post-content"><h3 id="Java-GC"><a href="#Java-GC" class="headerlink" title="Java GC"></a>Java GC</h3><p>Java堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。</p>
 <a id="more"></a>
 <h4 id="判断对象可回收"><a href="#判断对象可回收" class="headerlink" title="判断对象可回收"></a>判断对象可回收</h4><h5 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h5><p>对于一个对象，每当有地方引用它，计数器加1；当引用失效，计数器减1。任何时刻计数器为0的对象为可回收的对象。存在对象之间相互循环引用问题。</p>
 <h5 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h5><p>通过一系列的“GC Roots”对象作为起始点，从这些节点开始向下搜索。当一个对象到GC Roots不可达时，则被判定为可回收的对象。</p>
@@ -169,98 +132,55 @@
 <h3 id="ConrrentHashMap"><a href="#ConrrentHashMap" class="headerlink" title="ConrrentHashMap"></a>ConrrentHashMap</h3><p><img src="https://ws1.sinaimg.cn/large/005wR1ytgy1g2pdkkhb0ij30e70etwfj.jpg" alt=""></p>
 <p>锁segment，其他线程可以put，可以读。</p>
 
-  </div>
-</article>
-
-
-
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/java/">java</a>
+            </div>
         
-          <div id="footer-post-container">
-  <div id="footer-post">
+        <nav class="post-nav"><a class="prev" href="/2019/07/14/algorithm/leetcode/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">LeetCode Note</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/05/11/java/concurrent/">
+        <span class="next-text nav-default">Java concurrency in practice Note</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="/">Projects</a></li>
-        
-      </ul>
-    </div>
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:xuzhipeng418@foxmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/Langzi418" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
 
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-GC"><span class="toc-number">1.</span> <span class="toc-text">Java GC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#判断对象可回收"><span class="toc-number">1.1.</span> <span class="toc-text">判断对象可回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#引用计数算法"><span class="toc-number">1.1.1.</span> <span class="toc-text">引用计数算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可达性分析算法"><span class="toc-number">1.1.2.</span> <span class="toc-text">可达性分析算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收集算法"><span class="toc-number">1.2.</span> <span class="toc-text">收集算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#回收时机"><span class="toc-number">1.3.</span> <span class="toc-text">回收时机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-number">2.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#扩容"><span class="toc-number">2.1.</span> <span class="toc-text">扩容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConrrentHashMap"><span class="toc-number">3.</span> <span class="toc-text">ConrrentHashMap</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/05/11/java/interview/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/05/11/java/interview/&text=Java interview"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/05/11/java/interview/&is_video=false&description=Java interview"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Java interview&body=Check out this article: http://yoursite.com/2019/05/11/java/interview/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/05/11/java/interview/&title=Java interview"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/05/11/java/interview/&name=Java interview&description=&lt;h3 id=&#34;Java-GC&#34;&gt;&lt;a href=&#34;#Java-GC&#34; class=&#34;headerlink&#34; title=&#34;Java GC&#34;&gt;&lt;/a&gt;Java GC&lt;/h3&gt;&lt;p&gt;Java堆和方法区中内存的分配和回收是动态的，所以GC关注的是这部分内存。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
-
-  </div>
+  <span class="copyright-year">&copy;2017 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">TWOME</span>
+  </span>
 </div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2019 TWOME
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="/">Projects</a></li>
-        
-      </ul>
-    </nav>
-  </div>
 </footer>
 
-    </div>
-    <!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-    <!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-
-
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
 </body>
 </html>

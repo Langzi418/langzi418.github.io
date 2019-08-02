@@ -98,6 +98,27 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/08/02/java/netty1/">Netty新连接接入过程</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-08-02
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>Netty的NioEventLoop线程中的循环可以分为以下几个步骤：</p>
+<ol>
+<li>轮询注册在selector上的IO事件（select）</li>
+<li>处理IO事件（processSelectedKey，unsafe.read() 开启事件传播）</li>
+<li>执行异步task (runAllTasks)</li>
+</ol>
+          <div class="read-more">
+            <a href="/2019/08/02/java/netty1/" class="read-more-link">阅读更多</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/07/23/java/io/">IO模型</a>
         </h1>
 
@@ -253,29 +274,6 @@
 <p>任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。</p>
           <div class="read-more">
             <a href="/2018/12/17/bigdata/SparkStreaming/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2018/11/30/bigdata/SparkInDepth/">Spark API in Depth</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-30
-        </span></div>
-    </header>
-
-    <div class="post-content"><blockquote>
-<p>《Spark in Action》Chapter4 </p>
-</blockquote>
-<p>个人总结： </p>
-<ul>
-<li>DStream &lt;- a seq of RDDs &lt;- Partitions</li>
-<li>key-value RDD = pair RDD  manipulated by <code>funtionByKey()</code></li>
-</ul>
-          <div class="read-more">
-            <a href="/2018/11/30/bigdata/SparkInDepth/" class="read-more-link">阅读更多</a>
           </div>
         </div></article>
       <nav class="pagination"><a class="next" href="/page/2/">

@@ -139,7 +139,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/14/algorithm/leetcode/">LeetCode Note</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/07/14/algorithm/algorithm/">Algorithm Note</a>
         </h1>
 
       <div class="post-meta">
@@ -152,7 +152,7 @@
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>自顶向下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mergeSort(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> high)&#123;</span><br><span class="line">    <span class="keyword">if</span>(high&lt;=low) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mid=low+(high-low)/<span class="number">2</span>;</span><br><span class="line">    mergeSort(a,low,mid);</span><br><span class="line">    mergeSort(a,mid+<span class="number">1</span>,high);</span><br><span class="line">    merge(a,low,mid,high);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> mid,<span class="keyword">int</span> high)&#123;</span><br><span class="line">    <span class="keyword">int</span>[] aux=copy(a);</span><br><span class="line">    <span class="keyword">int</span> i=low,j=mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;mid) a[k]=a[j++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j&gt;high) a[k]=a[i++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(aux[j]&lt;aux[i]) a[k]=a[j++];</span><br><span class="line">        <span class="keyword">else</span> a[k]=a[i++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="read-more">
-            <a href="/2019/07/14/algorithm/leetcode/" class="read-more-link">阅读更多</a>
+            <a href="/2019/07/14/algorithm/algorithm/" class="read-more-link">阅读更多</a>
           </div>
         </div></article>
       <article class="post">

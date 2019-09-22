@@ -101,6 +101,23 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/09/21/java/interview/">知识点总结</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-21
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>关键代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;  <span class="comment">//定位索引位置</span></span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2019/09/21/java/interview/" class="read-more-link">阅读更多</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/08/21/algorithm/algorithm/">Algorithm Note</a>
         </h1>
 
@@ -156,25 +173,6 @@
 </blockquote>
           <div class="read-more">
             <a href="/2019/07/23/java/io/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/11/java/concurrent/">Java concurrency in practice Note</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-11
-        </span></div>
-    </header>
-
-    <div class="post-content"><h3 id="Java-concurrency-in-practice-Note"><a href="#Java-concurrency-in-practice-Note" class="headerlink" title="Java concurrency in practice Note"></a>Java concurrency in practice Note</h3><p>state（状态）是一种数据，储存在状态变量中，状态变量有可能是实例域或静态域。</p>
-<p>线程安全表面上是在谈论代码，实际上是在使数据避免不受控制的线程的访问。</p>
-<p>为了使对象线程安全，我需要使用同步来协调线程的访问对象的可变状态。</p>
-<p>实现同步主要是synchronization关键字，这个关键字提供了排他锁。其他的同步机制还有volatile、显示锁和原子变量。</p>
-          <div class="read-more">
-            <a href="/2019/05/11/java/concurrent/" class="read-more-link">阅读更多</a>
           </div>
         </div></article>
       <article class="post">

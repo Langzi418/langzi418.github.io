@@ -113,9 +113,9 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java实现原子操作"><span class="toc-text">java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java实现原子操作"><span class="toc-text">java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a></li></ol>
     </div>
-  </div><div class="post-content"><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>关键代码</p>
+  </div><div class="post-content"><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>关键代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;  <span class="comment">//定位索引位置</span></span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>良好的Hash算法和扩容机制是的Hash碰撞的概率减少并且哈希桶数组占用的空间少。</p>
@@ -145,9 +145,21 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ThreadLocal.java</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createMap</span><span class="params">(Thread t, T firstValue)</span> </span>&#123;</span><br><span class="line">    t.threadLocals = <span class="keyword">new</span> ThreadLocalMap(<span class="keyword">this</span>, firstValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/09/21/PGjztove9r2kSEg.jpg" alt=""></p>
 <p>线程终止后，threadLocals=null。</p>
+<h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><p>原子性地维护同步状态state（由子类重写tryAcquire、tryRelease…）</p>
+<p>阻塞和释放线程（LockSupport）</p>
+<p>维护阻塞线程的队列（CLH，双向链表）</p>
+<h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>非公平锁：如果获取锁的线程再次请求，则增加state，成功。可能造成饥饿，但线程切换少，吞吐量大。</p>
+<p>公平锁：比非公平锁增加了当前结点是否有前驱结点的判断，若有，则不成功，FIFO。线程切换多。</p>
+<h3 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h3><p>高16位读状态（c&gt;&gt;&gt;16)， 低16位写状态（c&amp;((1&lt;&lt;16) -1)）。</p>
+<p>写锁：获取时，若读锁已经被获取（读状态不为0）或者当前线程不是已经获取写锁的线程，则等待。</p>
+<p>读锁：在没有其他写线程访问时（写状态为0），读锁成功获取。</p>
+<p>如果读锁存在，则写锁不能被获取。原因：若允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他线程就可能无法感知当前写线程的操作。（脏读）</p>
+<p>锁降级：锁降级中读锁的获取是必要的。若当前线程不获取读锁而直接释放写锁，假如另一个线程获取写锁并更新数据，那么当前线程可能无法感知数据的更新。</p>
 <p>Reference：</p>
+<p>《Java并发编程实战》</p>
+<p>《Java并发编程之美》</p>
 <p>《Java并发编程的艺术》</p>
-
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1>
       </div>
       
       <footer class="post-footer">

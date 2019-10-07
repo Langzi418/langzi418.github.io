@@ -113,7 +113,7 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java实现原子操作"><span class="toc-text">java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConcurrentHashMap"><span class="toc-text">ConcurrentHashMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java实现原子操作"><span class="toc-text">java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池"><span class="toc-text">线程池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a></li></ol>
     </div>
   </div><div class="post-content"><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>关键代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;  <span class="comment">//定位索引位置</span></span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -125,12 +125,17 @@
 <p>HashMap中哈希算法：取key的hashCode()值、高位运算、取模运算。</p>
 <p>put</p>
 <p><img src="https://i.loli.net/2019/09/25/y9vH3nm2jDsUYex.jpg" alt=""></p>
-<p>Java8在扩容时的链表部分的优化，Java7是“重新计算索引+头插法”，Java8在重新计算索引时做了优化。新增的比特可以认为是随机的，则在扩容时，均匀地将冲突地结点分散到新链表。</p>
+<p>Java8在扩容时的链表部分的优化，Java7是“重新计算索引+头插法”，Java8在重新计算索引时做了优化，计算快。新增的比特可以认为是随机的，则在扩容时，均匀地将冲突地结点分散到新链表。</p>
 <p><img src="https://i.loli.net/2019/09/22/gmxNESoPFi1KUJC.jpg" alt=""></p>
 <p>多线程时，可能在put、resize后形成环形链表。</p>
 <p>链表元素大于等于8，链表转化为树；扩容时若链表元素小于等于6，转化为链表。红黑树的平均查找长度log(n)，链表为n/2。当n&gt;=8时，有转化为树的必要。另外，在6和8之间有7，可以有效避免树和链表的频繁转化。</p>
-<p>Reference:</p>
-<p><a href="https://tech.meituan.com/2016/06/24/java-hashmap.html" target="_blank" rel="noopener">java8之重新认识HashMap</a></p>
+<p>Reference</p>
+<p><a href="https://zhuanlan.zhihu.com/p/21673805" target="_blank" rel="noopener">java8之重新认识HashMap</a></p>
+<h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><p>1.7  Segment extends ReentrantLock</p>
+<p>1.8 CAS + synchronized</p>
+<p>由于已经使用volatile保证了key、value可见性，所以在get时不需要加锁。</p>
+<p>Reference</p>
+<p><a href="https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/" target="_blank" rel="noopener">HashMap? ConcurrentHashMap?</a></p>
 <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p>Lock前缀指令。</p>
 <p>1）将当前处理器缓存行的数据写回到系统内存。</p>
 <p>2）以上写回内存操作会使其他CPU里缓存了该内存地址的数据无效。</p>
@@ -155,6 +160,25 @@
 <p>读锁：在没有其他写线程访问时（写状态为0），读锁成功获取。</p>
 <p>如果读锁存在，则写锁不能被获取。原因：若允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他线程就可能无法感知当前写线程的操作。（脏读）</p>
 <p>锁降级：锁降级中读锁的获取是必要的。若当前线程不获取读锁而直接释放写锁，假如另一个线程获取写锁并更新数据，那么当前线程可能无法感知数据的更新。</p>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>execute执行command分四种情况：</p>
+<ol>
+<li><p>如果当前运行线程小于corePoolSize，则创建新线程来执行任务。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c = ctl.get();</span><br><span class="line"><span class="keyword">if</span> (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">    <span class="comment">// addWorker需要获取全局锁</span></span><br><span class="line">    <span class="keyword">if</span> (addWorker(command, <span class="keyword">true</span>))</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    c = ctl.get();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果运行的线程大于等于corePoolSize，则将任务加入到BlockingQueue。</p>
+</li>
+<li><p>如果队列已满，在创建新的线程来处理任务（addWorker（command, false））。</p>
+</li>
+<li><p>如果创建新线程将使当前运行的线程超出maxinumPoolSize，任务将被拒绝，执行饱和策略。</p>
+</li>
+</ol>
+<p>在ThreadPoolExecutor完成预热后（当前运行的线程数大于等于corePoolSize），几乎所有的execute()方法调用都执行步骤2，而它不需要获取全局锁。</p>
+<p><strong>工作线程</strong>：线程池创建线程时，会将线程封装成Worker，Worker在执行完任务后，还会循环获取BlockingQueue中的Worker来执行。</p>
+<p><strong>提交任务</strong>：pool.execute(Runnable);      Future\<object> future = pool.submit(Runnable);</object></p>
+<p><strong>关闭线程池</strong>：</p>
+<p>shutdown和shutdownNow都会通知线程池不再接受任务，都会立即返回。</p>
+<p>区别：showdown仅中断空闲线程，使得BlockingQueue中的线程可以被剩下的线程执行，该方法返回值为void。showdownNow中断所有线程，返回BlockingQueue中的线程列表。</p>
+<p>+++++</p>
 <p>Reference：</p>
 <p>《Java并发编程实战》</p>
 <p>《Java并发编程之美》</p>

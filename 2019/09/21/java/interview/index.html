@@ -113,7 +113,7 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConcurrentHashMap"><span class="toc-text">ConcurrentHashMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java实现原子操作"><span class="toc-text">java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池"><span class="toc-text">线程池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConcurrentHashMap"><span class="toc-text">ConcurrentHashMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java实现原子操作"><span class="toc-text">Java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子类"><span class="toc-text">原子类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executor"><span class="toc-text">Executor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FixedThreadPool"><span class="toc-text">FixedThreadPool</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SingleThreadExecutor"><span class="toc-text">SingleThreadExecutor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CacheThreadPool"><span class="toc-text">CacheThreadPool</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存模型"><span class="toc-text">内存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-text">基础</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a></li></ol>
     </div>
   </div><div class="post-content"><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>关键代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;  <span class="comment">//定位索引位置</span></span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -144,20 +144,25 @@
 <p>代码同步块：monitorenter时，尝试获取monitor；monitorexit时，释放monitor。</p>
 <p>同步方法：有ACC_SYNCHRONIZED标志，进入方法获取monitor，方法结束释放monitor。</p>
 <h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p>无锁状态、偏向锁、轻量级锁、重量级锁</p>
-<h3 id="java实现原子操作"><a href="#java实现原子操作" class="headerlink" title="java实现原子操作"></a>java实现原子操作</h3><p>循环CAS、锁</p>
+<h3 id="Java实现原子操作"><a href="#Java实现原子操作" class="headerlink" title="Java实现原子操作"></a>Java实现原子操作</h3><p>CAS+自旋、锁</p>
+<p>CAS的“ABA”问题：A-&gt;B-&gt;A，那么CAS操作就会认为A没有变过，可以通过控制变量值的版本来保证CAS操作的正确性。JUC中提供了一个带有标记的原子类来解决此问题。但大多数情况下ABA问题并不会影响程序并发的正确性，所以如果需要解决ABA问题，采用传统的互斥同步可能更高效。</p>
+<h3 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h3><p>CAS实现，AtomicInteger等可做计数器，更好地实现LongAdder。</p>
 <h3 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h3><p>线程封闭</p>
+<p>ThreadLocal提供了get和set等方法，这些方法为每个使用该变量的内存都存有一份独立的副本。</p>
+<p>ThreadLocal对象通常用于防止可变的单实例变量（Singleton）或全局变量进行共享。</p>
 <p>关键代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ThreadLocal.java</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createMap</span><span class="params">(Thread t, T firstValue)</span> </span>&#123;</span><br><span class="line">    t.threadLocals = <span class="keyword">new</span> ThreadLocalMap(<span class="keyword">this</span>, firstValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/09/21/PGjztove9r2kSEg.jpg" alt=""></p>
 <p>线程终止后，threadLocals=null。</p>
 <h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><p>原子性地维护同步状态state（由子类重写tryAcquire、tryRelease…）</p>
 <p>阻塞和释放线程（LockSupport）</p>
-<p>维护阻塞线程的队列（CLH，双向链表）</p>
+<p>维护阻塞线程的队列（CLH，双向链表，FIFO）</p>
+<p><img src="https://i.loli.net/2019/10/27/R9iVZToqy1pmE6l.png" alt=""></p>
 <h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>非公平锁：如果获取锁的线程再次请求，则增加state，成功。可能造成饥饿，但线程切换少，吞吐量大。</p>
 <p>公平锁：比非公平锁增加了当前结点是否有前驱结点的判断，若有，则不成功，FIFO。线程切换多。</p>
 <h3 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h3><p>高16位读状态（c&gt;&gt;&gt;16)， 低16位写状态（c&amp;((1&lt;&lt;16) -1)）。</p>
 <p>写锁：获取时，若读锁已经被获取（读状态不为0）或者当前线程不是已经获取写锁的线程，则等待。</p>
-<p>读锁：在没有其他写线程访问时（写状态为0），读锁成功获取。</p>
+<p>读锁：在没有其他写线程访问时（写状态为0），读锁成功获取。  </p>
 <p>如果读锁存在，则写锁不能被获取。原因：若允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他线程就可能无法感知当前写线程的操作。（脏读）</p>
 <p>锁降级：锁降级中读锁的获取是必要的。若当前线程不获取读锁而直接释放写锁，假如另一个线程获取写锁并更新数据，那么当前线程可能无法感知数据的更新。</p>
 <h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>execute执行command分四种情况：</p>
@@ -167,7 +172,7 @@
 </li>
 <li><p>如果运行的线程大于等于corePoolSize，则将任务加入到BlockingQueue。</p>
 </li>
-<li><p>如果队列已满，在创建新的线程来处理任务（addWorker（command, false））。</p>
+<li><p>如果队列已满，再创建新的线程来处理任务（addWorker（command, false））。</p>
 </li>
 <li><p>如果创建新线程将使当前运行的线程超出maxinumPoolSize，任务将被拒绝，执行饱和策略。</p>
 </li>
@@ -179,10 +184,29 @@
 <p>shutdown和shutdownNow都会通知线程池不再接受任务，都会立即返回。</p>
 <p>区别：showdown仅中断空闲线程，使得BlockingQueue中的线程可以被剩下的线程执行，该方法返回值为void。showdownNow中断所有线程，返回BlockingQueue中的线程列表。</p>
 <p>+++++</p>
+<h3 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h3><p><code>ThreadPoolExecutor(corePoolsize,  maxPoolSize,  keepAliveTime, BlockingQueue)</code></p>
+<p>当线程池中的线程数大于corePoolSize时，keepAliveTime为多余的空闲线程等待任务的最长时间，超时则线程终止。</p>
+<h4 id="FixedThreadPool"><a href="#FixedThreadPool" class="headerlink" title="FixedThreadPool"></a>FixedThreadPool</h4><p>使用无界队列LinkedBlockingQueue作为线程池的工作队列（容量Integer.MAX_VALUE）。影响：</p>
+<p>1）线程池中的线程数达到coerPoolSize后，新任务将在无界队列中等待，所以线程池中的线程数将不会超过corePoolSize。</p>
+<p>适用于为了满足资源管理的需求，而需要限制当前线程数量的应用场景，它适用于负载比较重的服务器。</p>
+<h4 id="SingleThreadExecutor"><a href="#SingleThreadExecutor" class="headerlink" title="SingleThreadExecutor"></a>SingleThreadExecutor</h4><p>LinkedBlockingQueue</p>
+<p>corePoolSize=1</p>
+<p>适用于需要保证顺序地执行各个任务；并且在任意地时间点不会有多个线程是活动的应用场景。</p>
+<h4 id="CacheThreadPool"><a href="#CacheThreadPool" class="headerlink" title="CacheThreadPool"></a>CacheThreadPool</h4><p>SynchronousQueue</p>
+<p>corePoolSize=0, maxPoolSize=Integer.MAX_VALUE</p>
+<p>如果主线程提交任务的速度高于maxPool中处理任务的速度，它会不断地创建新的线程。</p>
+<p>适用于执行很多的短期异步任务小程序，或负载较轻的服务器。</p>
 <p>Reference：</p>
 <p>《Java并发编程实战》</p>
 <p>《Java并发编程之美》</p>
 <p>《Java并发编程的艺术》</p>
+<h2 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h2><p>Java虚拟机规范试图定义一种Java内存模型(JMM)来屏蔽各种硬件和操作系统的内存访问差异。</p>
+<p>JMM的目标是定义程序中各个变量的访问规则，即在虚拟机中将变量存储到内存和从内存中取出变量这样的底层细节。</p>
+<p>Java线程 <-> 工作内存 <-> JMM <-> 主内存</-></-></-></p>
+<p>Reference：</p>
+<p>《深入理解JAVA虚拟机》</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>IO 阻塞、每个连接一个线程</p>
+<p>NIO selector + 轮询 （Netty）</p>
 <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1>
       </div>
       

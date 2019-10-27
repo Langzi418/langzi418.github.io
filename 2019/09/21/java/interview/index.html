@@ -143,7 +143,9 @@
 <h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>任何一个对象都有一个monitor与之关联，当monitor被持有后，它将处于锁定状态。</p>
 <p>代码同步块：monitorenter时，尝试获取monitor；monitorexit时，释放monitor。</p>
 <p>同步方法：有ACC_SYNCHRONIZED标志，进入方法获取monitor，方法结束释放monitor。</p>
-<h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p>无锁状态、偏向锁、轻量级锁、重量级锁</p>
+<h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p>Java的线程是映射到操作系统的原生线程之上的，如果阻塞或唤醒一个线程，都需要操作系统帮忙完成，这就需要从用户态转换到核心态，因此状态转换需要耗费很多的处理器时间。</p>
+<p>偏向锁、轻量级锁、重量级锁</p>
+<p>对象头信息</p>
 <h3 id="Java实现原子操作"><a href="#Java实现原子操作" class="headerlink" title="Java实现原子操作"></a>Java实现原子操作</h3><p>CAS+自旋、锁</p>
 <p>CAS的“ABA”问题：A-&gt;B-&gt;A，那么CAS操作就会认为A没有变过，可以通过控制变量值的版本来保证CAS操作的正确性。JUC中提供了一个带有标记的原子类来解决此问题。但大多数情况下ABA问题并不会影响程序并发的正确性，所以如果需要解决ABA问题，采用传统的互斥同步可能更高效。</p>
 <h3 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h3><p>CAS实现，AtomicInteger等可做计数器，更好地实现LongAdder。</p>

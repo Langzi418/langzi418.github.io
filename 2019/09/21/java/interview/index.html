@@ -157,7 +157,7 @@
 <p>线程终止后，threadLocals=null。</p>
 <h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><p>原子性地维护同步状态state（由子类重写tryAcquire、tryRelease…）</p>
 <p>阻塞和释放线程（LockSupport）</p>
-<p>维护阻塞线程的队列（CLH，双向链表，FIFO）</p>
+<p><strong>维护阻塞线程的队列</strong>（CLH，双向链表，FIFO）</p>
 <p><img src="https://i.loli.net/2019/10/27/R9iVZToqy1pmE6l.png" alt=""></p>
 <p><a href="https://www.javadoop.com/post/AbstractQueuedSynchronizer" target="_blank" rel="noopener">一行一行源码分析清楚AbstractQueuedSynchronizer</a></p>
 <h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>非公平锁：如果获取锁的线程再次请求，则增加state，成功。可能造成饥饿，但线程切换少，吞吐量大。</p>

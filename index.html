@@ -99,193 +99,118 @@
 
       <main id="main" class="main">
         <div class="content-wrapper">
-          <div id="content" class="content"><section id="posts" class="posts"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/21/java/interview/">知识点总结</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-21
-        </span></div>
-    </header>
-
-    <div class="post-content"><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h4 id="hashCode-和equals"><a href="#hashCode-和equals" class="headerlink" title="hashCode()和equals()"></a>hashCode()和equals()</h4><p>如果两个对象equals()，那么hashCode()一定相等。（想想散列表）</p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>关键代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;  <span class="comment">//定位索引位置</span></span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/09/21/java/interview/" class="read-more-link">阅读更多</a>
+          <div id="content" class="content"><section id="posts" class="posts"><section id="archive" class="archive"><div class="collection-title">
+            <h2 class="archive-year">2019</h2>
           </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/08/21/algorithm/algorithm/">Algorithm Note</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-08-21
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>一些算法归纳：</p>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>自顶向下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mergeSort(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> high)&#123;</span><br><span class="line">    <span class="keyword">if</span>(high&lt;=low) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mid=low+(high-low)/<span class="number">2</span>;</span><br><span class="line">    mergeSort(a,low,mid);</span><br><span class="line">    mergeSort(a,mid+<span class="number">1</span>,high);</span><br><span class="line">    merge(a,low,mid,high);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> mid,<span class="keyword">int</span> high)&#123;</span><br><span class="line">    <span class="comment">//归并排序需要一个辅助数组</span></span><br><span class="line">    System.arraycopy(a,low,aux,low,high-low+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> i=low,j=mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;mid) a[k]=aux[j++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j&gt;high) a[k]=aux[i++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(aux[j]&lt;aux[i]) a[k]=aux[j++];</span><br><span class="line">        <span class="keyword">else</span> a[k]=aux[i++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/08/21/algorithm/algorithm/" class="read-more-link">阅读更多</a>
+        <div class="archive-post">
+        <span class="archive-post-time">
+          09-21
+          </span>
+        <span class="archive-post-title">
+          <a href="/2019/09/21/java/interview/" class="archive-post-link">
+            知识点总结
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          08-21
+          </span>
+        <span class="archive-post-title">
+          <a href="/2019/08/21/algorithm/algorithm/" class="archive-post-link">
+            Algorithm Note
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          08-02
+          </span>
+        <span class="archive-post-title">
+          <a href="/2019/08/02/java/netty1/" class="archive-post-link">
+            Netty新连接接入过程
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          07-23
+          </span>
+        <span class="archive-post-title">
+          <a href="/2019/07/23/java/io/" class="archive-post-link">
+            IO模型
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          04-22
+          </span>
+        <span class="archive-post-title">
+          <a href="/2019/04/22/java/spring/" class="archive-post-link">
+            Spring框架的一些理解
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          03-10
+          </span>
+        <span class="archive-post-title">
+          <a href="/2019/03/10/java/DynamicProxy/" class="archive-post-link">
+            DynamicProxy
+          </a>
+        </span>
+      </div>
+    <div class="collection-title">
+            <h2 class="archive-year">2018</h2>
           </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/08/02/java/netty1/">Netty新连接接入过程</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-08-02
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>Netty的NioEventLoop线程中的循环可以分为以下几个步骤：</p>
-<ol>
-<li>轮询注册在selector上的IO事件（select）</li>
-<li>处理IO事件（processSelectedKey，unsafe.read() 开启事件传播）</li>
-<li>执行异步task (runAllTasks)</li>
-</ol>
-          <div class="read-more">
-            <a href="/2019/08/02/java/netty1/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/23/java/io/">IO模型</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-23
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><p><a href="https://juejin.im/post/5b94e93b5188255c672e901e" target="_blank" rel="noopener">漫话：如何给女朋友解释什么是Linux的五种IO模型？</a></p>
-<h2 id="基于IO多路复用的并发编程"><a href="#基于IO多路复用的并发编程" class="headerlink" title="基于IO多路复用的并发编程"></a>基于IO多路复用的并发编程</h2><p>基于思想是使用select函数，要求内核挂起进程，只有一个或多个I/O事件发生后，才将控制返回给应用程序。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪码</span></span><br><span class="line">listenfd = Open_listenfd(); <span class="comment">//打开一个监听描述符，监听客户端IO事件</span></span><br><span class="line">FD_ZREO(&amp;read_set);  <span class="comment">//创建一个空的读集合</span></span><br><span class="line">FD_SET(STDIN, listenfd, &amp;read_set); <span class="comment">//添加描述符到读集合</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 典型服务器循环</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123; </span><br><span class="line">	ready_set = read_set;</span><br><span class="line">	select(listenfd+<span class="number">1</span> , &amp;ready_set, ...); <span class="comment">//阻塞直到有描述符可读</span></span><br><span class="line">	<span class="keyword">if</span>(FD_ISSET(STDIN, &amp;ready_set))&#123;</span><br><span class="line">		<span class="comment">// 处理描述符1</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(FD_ISSET(listenfd, &amp;ready_set))&#123;</span><br><span class="line">		<span class="comment">// 处理描述符2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/07/23/java/io/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/04/22/java/spring/">Spring框架的一些理解</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-04-22
-        </span></div>
-    </header>
-
-    <div class="post-content"><h1 id="Java-Annotation"><a href="#Java-Annotation" class="headerlink" title="Java Annotation"></a>Java Annotation</h1><p>对于注解而言，若没有相应处理器，那它和注释没什么区别。</p>
-<p>Java注解示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明注解使用的地方。 这里是方法级。</span></span><br><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"></span><br><span class="line"><span class="comment">//声明注解的生命时长。 这里是在运行时被虚拟机获得，所以可以使用反射来读。</span></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> UseCase&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">description</span><span class="params">()</span> <span class="keyword">default</span> "no description"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">   	<span class="meta">@UseCase</span>(id=<span class="number">1</span>,description=<span class="string">"......"</span>)</span><br><span class="line">    <span class="keyword">void</span> methodA&#123;...&#125;</span><br><span class="line">    </span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UseCaseTracker</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">trackUseCases</span><span class="params">(List&lt;Integer&gt; useCases, Class&lt;?&gt; cl)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(Method m: cl.getDeclaredMethods())&#123;</span><br><span class="line">            UseCase uc=m.getAnnonation(UseCase.class);</span><br><span class="line">            <span class="keyword">if</span>(uc!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                print(uc.id(), uc.description());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/04/22/java/spring/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/03/10/java/DynamicProxy/">DynamicProxy</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-03-10
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSth</span><span class="params">(String s)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealObject</span> <span class="title">implments</span> <span class="title">Interface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSth</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DynamicProxyHandler</span> <span class="title">implments</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object proxied;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DynamicProxyHandler</span><span class="params">(Object proxied)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.proxied = proxied;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method m, Object[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        	在此插入代理逻辑</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">return</span> m.invoke(proxied, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleDynamicProxy</span> </span>&#123;</span><br><span class="line"> 	Interface proxy = (Interface) Proxy.newInstance(</span><br><span class="line">    	Interface.class.getClassLoader(), <span class="comment">//一般传这个已加载的类加载器就行</span></span><br><span class="line">        <span class="keyword">new</span> Class[]&#123;Interface.class&#125;, <span class="comment">//实现的接口</span></span><br><span class="line">        <span class="keyword">new</span> DynamicProxyHandler(<span class="keyword">new</span> RealObject())</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    proxy.doSth();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/03/10/java/DynamicProxy/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2018/12/31/java/generic/">Java Advanced</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-31
-        </span></div>
-    </header>
-
-    <div class="post-content"><h3 id="why-Generic-progrgramming"><a href="#why-Generic-progrgramming" class="headerlink" title="why Generic progrgramming"></a>why Generic progrgramming</h3><h4 id="Type-Params"><a href="#Type-Params" class="headerlink" title="Type Params"></a>Type Params</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//before generic classes</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span></span>&#123;</span><br><span class="line">   	Object[] elemData;</span><br><span class="line">   	...</span><br><span class="line">   	<span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;...&#125;</span><br><span class="line">   	<span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Object o)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/12/31/java/generic/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2018/12/17/bigdata/SparkStreaming/">Spark Streaming base on Kafka</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-17
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>实时计算</p>
-<p>任务：计算每秒的买、卖数，买或卖总量前五的客户端及最近一小时前五的证券。</p>
-          <div class="read-more">
-            <a href="/2018/12/17/bigdata/SparkStreaming/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2018/11/30/bigdata/SparkInDepth/">Spark API in Depth</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-30
-        </span></div>
-    </header>
-
-    <div class="post-content"><blockquote>
-<p>《Spark in Action》Chapter4 </p>
-</blockquote>
-<p>个人总结： </p>
-<ul>
-<li>DStream &lt;- a seq of RDDs &lt;- Partitions</li>
-<li>key-value RDD = pair RDD  manipulated by <code>funtionByKey()</code></li>
-</ul>
-          <div class="read-more">
-            <a href="/2018/11/30/bigdata/SparkInDepth/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2018/11/20/python/problem/">Python编程中邂逅的问题</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-20
-        </span></div>
-    </header>
-
-    <div class="post-content"><h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"><span class="comment"># output </span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>for 循环中的 循环变量 不会被修改，此时应使用 while。</p>
-          <div class="read-more">
-            <a href="/2018/11/20/python/problem/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <nav class="pagination"><a class="next" href="/page/2/">
+        <div class="archive-post">
+        <span class="archive-post-time">
+          12-31
+          </span>
+        <span class="archive-post-title">
+          <a href="/2018/12/31/java/generic/" class="archive-post-link">
+            Java Advanced
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          12-17
+          </span>
+        <span class="archive-post-title">
+          <a href="/2018/12/17/bigdata/SparkStreaming/" class="archive-post-link">
+            Spark Streaming base on Kafka
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          11-30
+          </span>
+        <span class="archive-post-title">
+          <a href="/2018/11/30/bigdata/SparkInDepth/" class="archive-post-link">
+            Spark API in Depth
+          </a>
+        </span>
+      </div>
+    <div class="archive-post">
+        <span class="archive-post-time">
+          11-20
+          </span>
+        <span class="archive-post-title">
+          <a href="/2018/11/20/python/problem/" class="archive-post-link">
+            Python编程中邂逅的问题
+          </a>
+        </span>
+      </div>
+    </section><nav class="pagination"><a class="next" href="/page/2/">
         <span class="next-text">下一页</span>
         <i class="iconfont icon-right"></i>
       </a>
-    </nav></section></div></div>
+    </nav>
+    </section></div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:xu.io@qq.com" class="iconfont icon-email" title="email"></a>

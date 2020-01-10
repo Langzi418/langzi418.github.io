@@ -287,6 +287,7 @@
 <p>前缀索引的缺点：MySQL不能使用前缀索引做ORDER BY和GROUP BY，也无法使用前缀索引做覆盖扫描（后面介绍）。</p>
 <p>MySQL不支持后缀索引，可通过逆序存储数据实现“后缀索引”。</p>
 <h4 id="多列索引"><a href="#多列索引" class="headerlink" title="多列索引"></a>多列索引</h4><p>在出现索引合并时，应考虑查询和表的单列索引是否合适。</p>
+<p>给了三个查询 where分别是 a=? b=? 、b=? c=?、c=? a=?，问怎么建索引查找效率高。</p>
 <h4 id="索引列的顺序"><a href="#索引列的顺序" class="headerlink" title="索引列的顺序"></a>索引列的顺序</h4><p>经验法则：把选择性最高的放在前列。</p>
 <h4 id="聚簇索引"><a href="#聚簇索引" class="headerlink" title="聚簇索引"></a>聚簇索引</h4><p>是一种<strong>数据存储</strong>方式。InnoDB中聚簇索引是在同一个结构中保存了索引和数据行。InnoDB通过主键聚簇数据。</p>
 <p>二级索引保存<strong>主键值</strong>。</p>

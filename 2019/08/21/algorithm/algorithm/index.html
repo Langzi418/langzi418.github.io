@@ -1,121 +1,71 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-  <head><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="description" content="Algorithm Note"/><meta name="keywords" content="Blog" /><link rel="alternate" href="/atom.xml" title="Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://yoursite.com/2019/08/21/algorithm/algorithm/"/>
-
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" /><script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-  </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
-
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
-</script>
-
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>Algorithm Note - Blog</title>
-  </head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700|Noto+Serif:400,400i&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Blog</a>
+<body>
+  <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Blog</a>
   </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/">
-        <li class="mobile-menu-item">首页
-          </li>
-      </a><a href="/archives/">
-        <li class="mobile-menu-item">归档
-          </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签
-          </li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于
-          </li>
-      </a></ul>
-</nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Blog</a>
-</div>
-
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/">
-            首页
-            </a>
-        </li>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            归档
-            </a>
-        </li>
+        
+        <a href="/" class="menu-item-link">主页</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            标签
-            </a>
-        </li>
+        
+        <a href="/archives" class="menu-item-link">归档</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/about/">
-            关于
-            </a>
-        </li>
-      </ul></nav>
+        
+        <a href="/me" class="menu-item-link">我</a>
+        
+      </li>
+      
+      
+      
+      <li class="menu-item">
+        
+        <a href="/atom.xml" class="menu-item-link">订阅</a>
+        
+      </li>
+      
+    </ul>
+  </nav>
 </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title">Algorithm Note
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-08-21
-        </span></div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#归并排序"><span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#桶排序"><span class="toc-text">桶排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索"><span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链表一类距离算法"><span class="toc-text">链表一类距离算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快慢指针思想"><span class="toc-text">快慢指针思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈"><span class="toc-text">栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树"><span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#层次遍历"><span class="toc-text">层次遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非递归遍历"><span class="toc-text">非递归遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z子形二叉树"><span class="toc-text">Z子形二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树的子结构"><span class="toc-text">树的子结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重构二叉树"><span class="toc-text">重构二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树的轮廓"><span class="toc-text">树的轮廓</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树的宽度"><span class="toc-text">二叉树的宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉搜索树"><span class="toc-text">二叉搜索树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树的最近公共父节点"><span class="toc-text">二叉树的最近公共父节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-text">图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归回溯"><span class="toc-text">递归回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滑动窗口"><span class="toc-text">滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Pass"><span class="toc-text">2-Pass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Max-1D-Range-Sum"><span class="toc-text">1 Max 1D Range Sum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-LIS"><span class="toc-text">2 LIS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-0-1-Knapsack"><span class="toc-text">3 0-1 Knapsack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Subset-Sum"><span class="toc-text">3.2 Subset Sum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Coin-Change"><span class="toc-text">4 Coin Change</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-K个非负数加到N"><span class="toc-text">5 K个非负数加到N</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Cutting-Sticks"><span class="toc-text">6 Cutting Sticks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-String-Processing-With-DP"><span class="toc-text">7 String Processing With DP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-LCS-最长公共子序列"><span class="toc-text">7.1 LCS(最长公共子序列)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-Longest-Palindrome-回文"><span class="toc-text">7.2 Longest Palindrome(回文)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最大连续乘积"><span class="toc-text">最大连续乘积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#House-Robber"><span class="toc-text">House Robber</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TSP"><span class="toc-text">TSP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最大m段子段和"><span class="toc-text">最大m段子段和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态转移"><span class="toc-text">状态转移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贪心"><span class="toc-text">贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技巧"><span class="toc-text">技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学"><span class="toc-text">数学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#约瑟夫环"><span class="toc-text">约瑟夫环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合"><span class="toc-text">组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全排列"><span class="toc-text">全排列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数值的整数次方"><span class="toc-text">数值的整数次方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LRU"><span class="toc-text">LRU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀树"><span class="toc-text">前缀树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阻塞队列"><span class="toc-text">阻塞队列</span></a></li></ol></li></ol>
+  <main class="main">
+    <article class="post">
+    <div class="post-title">
+        <h1 class="title">Algorithm Note</h2>
     </div>
-  </div><div class="post-content"><p>一些算法归纳：</p>
+    <div class="post-content">
+        <p>一些算法归纳：</p>
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>自顶向下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mergeSort(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> high)&#123;</span><br><span class="line">    <span class="keyword">if</span>(high&lt;=low) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mid=low+(high-low)/<span class="number">2</span>;</span><br><span class="line">    mergeSort(a,low,mid);</span><br><span class="line">    mergeSort(a,mid+<span class="number">1</span>,high);</span><br><span class="line">    merge(a,low,mid,high);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> mid,<span class="keyword">int</span> high)&#123;</span><br><span class="line">    <span class="comment">//归并排序需要一个辅助数组</span></span><br><span class="line">    System.arraycopy(a,low,aux,low,high-low+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> i=low,j=mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=low;k&lt;=high;k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;mid) a[k]=aux[j++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j&gt;high) a[k]=aux[i++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(aux[j]&lt;aux[i]) a[k]=aux[j++];</span><br><span class="line">        <span class="keyword">else</span> a[k]=aux[i++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -256,55 +206,35 @@
 <h3 id="前缀树"><a href="#前缀树" class="headerlink" title="前缀树"></a>前缀树</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrieTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123;</span><br><span class="line">        Character keyword;</span><br><span class="line">        Map&lt;Character, TrieNode&gt; subNodes = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">boolean</span> isKeyWordEnd;</span><br><span class="line"></span><br><span class="line">        <span class="function">TrieNode <span class="title">getSubNode</span><span class="params">(Character c)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> subNodes.get(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">putSubNode</span><span class="params">(Character c, TrieNode node)</span> </span>&#123;</span><br><span class="line">            subNodes.put(c, node);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isKeyWordEnd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> isKeyWordEnd;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setKeyWordEnd</span><span class="params">(<span class="keyword">boolean</span> keyWordEnd)</span> </span>&#123;</span><br><span class="line">            isKeyWordEnd = keyWordEnd;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    TrieNode root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    <span class="keyword">final</span> String REPLACE = <span class="string">"***"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode tempNode = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = word.charAt(i);</span><br><span class="line">            TrieNode subNode = tempNode.getSubNode(c);</span><br><span class="line">            <span class="keyword">if</span> (subNode == <span class="keyword">null</span>) &#123;</span><br><span class="line">                subNode = <span class="keyword">new</span> TrieNode();</span><br><span class="line">                tempNode.putSubNode(c, subNode);</span><br><span class="line">            &#125;</span><br><span class="line">            tempNode = subNode;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i == word.length() - <span class="number">1</span>) tempNode.setKeyWordEnd(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">filter</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">        TrieNode subNode = root;</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>, position = <span class="number">0</span>;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (position &lt; text.length()) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = text.charAt(position);</span><br><span class="line">            subNode = subNode.getSubNode(c);</span><br><span class="line">            <span class="keyword">if</span> (subNode == <span class="keyword">null</span>) &#123;</span><br><span class="line">                sb.append(text.charAt(begin));</span><br><span class="line">                position = ++begin;</span><br><span class="line">                subNode = root;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (subNode.isKeyWordEnd()) &#123;</span><br><span class="line">                sb.append(REPLACE);</span><br><span class="line">                begin = ++position;</span><br><span class="line">                subNode = root;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                position++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (begin &lt; text.length()) &#123;</span><br><span class="line">            sb.append(text.substring(begin));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BoundedBuffer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">    <span class="keyword">final</span> Condition notFull = lock.newCondition();</span><br><span class="line">    <span class="keyword">final</span> Condition notEmpty = lock.newCondition();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> putptr, takeptr, count;</span><br><span class="line">    Object[] items = <span class="keyword">new</span> Object[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(Object x)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (count == items.length)</span><br><span class="line">                notFull.await();</span><br><span class="line">            items[putptr] = x;</span><br><span class="line">            <span class="keyword">if</span> (++putptr == items.length) putptr = <span class="number">0</span>;</span><br><span class="line">            ++count;</span><br><span class="line">            notEmpty.signal();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (count == <span class="number">0</span>)</span><br><span class="line">                notEmpty.await();</span><br><span class="line">            Object x = items[takeptr];</span><br><span class="line">            <span class="keyword">if</span> (++takeptr == items.length) takeptr = putptr;</span><br><span class="line">            --count;</span><br><span class="line">            notFull.signal();</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      </div>
-      
-      <footer class="post-footer">
-        <div class="post-tags">
-            <a href="/tags/algorithm/">algorithm</a>
-            </div>
-        
-        <nav class="post-nav"><a class="prev" href="/2019/09/21/java/interview/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">知识点总结</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    <a class="next" href="/2019/08/02/java/netty1/">
-        <span class="next-text nav-default">Netty新连接接入过程</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
-      </main>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">2019-08-21</span>
+    </div>
+</article>
 
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:xu.io@qq.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://github.com/Langzi418" class="iconfont icon-github" title="github"></a>
-        </div><div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Singular</span>
-  </span>
+<div class="prev_next">
+    
+<div class="prev">
+    
+    <a href="/2019/09/21/java/interview/" class="alignleft prev"
+        title="知识点总结">&lt;= 知识点总结</a>
+    
 </div>
-</footer>
+<div class="next">
+    
+    <a href="/2019/08/02/java/netty1/" class="alignright next"
+        title="Netty新连接接入过程">Netty新连接接入过程 =&gt;</a>
+    
+</div>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</div>
+
+<div class="post-comment">
+    
+
+
+</div>
+  </main>
 </body>
+
 </html>

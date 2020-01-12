@@ -1,121 +1,71 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-  <head><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="description" content="知识点总结"/><meta name="keywords" content="Blog" /><link rel="alternate" href="/atom.xml" title="Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://yoursite.com/2019/09/21/java/interview/"/>
-
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" /><script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-  </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
-
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
-</script>
-
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>知识点总结 - Blog</title>
-  </head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700|Noto+Serif:400,400i&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Blog</a>
+<body>
+  <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Blog</a>
   </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/">
-        <li class="mobile-menu-item">首页
-          </li>
-      </a><a href="/archives/">
-        <li class="mobile-menu-item">归档
-          </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签
-          </li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于
-          </li>
-      </a></ul>
-</nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Blog</a>
-</div>
-
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/">
-            首页
-            </a>
-        </li>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            归档
-            </a>
-        </li>
+        
+        <a href="/" class="menu-item-link">主页</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            标签
-            </a>
-        </li>
+        
+        <a href="/archives" class="menu-item-link">归档</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/about/">
-            关于
-            </a>
-        </li>
-      </ul></nav>
+        
+        <a href="/me" class="menu-item-link">我</a>
+        
+      </li>
+      
+      
+      
+      <li class="menu-item">
+        
+        <a href="/atom.xml" class="menu-item-link">订阅</a>
+        
+      </li>
+      
+    </ul>
+  </nav>
 </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title">知识点总结
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-21
-        </span></div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA"><span class="toc-text">JAVA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hashCode-和equals"><span class="toc-text">hashCode()和equals()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO"><span class="toc-text">IO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap"><span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap树化的过程"><span class="toc-text">HashMap树化的过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConcurrentHashMap"><span class="toc-text">ConcurrentHashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collections-synchronizedMap-和ConcurrentHashMap区别"><span class="toc-text">Collections.synchronizedMap()和ConcurrentHashMap区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发"><span class="toc-text">并发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#重量级锁缺点"><span class="toc-text">重量级锁缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#改进"><span class="toc-text">改进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java实现原子操作"><span class="toc-text">Java实现原子操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子类"><span class="toc-text">原子类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal"><span class="toc-text">ThreadLocal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池"><span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executor"><span class="toc-text">Executor</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FixedThreadPool"><span class="toc-text">FixedThreadPool</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SingleThreadExecutor"><span class="toc-text">SingleThreadExecutor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CacheThreadPool"><span class="toc-text">CacheThreadPool</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存模型"><span class="toc-text">内存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机"><span class="toc-text">虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行时数据区域"><span class="toc-text">运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#程序计数器"><span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java虚拟机栈"><span class="toc-text">Java虚拟机栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本地方法栈"><span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java堆"><span class="toc-text">Java堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法区"><span class="toc-text">方法区</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾收集器"><span class="toc-text">垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Serial"><span class="toc-text">Serial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ParNew"><span class="toc-text">ParNew</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parallel-Scavenge"><span class="toc-text">Parallel Scavenge</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Serial-Old"><span class="toc-text">Serial Old</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parallel-Old"><span class="toc-text">Parallel Old</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMS（Concurrent-Mark-Sweep）"><span class="toc-text">CMS（Concurrent Mark Sweep）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#G1"><span class="toc-text">G1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配与回收策略"><span class="toc-text">内存分配与回收策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#分代收集算法"><span class="toc-text">分代收集算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Full-GC-amp-Minor-GC"><span class="toc-text">Full GC&amp;Minor GC</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载"><span class="toc-text">类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏双亲委派模型"><span class="toc-text">破坏双亲委派模型</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础-1"><span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#范式"><span class="toc-text">范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Tree-B-Tree"><span class="toc-text">B-Tree/B+Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#红黑树"><span class="toc-text">红黑树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引的适用条件"><span class="toc-text">索引的适用条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#联合索引"><span class="toc-text">联合索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#匹配最左列"><span class="toc-text">匹配最左列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高性能索引策略"><span class="toc-text">高性能索引策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#独立的列"><span class="toc-text">独立的列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前缀索引和索引选择性"><span class="toc-text">前缀索引和索引选择性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多列索引"><span class="toc-text">多列索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#索引列的顺序"><span class="toc-text">索引列的顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚簇索引"><span class="toc-text">聚簇索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#覆盖索引"><span class="toc-text">覆盖索引</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ACID"><span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ACID实现"><span class="toc-text">ACID实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离级别"><span class="toc-text">隔离级别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC"><span class="toc-text">MVCC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本链"><span class="toc-text">版本链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReadView"><span class="toc-text">ReadView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发方案"><span class="toc-text">并发方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#锁的粒度"><span class="toc-text">锁的粒度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么场景加表锁"><span class="toc-text">什么场景加表锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#意向锁"><span class="toc-text">意向锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#InnoDB中具体的行锁形式"><span class="toc-text">InnoDB中具体的行锁形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#insert时的加锁"><span class="toc-text">insert时的加锁</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储引擎"><span class="toc-text">存储引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制"><span class="toc-text">复制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis"><span class="toc-text">Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-text">数据结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring"><span class="toc-text">Spring</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络"><span class="toc-text">网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPs"><span class="toc-text">HTTPs</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作系统"><span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式"><span class="toc-text">分布式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式数据库"><span class="toc-text">分布式数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#负载均衡"><span class="toc-text">负载均衡</span></a></li></ol></li></ol>
+  <main class="main">
+    <article class="post">
+    <div class="post-title">
+        <h1 class="title">知识点总结</h2>
     </div>
-  </div><div class="post-content"><h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="hashCode-和equals"><a href="#hashCode-和equals" class="headerlink" title="hashCode()和equals()"></a>hashCode()和equals()</h3><p>如果两个对象equals()，那么hashCode()一定相等。（想想散列表）</p>
+    <div class="post-content">
+        <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="hashCode-和equals"><a href="#hashCode-和equals" class="headerlink" title="hashCode()和equals()"></a>hashCode()和equals()</h3><p>如果两个对象equals()，那么hashCode()一定相等。（想想散列表）</p>
 <h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><p>IO 阻塞、对每个连接创建一个线程处理</p>
 <p>NIO Selector + 一个线程轮询 （Netty）</p>
 <p>AIO 线程池异步处理</p>
@@ -249,9 +199,10 @@
 <p>full GC：当准备要触发一次young GC时，如果发现统计数据说之前young GC的平均晋升大小比目前old gen剩余的空间大，则不会触发young GC而是转为触发full GC（因为HotSpot VM的GC里，除了CMS的concurrent collection之外，其它能收集old gen的GC都会同时收集整个GC堆，包括young gen，所以不需要事先触发一次单独的young GC）；或者，如果有perm gen的话，要在perm gen分配空间但已经没有足够空间时，也要触发一次full GC；或者System.gc()、heap dump带GC，默认也是触发full GC。</p>
 <p><a href="https://juejin.im/post/5b8d2a5551882542ba1ddcf8" target="_blank" rel="noopener">JVM 系列文章之 Full GC 和 Minor GC</a></p>
 <h3 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h3><p><a href="https://www.cnblogs.com/fefjay/p/6305499.html" target="_blank" rel="noopener">Java类编译、加载、和执行机制</a></p>
-<h4 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h4><p>情形一：<strong>受到加载范围的限制</strong>，父类加载器无法加载到用户代码。</p>
+<p><a href="https://juejin.im/post/5c04892351882516e70dcc9b" target="_blank" rel="noopener">老大难的 Java ClassLoader 再不理解就老了</a></p>
+<h4 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h4><p>情形一：<strong>受到加载范围的限制</strong>，顶层加载器（Boot、Ext）无法加载到用户代码。</p>
 <p>解决：设置线程上下文类加载器，可以在父类加载时使用这个加载器去加载所需的用户代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Launcher.java</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现双亲委派的组合</span></span><br><span class="line">var1 = Launcher.ExtClassLoader.getExtClassLoader();</span><br><span class="line"><span class="keyword">this</span>.loader = Launcher.AppClassLoader.getAppClassLoader(var1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认将AppClassLoader设置为ContextClassLoader</span></span><br><span class="line">Thread.currentThread().setContextClassLoader(<span class="keyword">this</span>.loader);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Launcher.java</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过聚合实现双亲委派，每个ClassLoader对象内部都有一个parent属性指向它的父加载器。</span></span><br><span class="line">var1 = Launcher.ExtClassLoader.getExtClassLoader();</span><br><span class="line"><span class="keyword">this</span>.loader = Launcher.AppClassLoader.getAppClassLoader(var1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认将AppClassLoader设置为ContextClassLoader</span></span><br><span class="line">Thread.currentThread().setContextClassLoader(<span class="keyword">this</span>.loader);</span><br></pre></td></tr></table></figure>
 <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h2><p>where子句指定行的条件，having子句指定组的条件。</p>
 <h2 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h2><p><a href="https://segmentfault.com/a/1190000013695030" target="_blank" rel="noopener">数据库逻辑设计之三大范式通俗理解</a></p>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="B-Tree-B-Tree"><a href="#B-Tree-B-Tree" class="headerlink" title="B-Tree/B+Tree"></a>B-Tree/B+Tree</h3><p>m阶B树和B+树的主要区别在于：</p>
@@ -397,50 +348,32 @@
 <h1 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h1><h2 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h2><p><a href="https://juejin.im/post/5d495ad2e51d4561a54b6954" target="_blank" rel="noopener">在「不可靠」硬件上，分布式数据库如何保证数据可靠性和服务可用性？</a></p>
 <h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><a href="https://www.jianshu.com/p/fc268327d299" target="_blank" rel="noopener">分布式架构实践——负载均衡</a></p>
 
-      </div>
-      
-      <footer class="post-footer">
-        <div class="post-tags">
-            <a href="/tags/java/">java</a>
-            </div>
-        
-        <nav class="post-nav"><a class="next" href="/2019/08/21/algorithm/algorithm/">
-        <span class="next-text nav-default">Algorithm Note</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
-      </main>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">2019-09-21</span>
+    </div>
+</article>
 
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:xu.io@qq.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://github.com/Langzi418" class="iconfont icon-github" title="github"></a>
-        </div><div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Singular</span>
-  </span>
+<div class="prev_next">
+    
+<div class="prev">
+    
 </div>
-</footer>
+<div class="next">
+    
+    <a href="/2019/08/21/algorithm/algorithm/" class="alignright next"
+        title="Algorithm Note">Algorithm Note =&gt;</a>
+    
+</div>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</div>
+
+<div class="post-comment">
+    
+
+
+</div>
+  </main>
 </body>
+
 </html>

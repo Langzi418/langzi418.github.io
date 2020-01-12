@@ -1,121 +1,71 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-  <head><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="description" content="Java Advanced"/><meta name="keywords" content="Blog" /><link rel="alternate" href="/atom.xml" title="Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://yoursite.com/2018/12/31/java/generic/"/>
-
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" /><script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-  </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
-
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
-</script>
-
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>Java Advanced - Blog</title>
-  </head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700|Noto+Serif:400,400i&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Blog</a>
+<body>
+  <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Blog</a>
   </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/">
-        <li class="mobile-menu-item">首页
-          </li>
-      </a><a href="/archives/">
-        <li class="mobile-menu-item">归档
-          </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签
-          </li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于
-          </li>
-      </a></ul>
-</nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Blog</a>
-</div>
-
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/">
-            首页
-            </a>
-        </li>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            归档
-            </a>
-        </li>
+        
+        <a href="/" class="menu-item-link">主页</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            标签
-            </a>
-        </li>
+        
+        <a href="/archives" class="menu-item-link">归档</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/about/">
-            关于
-            </a>
-        </li>
-      </ul></nav>
+        
+        <a href="/me" class="menu-item-link">我</a>
+        
+      </li>
+      
+      
+      
+      <li class="menu-item">
+        
+        <a href="/atom.xml" class="menu-item-link">订阅</a>
+        
+      </li>
+      
+    </ul>
+  </nav>
 </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title">Java Advanced
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-31
-        </span></div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-Generic-progrgramming"><span class="toc-text">why Generic progrgramming</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Type-Params"><span class="toc-text">Type Params</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Defining-a-Simple-Generic-class"><span class="toc-text">Defining a Simple Generic class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generic-Methods"><span class="toc-text">Generic Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounds-for-Type-Var"><span class="toc-text">Bounds for Type Var</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Genneric-code-and-the-VM"><span class="toc-text">Genneric code and the VM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Type-erasure"><span class="toc-text">Type erasure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Translating-Generic-Expressions"><span class="toc-text">Translating Generic Expressions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Translating-Generic-Methods"><span class="toc-text">Translating Generic Methods</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrictions-and-Limitations"><span class="toc-text">Restrictions and Limitations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Type-params-cannot-be-instantiated-with-primative-types"><span class="toc-text">Type params cannot be instantiated with primative types</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Runtime-Type-Inquiry-only-works-with-raw-types"><span class="toc-text">Runtime Type Inquiry only works with raw types</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cannot-Create-Arrays-of-Parameterized-Types"><span class="toc-text">Cannot Create Arrays of Parameterized Types</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inheritance-Rules-for-generic-types"><span class="toc-text">Inheritance Rules for generic types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wildcard-通配符-Types"><span class="toc-text">Wildcard(通配符) Types</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Bounded-wildcards"><span class="toc-text">Bounded wildcards</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#wildcard-capture"><span class="toc-text">wildcard capture</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO"><span class="toc-text">IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reflect"><span class="toc-text">Reflect</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class"><span class="toc-text">Class</span></a></li></ol></li></ol>
+  <main class="main">
+    <article class="post">
+    <div class="post-title">
+        <h1 class="title">Java Advanced</h2>
     </div>
-  </div><div class="post-content"><h3 id="why-Generic-progrgramming"><a href="#why-Generic-progrgramming" class="headerlink" title="why Generic progrgramming"></a>why Generic progrgramming</h3><h4 id="Type-Params"><a href="#Type-Params" class="headerlink" title="Type Params"></a>Type Params</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//before generic classes</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span></span>&#123;</span><br><span class="line">   	Object[] elemData;</span><br><span class="line">   	...</span><br><span class="line">   	<span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;...&#125;</span><br><span class="line">   	<span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Object o)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <div class="post-content">
+        <h3 id="why-Generic-progrgramming"><a href="#why-Generic-progrgramming" class="headerlink" title="why Generic progrgramming"></a>why Generic progrgramming</h3><h4 id="Type-Params"><a href="#Type-Params" class="headerlink" title="Type Params"></a>Type Params</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//before generic classes</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span></span>&#123;</span><br><span class="line">   	Object[] elemData;</span><br><span class="line">   	...</span><br><span class="line">   	<span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;...&#125;</span><br><span class="line">   	<span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Object o)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>以上两个问题：</p>
 <p>1、取数据时要转换类型。</p>
@@ -291,55 +241,35 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CharBuffer cbuff = CharBuffer.allocate(<span class="number">40</span>);</span><br><span class="line">cbuff.put(<span class="string">"hello"</span>); </span><br><span class="line"><span class="comment">// what below two line of code is what flip does</span></span><br><span class="line">cbuff.limit(cbuff.position());</span><br><span class="line">cbuff.position(<span class="number">0</span>);      </span><br><span class="line"><span class="keyword">while</span>(cbuff.hasRemaining()) &#123;</span><br><span class="line">    System.out.println(cbuff.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h3><h4 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h4><p>对于每个对象，JVM实例化一个不可变的Class，它提供检测对象运行时属性的方法，这些属性包括了对象的成员和类型信息。Class也提供了创建新的类和对象的能力。更重要的是，它是所有Reflection API的入口。</p>
 
-      </div>
-      
-      <footer class="post-footer">
-        <div class="post-tags">
-            <a href="/tags/java/">java</a>
-            </div>
-        
-        <nav class="post-nav"><a class="prev" href="/2019/03/10/java/DynamicProxy/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">DynamicProxy</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    <a class="next" href="/2018/12/17/bigdata/SparkStreaming/">
-        <span class="next-text nav-default">Spark Streaming base on Kafka</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
-      </main>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">2018-12-31</span>
+    </div>
+</article>
 
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:xu.io@qq.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://github.com/Langzi418" class="iconfont icon-github" title="github"></a>
-        </div><div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Singular</span>
-  </span>
+<div class="prev_next">
+    
+<div class="prev">
+    
+    <a href="/2019/03/10/java/DynamicProxy/" class="alignleft prev"
+        title="DynamicProxy">&lt;= DynamicProxy</a>
+    
 </div>
-</footer>
+<div class="next">
+    
+    <a href="/2018/12/17/bigdata/SparkStreaming/" class="alignright next"
+        title="Spark Streaming base on Kafka">Spark Streaming base on Kafka =&gt;</a>
+    
+</div>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</div>
+
+<div class="post-comment">
+    
+
+
+</div>
+  </main>
 </body>
+
 </html>

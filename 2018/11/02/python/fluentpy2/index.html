@@ -1,121 +1,71 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-  <head><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="description" content="FluentPy Note（2）"/><meta name="keywords" content="Blog" /><link rel="alternate" href="/atom.xml" title="Blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://yoursite.com/2018/11/02/python/fluentpy2/"/>
-
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" /><script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-  </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
-
-<script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":true};
-</script>
-
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>FluentPy Note（2） - Blog</title>
-  </head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700|Noto+Serif:400,400i&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Blog</a>
+<body>
+  <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">Blog</a>
   </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/">
-        <li class="mobile-menu-item">首页
-          </li>
-      </a><a href="/archives/">
-        <li class="mobile-menu-item">归档
-          </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签
-          </li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于
-          </li>
-      </a></ul>
-</nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Blog</a>
-</div>
-
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/">
-            首页
-            </a>
-        </li>
+  <nav class="navbar">
+    <ul class="menu">
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            归档
-            </a>
-        </li>
+        
+        <a href="/" class="menu-item-link">主页</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            标签
-            </a>
-        </li>
+        
+        <a href="/archives" class="menu-item-link">归档</a>
+        
+      </li>
+      
+      
+      
       <li class="menu-item">
-          <a class="menu-item-link" href="/about/">
-            关于
-            </a>
-        </li>
-      </ul></nav>
+        
+        <a href="/me" class="menu-item-link">我</a>
+        
+      </li>
+      
+      
+      
+      <li class="menu-item">
+        
+        <a href="/atom.xml" class="menu-item-link">订阅</a>
+        
+      </li>
+      
+    </ul>
+  </nav>
 </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title">FluentPy Note（2）
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-02
-        </span></div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#可迭代对象、迭代器和生成器"><span class="toc-text">可迭代对象、迭代器和生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现标准的可迭代协议"><span class="toc-text">实现标准的可迭代协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标准库中的生成器函数"><span class="toc-text">标准库中的生成器函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上下文管理器和-else-块"><span class="toc-text">上下文管理器和 else 块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程与协程"><span class="toc-text">多线程与协程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Coroutines"><span class="toc-text">Coroutines</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#asyncio-run-coro-debug-False"><span class="toc-text">asyncio.run(coro,*,debug=False)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Task-Object"><span class="toc-text">Task Object</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#class-asyncio-Task-coro-loop-None"><span class="toc-text">class asyncio.Task(coro,*,loop=None)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#asyncio-create-task-coro"><span class="toc-text">asyncio.create_task(coro)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Awaitables"><span class="toc-text">Awaitables</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#coroutine-asyncio-sleep-delay-result-None-loop-None"><span class="toc-text">coroutine asyncio.sleep(delay, result=None, *, loop=None)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Running-Tasks-Concurrently"><span class="toc-text">Running Tasks Concurrently</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#awaitable-asyncio-gather-aws-loop-None-return-exceptions-False"><span class="toc-text">awaitable asyncio.gather(*aws, loop=None, return_exceptions=False)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元编程"><span class="toc-text">元编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用特性验证属性"><span class="toc-text">使用特性验证属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#特性会覆盖实例属性"><span class="toc-text">特性会覆盖实例属性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义特性工厂函数"><span class="toc-text">定义特性工厂函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#影响属性处理方式的特殊属性"><span class="toc-text">影响属性处理方式的特殊属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特殊方法"><span class="toc-text">特殊方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性描述符"><span class="toc-text">属性描述符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类元编程"><span class="toc-text">类元编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类装饰器"><span class="toc-text">类装饰器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元类"><span class="toc-text">元类</span></a></li></ol></li></ol>
+  <main class="main">
+    <article class="post">
+    <div class="post-title">
+        <h1 class="title">FluentPy Note（2）</h2>
     </div>
-  </div><div class="post-content"><h3 id="可迭代对象、迭代器和生成器"><a href="#可迭代对象、迭代器和生成器" class="headerlink" title="可迭代对象、迭代器和生成器"></a>可迭代对象、迭代器和生成器</h3><p>迭代器模式：惰性获取数据项的方式。</p>
+    <div class="post-content">
+        <h3 id="可迭代对象、迭代器和生成器"><a href="#可迭代对象、迭代器和生成器" class="headerlink" title="可迭代对象、迭代器和生成器"></a>可迭代对象、迭代器和生成器</h3><p>迭代器模式：惰性获取数据项的方式。</p>
 <a id="more"></a>
 <p>所有生成器都是迭代器，因为生成器完全实现了迭代器接口。在 Python社区中，大多数时候都把迭代器和生成器视作同一概念。</p>
 <p>生成器应用广泛，即使是内置的range()也返回类似生成器对象，如果一定要返回列表，必须明确指明（例如，list(range(100))）。</p>
@@ -223,55 +173,35 @@
 <p>类装饰器有个重大缺点：只对直接依附的类有效。这意味着，被装饰的类的子类可能继承也可能不继承装饰器所做的改动，具体情况视改动的方式而定。</p>
 <h4 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h4><p>用于构建类的类。Python中，类也是对象，因此类必然是某个类的实例。默认情况下，Python类是type类的实例。也就是说，type 是大多数内置的类和用户定义的类的元类。为了避免无限回溯，type 是其自身的实例。</p>
 
-      </div>
-      
-      <footer class="post-footer">
-        <div class="post-tags">
-            <a href="/tags/python/">python</a>
-            </div>
-        
-        <nav class="post-nav"><a class="prev" href="/2018/11/12/java/java8/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Java8 Learn</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    <a class="next" href="/2018/11/02/python/fluentpy/">
-        <span class="next-text nav-default">FluentPy Note（1）</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
-      </main>
+    </div>
+    <div class="post-meta">
+        <span class="post-time">2018-11-02</span>
+    </div>
+</article>
 
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:xu.io@qq.com" class="iconfont icon-email" title="email"></a>
-        <a href="https://github.com/Langzi418" class="iconfont icon-github" title="github"></a>
-        </div><div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">&copy;2018 - 2020<span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Singular</span>
-  </span>
+<div class="prev_next">
+    
+<div class="prev">
+    
+    <a href="/2018/11/12/java/java8/" class="alignleft prev"
+        title="Java8 Learn">&lt;= Java8 Learn</a>
+    
 </div>
-</footer>
+<div class="next">
+    
+    <a href="/2018/11/02/python/fluentpy/" class="alignright next"
+        title="FluentPy Note（1）">FluentPy Note（1） =&gt;</a>
+    
+</div>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</div>
+
+<div class="post-comment">
+    
+
+
+</div>
+  </main>
 </body>
+
 </html>

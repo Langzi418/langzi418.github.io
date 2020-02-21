@@ -101,6 +101,23 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2020/02/21/java/reactor/">Reactor网络模型</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-02-21
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>Reactor模型是同步I/O事件处理的一种常见模型，其核心思想：将关注的I/O事件注册到多路复用器上，一旦有I/O事件触发，将事件分发到事件处理器中，执行就绪I/O事件对应的处理函数中。</p>
+<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p><img src="https://i.loli.net/2019/07/24/5d380991489cc11685.jpg" alt=""></p>
+          <div class="read-more">
+            <a href="/2020/02/21/java/reactor/" class="read-more-link">阅读更多</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/08/21/algorithm/algorithm/">Algorithm Note</a>
         </h1>
 
@@ -137,23 +154,6 @@
 </ol>
           <div class="read-more">
             <a href="/2019/08/02/java/netty1/" class="read-more-link">阅读更多</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/07/23/java/io/">IO模型</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-07-23
-        </span></div>
-    </header>
-
-    <div class="post-content"><h2 id="基于IO多路复用的并发编程"><a href="#基于IO多路复用的并发编程" class="headerlink" title="基于IO多路复用的并发编程"></a>基于IO多路复用的并发编程</h2><p>基于思想是使用select函数，要求内核挂起进程，只有一个或多个I/O事件发生后，才将控制返回给应用程序。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪码</span></span><br><span class="line">listenfd = Open_listenfd(); <span class="comment">//打开一个监听描述符，监听客户端IO事件</span></span><br><span class="line">FD_ZREO(&amp;read_set);  <span class="comment">//创建一个空的读集合</span></span><br><span class="line">FD_SET(STDIN, listenfd, &amp;read_set); <span class="comment">//添加描述符到读集合</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 典型服务器循环</span></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123; </span><br><span class="line">	ready_set = read_set;</span><br><span class="line">	select(listenfd+<span class="number">1</span> , &amp;ready_set, ...); <span class="comment">//阻塞直到有描述符可读</span></span><br><span class="line">	<span class="keyword">if</span>(FD_ISSET(STDIN, &amp;ready_set))&#123;</span><br><span class="line">		<span class="comment">// 处理描述符1</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(FD_ISSET(listenfd, &amp;ready_set))&#123;</span><br><span class="line">		<span class="comment">// 处理描述符2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2019/07/23/java/io/" class="read-more-link">阅读更多</a>
           </div>
         </div></article>
       <article class="post">
